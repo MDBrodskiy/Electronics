@@ -1,0 +1,242 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Written By Michael Brodskiy
+% Class: Fundamentals of Electronics
+% Professor: M. Onabajo
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\include{Includes.tex}
+
+\title{Lecture 1}
+\date{\today}
+\author{Michael Brodskiy\\ \small Professor: M. Onabajo}
+
+\begin{document}
+
+\maketitle
+
+\begin{itemize}
+
+  \item Broad circuit categories:
+
+    \begin{itemize}
+
+      \item Information processing $\to$ cell phone, GPS, cable TV
+
+      \item Power delivery $\to$ AC-to-DC power adapter, power amplifiers, EVs
+
+    \end{itemize}
+
+  \item Applications
+
+    \begin{itemize}
+
+      \item Communication systems
+
+      \item Medical electronics
+
+      \item Computers (digital signal processing)
+
+      \item Instrumentation
+
+      \item Control systems
+
+      \item Power systems
+
+      \item Toys
+
+    \end{itemize}
+
+  \item Electronic circuits that are manufactured as integrated circuits (ICs)
+
+    \begin{itemize}
+
+      \item ``Chips'' — created with semiconductor device fabrication processes
+
+    \end{itemize}
+
+  \item Semiconductor Industry
+
+    \begin{itemize}
+
+      \item 1947
+
+        \begin{itemize}
+
+          \item First transistor was invented at Bell Laboratories by William Shockley, John Bardeem, and Walter Brattain
+
+          \item ``The basis of modern electronics''
+
+        \end{itemize}
+
+      \item 1958 — 1961
+
+        \begin{itemize}
+
+          \item Introduction of the integrated circuit by Jack Kilby (Texas Instruments) and Robert Noyce (Fairchild Semiconductor)
+
+          \item Enabled miniaturization and mass production of chips
+
+        \end{itemize}
+
+      \item Today
+
+        \begin{itemize}
+
+          \item Smallest dimensions of features in the silicon around 5 [nm]
+
+          \item Up to $>$2.5 billion transistors per chip
+
+          \item $>$\$300 billion global revenue
+
+        \end{itemize}
+
+    \end{itemize}
+
+  \item Course Overview
+
+    \begin{itemize}
+
+      \item Amplifier concepts
+
+      \item Study of electronic devices
+
+        \begin{itemize}
+
+          \item Operational amplifiers (Op-Amps)
+
+          \item Diodes
+
+          \item Bipolar junction transistors (BJTs)
+
+          \item Metal-oxide-semiconductor field effect transistors (MOSFETs)
+
+        \end{itemize}
+
+      \item Design and analysis of electronic circuits
+
+        \begin{itemize}
+
+          \item Analog amplifiers, rectifier circuits
+
+          \item Digital logic
+
+        \end{itemize}
+
+    \end{itemize}
+
+  \item Main Course Goals
+
+    \begin{itemize}
+
+      \item Understand the operation of fundamental electronic devices (op-amps, diodes, BJTs, MOSFETs)
+
+      \item Analyze and design operational amplifier circuits and rectifier circuits
+
+      \item Analyze and design amplifiers with BJTs and MOSFETs
+
+      \item Be able to identify CMOS logic circuits (NOT, NAND, NOR), and analyze voltage transfer curves and propagation delays
+
+      \item Simulate electronic circuits using PSPICE
+
+    \end{itemize}
+
+  \item Review — Some Circuit Analysis Highlights
+
+    \begin{itemize}
+
+      \item Element combination rules (parallel, serial)
+
+      \item Ohm's Law: $I=V/R$
+
+      \item KVL for a circuit loop $\to \sum_jv_j=0$
+
+      \item KCL at a node $\to\sum_ji_j=0$
+
+      \item Superposition principle
+
+        \begin{itemize}
+
+          \item If input A produces response X and input B produces response Y, then input (A+B) produces response (X+Y)
+
+          \item Holds only for linear circuits
+
+          \item Very useful for circuits with multiple voltage and current sources
+
+        \end{itemize}
+
+      \item Th\'evenin and Norton form of signal sources
+
+        \begin{itemize}
+
+          \item Valid only in linear circuits
+
+        \end{itemize}
+
+    \end{itemize}
+
+  \item Element Combination Rules
+
+    \begin{itemize}
+
+      \item Resistors in series can be summed ($R_1+R_2+\cdots+R_n=R_t$)
+
+      \item Resistors in parallel can be summed via conductances $\left( G_x=\frac{1}{R_x}\right)$ can be combined to get $\to G_1+G_2+\cdots+G_n=G_t$
+
+      \item Voltages in series can be summed ($V_1+V_2+\cdots+V_n=V_t$)
+
+      \item Voltages in parallel will not occur, as it is illogical to place them in such a manner (and is the same reason current sources in series do not occur)
+
+      \item Current sources in parallel may be summed ($i_1+i_2+\cdots+i_n=i_t$)
+
+    \end{itemize}
+
+  \item Analysis of Large Circuits
+
+    \begin{itemize}
+
+      \item Write all expressions for the circuit
+
+        \begin{itemize}
+
+          \item At elements (Ohm's Law)
+
+          \item At nodes (KCL)
+
+          \item For loops (KVL)
+
+        \end{itemize}
+
+      \item Eliminate redundant equations (keep only independent equations)
+
+      \item Solve the system of equations for the unknown variables
+
+    \end{itemize}
+
+  \item Th\'evenin and Norton Equivalent Representations
+
+    \begin{itemize}
+
+      \item Th\'evenin to Norton transformation
+
+        \begin{itemize}
+
+          \item Set $I_s=V_s/R_s$ (short-circuit current), and $R_P=R_s$
+
+        \end{itemize}
+
+      \item Norton to Th\'evenin transformation
+
+        \begin{itemize}
+
+          \item Set $V_s=I_sR_s$ (open-circuit voltage), and $R_s=R_P$
+
+          \end{itemize}
+
+      \item In more complex cases, $R_s$ and $R_P$ are the equivalent resistances seen at terminals
+
+    \end{itemize}
+
+\end{itemize}
+
+\end{document}
+

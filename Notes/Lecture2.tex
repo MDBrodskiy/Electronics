@@ -1,0 +1,67 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Written By Michael Brodskiy
+% Class: Fundamentals of Electronics
+% Professor: M. Onabajo
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\include{Includes.tex}
+
+\title{Lecture 2}
+\date{\today}
+\author{Michael Brodskiy\\ \small Professor: M. Onabajo}
+
+\begin{document}
+
+\maketitle
+
+\begin{itemize}
+
+  \item Current-Amplifier Model
+
+    \begin{figure}[H]
+      \centering
+      \includegraphics[width=.7\textwidth]{Images/CAM.png}
+      \caption{Reference Figure for Current-Amplifier Model}
+      \label{fig:1}
+    \end{figure}
+
+    \begin{itemize}
+
+      \item Parameters
+
+        \begin{itemize}
+
+          \item $i_i$ is the input current, which ideally comes from a current source
+
+          \item $R_i$ and $R_o$ are the input and output resistances, respectively
+
+          \item $A_{isc}$ is the short-circuit current gain
+
+        \end{itemize}
+
+      \item Current gain with load impedance at the output: $A_i=i_o/i_i$
+
+    \end{itemize}
+
+  \item Application of Th\'evenin to Norton transformation
+
+    \begin{itemize}
+
+      \item The connection of $R_o$ is changed, but the value remains the same
+
+    \end{itemize}
+
+  \item $A_{isc}=i_{osc}/i_i$ is obtained with a short-circuit at the output terminals
+
+    \begin{itemize}
+
+      \item where: $i_{osc}=A_{vo}v_i/R_o$ and $i_i=v_i/R_i$
+
+      \item After substituting: $A_{isc}=A_{vo}(R_i/R_o)$
+
+    \end{itemize}
+
+\end{itemize}
+
+\end{document}
+

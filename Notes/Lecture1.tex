@@ -7,7 +7,7 @@
 \include{Includes.tex}
 
 \title{Lecture 1}
-\date{\today}
+\date{September 4 — \today}
 \author{Michael Brodskiy\\ \small Professor: M. Onabajo}
 
 \begin{document}
@@ -233,6 +233,130 @@
           \end{itemize}
 
       \item In more complex cases, $R_s$ and $R_P$ are the equivalent resistances seen at terminals
+
+    \end{itemize}
+
+  \item A circuit can be broken into ``source'' components by assuming an open circuit for current sources, and short circuit for voltage sources
+
+  \item This gives us components which we can then sum up via the superposition principle:
+
+    \begin{figure}[H]
+      \centering
+      \include{Figures/Lec1Circuit}
+      \caption{Initial Circuit}
+      \label{fig:1}
+    \end{figure}
+
+    \begin{figure}[H]
+      \centering
+      \include{Figures/Lec1CircuitV}
+      \caption{Voltage Component}
+      \label{fig:2}
+    \end{figure}
+
+    \begin{figure}[H]
+      \centering
+      \include{Figures/Lec1CircuitI}
+      \caption{Current Component}
+      \label{fig:3}
+    \end{figure}
+
+  \item Amplification
+
+    \begin{itemize}
+
+      \item Voltage gain: $|A_v|$
+
+        \begin{itemize}
+
+          \item When $|A_v|$ is constant: linear amplifier
+
+          \item When $|A_v|$ is not constant: non-linear amplifier
+
+        \end{itemize}
+
+      \item Non-inverting amplifier: $v_o(t)=A_vv_i(t)$
+
+      \item Inverting amplifier: $v_o(t)=-A_vv_i(t)$
+
+    \end{itemize}
+
+  \item Voltage-Amplifier Model
+
+    \begin{itemize}
+
+        \begin{figure}[H]
+          \centering
+          \includegraphics[width=.7\textwidth]{Images/VAM.png}
+          \caption{Reference Figure for the Voltage-Amplifier Model}
+          \label{fig:4}
+        \end{figure}
+
+      \item Parameters
+
+        \begin{itemize}
+
+          \item $v_s$ is the input voltage source, which has a series resistance $R_s$
+
+          \item $R_i$ and $R_o$ are the input and output resistances, respectively
+
+          \item $A_{vo}$ is the open-circuit voltage gain
+
+          \item $R_L$ is the load resistance
+
+        \end{itemize}
+
+      \item Remember: This is a simplified representation of an amplifier
+
+      \item Current gain: $A_i=\dfrac{i_o}{i_i}=\dfrac{(v_o/R_L)}{(v_i/R_i)}=A_v(R_i/R_L)$
+
+      \item Loaded voltage gain: $A_v=\dfrac{v_o}{v_i}\neq A_{vo}$
+
+      \item Power gain: $G=\dfrac{P_o}{P_i}=\underbrace{\dfrac{V_oI_o}{V_iI_i}}_{\text{RMS}}=A_vA_i=A_v^2\cdot\dfrac{R_i}{R_L}$
+
+      \item For optimum voltage transfer, $R_L>>R_o$
+
+    \end{itemize}
+
+  \item Loading Effects
+
+    \begin{itemize}
+
+      \item Refer to the same figure (Figure \ref{fig:4}) as for the Voltage-Amplifier Mode
+
+      \item Input signal attentuation: $v_i=v_s\left( \dfrac{R_i}{R_i+R_s} \right)$
+
+      \item Output signal attentuation: $v_o=A_{vo}v_i\left( \dfrac{R_L}{R_L+R_o} \right)$
+
+      \item Loaded voltage gain of the amplifier: $A_v=\dfrac{v_o}{v_i}=A_{vo}\left( \dfrac{R_L}{R_L+R_o} \right)$
+
+      \item Voltage gain from source to load $A_{vs}=\frac{v_o}{v_s}=A_{vo}\left( \dfrac{R_i}{R_i+R_s} \right)\left( \dfrac{R_L}{R_L+R_o} \right)$
+
+    \end{itemize}
+
+  \item Decibel Notation
+
+    \begin{itemize}
+
+      \item Use $20\log(X)$ for voltages and currents
+
+        \begin{itemize}
+
+          \item $A_{v\text{dB}}=20\log(|A_v|)$
+
+          \item $A_{i\text{dB}}=20\log(|A_i|)$
+
+        \end{itemize}
+
+      \item Use $10\log(X)$ for powers
+
+        \begin{itemize}
+
+          \item $G_{\text{dB}}=10\log(|G|)$
+
+        \end{itemize}
+
+      \item Quantities in decibels are added when two or more amplifiers are connected in series (called ``cascaded'')
 
     \end{itemize}
 

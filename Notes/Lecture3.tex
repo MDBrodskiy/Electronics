@@ -1,0 +1,104 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Written By Michael Brodskiy
+% Class: Fundamentals of Electronics
+% Professor: M. Onabajo
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\include{Includes.tex}
+
+\title{Lecture 3}
+\date{\today}
+\author{Michael Brodskiy\\ \small Professor: M. Onabajo}
+
+\begin{document}
+
+\maketitle
+
+\begin{itemize}
+
+  \item Frequency Dependence (Impedance)
+
+    \begin{itemize}
+
+      \item Capacitor
+
+        $$Z_c=\frac{1}{j\omega C}$$
+
+      \item Inductors
+
+        $$Z_L=j\omega L=SL$$
+
+      \item Note, for capacitors impedance decreases with frequency, while it increases with frequency for inductors
+
+    \end{itemize}
+
+  \item DC Coupling
+    
+    \begin{itemize}
+
+      \item Amplifier stages are directly connected together
+
+      \item High-frequency gain decreases (``rolls off'') due to unwanted (``parasitic'') capacitances and inductances
+
+    \end{itemize}
+
+  \item AC Coupling
+
+    \begin{itemize}
+
+      \item Input-coupling capacitors are sometimes referred to as DC-blocking Capacitors
+
+      \item Improved isolation between stages because the capacitors ``block'' DC current/voltages ($Z_c=1/j\omega C\to$ infinite impedance at $\omega=0$)
+
+      \item Impacts the low-frequency response
+
+    \end{itemize}
+
+  \item Impact of Parasitics (Stray Inductances/Capacitances)
+
+    \begin{itemize}
+
+      \item Stray inductances/capacitances (often called ``parasitics'') result from non-ideal properties of materials:
+
+        \begin{itemize}
+
+          \item Integrated circuits, chip packages, printed circuit boards, cables, \ldots
+
+        \end{itemize}
+
+      \item High-frequency gain reduction from:
+
+        \begin{itemize}
+
+          \item Capacitors in parallel with the signal path
+
+          \item Inductors in series with the signal path
+
+        \end{itemize}
+
+      \item Computer-based simulations are used for complex models and circuits
+
+    \end{itemize}
+
+  \item Half-Power Bandwidth
+
+    \begin{itemize}
+
+      \item $P_o=(AV_{\text{inRMS}})^2/R_L\to P_o=P_{max}/2\text{ when} A=A_{max}/\sqrt{2}$
+
+      \item By convention, the frequencies $f_H$ and $f_L$ at which $P_o=P_{max}/2$ are referred to as half-power frequencies or $-3\text{db}$ frequencies
+
+        \begin{itemize}
+
+          \item Note: $20\log(A_{max}/\sqrt{2})=20\log(A_{max})-20\log(\sqrt{2})=A_{max\text{(dB)}}-3.01\text{dB}$
+
+        \end{itemize}
+
+      \item Amplifier bandwidth: $B=f_H-f_L$
+
+    \end{itemize}
+
+\end{itemize}
+
+\end{document}
+

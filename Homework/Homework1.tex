@@ -1,0 +1,121 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Written By Michael Brodskiy
+% Class: Fundamentals of Electronics
+% Professor: I. Salama
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\include{Includes.tex}
+
+\title{Homework 1}
+\date{\today}
+\author{Michael Brodskiy\\ \small Professor: M. Onabajo}
+
+\begin{document}
+
+\maketitle
+
+\begin{enumerate}
+
+  \item
+
+    \begin{center}
+      Given that the open-circuit voltage gain is unity, we may write:
+    \end{center}
+    $$A_{vo}=\frac{v_o}{v_i}$$
+    $$v_i=v_o$$
+    \begin{center}
+      We then set up and calculate:
+    \end{center}
+    $$v_i=v_s\frac{R_i}{R_s+R_i}=5\frac{10^6}{10^6+10^5}=4.545[\si{\volt}]$$
+    $$\boxed{\therefore v_o=4.545[\si{\volt}]}$$
+
+    \begin{center}
+      Power can then be determined using the $50[\si{\ohm}]$ load:
+    \end{center}
+    $$P_L=\frac{v_o^2}{R}=\frac{4.545^2}{50}$$
+    $$\boxed{\therefore P_L=413.2[\si{\milli\watt}]}$$
+
+    \begin{center}
+      With a direct signal source connection, we can use voltage division to find:
+    \end{center}
+    $$v_L=v_s\frac{R_L}{R_L+R_s}=5\frac{50}{50+10^5}$$
+    $$\boxed{\therefore v_L=2.5[\si{\milli\volt}]}$$
+
+    \begin{center}
+      The power can then be found using:
+    \end{center}
+    $$P_L=\frac{(2.5\cdot10^{-3})^2}{50}$$
+    $$\boxed{\therefore P_L=.125[\si{\micro\watt}]}$$
+
+    With the implementation of an amplifier, we see that the power is significantly increased, by a factor of over 3.3 million times. Similarly, the voltage across the load with an amplifier is approximately 1,818 times that of the voltage directly across the load. Thus, the use of an amplifier can greatly help with power delivery.
+
+  \item
+
+  \item
+
+  \item test?
+
+    \begin{enumerate}
+
+      \item Test?
+
+        \begin{center}
+          We can find that the voltage gain is:
+        \end{center}
+        $$\boxed{A_{v}=\frac{7.5}{.02}=375=51.48[\si{\volt}\text{dB}]}$$
+
+        \begin{center}
+          We can find that the current gain is:
+        \end{center}
+        $$\boxed{A_{i}=\frac{(.02/500)}{10^{-6}}=40=32.041[\si{\ampere}\text{dB}]}$$
+
+        \begin{center}
+          Combining the two together, the power gain is:
+        \end{center}
+        $$\boxed{A_{p}=(375)(40)=15000=41.761[\si{\watt}\text{dB}]}$$
+
+        \begin{center}
+          Finally, the input resistance is defined as:
+        \end{center}
+        $$\boxed{R_{i}=\frac{.02}{10^6}=20[\si{\kilo\ohm}]}$$
+
+      \item 
+
+        \begin{center}
+          The power delivered to the amplifier may be found as:
+        \end{center}
+        $$\boxed{P_s=2(12)(.01)=.24[\si{\watt}]}$$
+
+        \begin{center}
+          To find the efficiency, we must first find the output power:
+        \end{center}
+        $$P_o=\frac{1}{2}(7.5)(.02/500)=.15[\si{\milli\watt}]$$
+
+        \begin{center}
+          Thus, we find the efficiency to be:
+        \end{center}
+        $$\eta=\frac{P_o}{P_s}\cdot100=\frac{.15\cdot10^{-1}}{.24}$$
+        $$\boxed{\eta=6.25\%}$$
+
+      \item 
+
+    \end{enumerate}
+
+  \item
+
+    \begin{enumerate}
+
+      \item 
+
+      \item 
+
+      \item 
+
+    \end{enumerate}
+
+  \item
+
+\end{enumerate}
+
+\end{document}
+

@@ -1,0 +1,65 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Written By Michael Brodskiy
+% Class: Fundamentals of Electronics
+% Professor: I. Salama
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\include{Includes.tex}
+
+\title{Pre-Lab 1}
+\date{\today}
+\author{Michael Brodskiy\\ \small Professor: M. Onabajo}
+
+\begin{document}
+
+\maketitle
+
+\begin{enumerate}
+
+  \item Review section read \textcolor{green}{\checkmark}
+
+  \item The power supplies can be connected as shown:
+
+    \begin{figure}[H]
+      \centering
+      \include{Figures/DCPower.tex}
+      \caption{Power Supply Connection}
+      \label{fig:1}
+    \end{figure}
+
+  \item
+
+    \begin{enumerate}
+
+      \item Assuming the output channel we need is active with the provided initial setting (channel is toggled ON), we would proceed to the FREQUENCY setting. We press the soft key next to ``Frequency,'' after which we enter the desired frequency (in this case, 2000) value and then select hertz (alternatively, we may select $4000\pi$ radians per second, if the units are available, though this usually is not an option).
+
+      \item As a result of the $50[\si{\ohm}]$ equivalent load, the output voltage would be:
+
+        $$R_{eq}=\frac{50}{50+50}=\frac{1}{2}v_{o}$$
+        $$\frac{1}{2}v_o=\boxed{2.5+5\sin(4000\pi t)}$$
+
+      \item DC offset may be eliminated using the AC Coupling feature. First, the corresponding channel number must be pressed (say that, for this example, we are working with channel 1, or CH1). After pressing CH1 to confirm it is enabled, the Coupling soft key must then be pressed to select the input channel coupling. While the options are AC or DC, since we want to eliminate the DC component, we \underline{would select the AC option}.
+
+    \end{enumerate}
+
+  \item Referring to the inverting op-amp in Figure 5:
+
+    \begin{center}
+      The gain of the op-amp can be defined as:
+    \end{center}
+    $$G_V=-\frac{R_2}{R_1}=-\frac{5000}{50}$$
+    $$\boxed{G_V=-\frac{R_2}{R_1}=100\left[ \frac{\si{\volt}}{\si{\volt}} \right]}$$
+
+    \begin{center}
+      $$\boxed{\text{The input resistance is simply the first resistor value, or }R_i=R_1[\si{\ohm}]}$$ as per the above, $R_1=50[\si{\ohm}]$
+    \end{center}
+
+    \begin{center}
+      As per the Th\'evenin equivalent $50[\si{\ohm}]$, the voltage would be split such that:
+    \end{center}
+    $$\boxed{v_o=\frac{50}{50+50}v_s=\frac{1}{2}v_s}$$
+
+\end{enumerate}
+
+\end{document}
+

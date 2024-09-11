@@ -108,6 +108,40 @@
 
   \item
 
+    \begin{center}
+      We begin by finding $A_{vs}$, the voltage gain from source to output:
+    \end{center}
+    $$A_{vs}=\frac{V_o}{V_s}$$
+    $$i_i=\frac{V_s}{R_{i1}+R_s}=\frac{V_s}{55000}$$
+    $$V_{moc}=\frac{10}{55}V_s$$
+    $$V_{i2}=\frac{V_{moc}R_{i2}}{R_{i2}+R_{o1}}=\left( \frac{10}{55}V_s \right)\left( \frac{10^6}{10^6+200} \right)$$
+    $$V_{i2}=.1818V_s$$
+    $$i_{msc}=(.02)(.1818V_s)=(3.6356\cdot10^{-3})V_s$$
+    $$|V_o|=(i_{msc})\frac{R_{o2}R_L}{R_{o2}+R_L}=(3.6356\cdot10^{-3})V_s\left( \frac{(10^5)(10^3)}{10^5+10^3} \right)$$
+    $$|V_o|=3.5996V_s[\si{\volt}]$$
+
+    \begin{center}
+      First, because the current is travelling in a direction opposing $i_o$, we flip the sign, and then find the gain:
+    \end{center}
+    $$V_o=-3.5996V_s[\si{\volt}]$$
+    $$\boxed{A_{vs}=-\frac{3.5996V_s}{V_s}=-3.5996}$$
+
+    \begin{center}
+      Using $V_{i1}$, from above, we can find the loaded voltage gain:
+    \end{center}
+    $$\boxed{A_v=-\frac{3.5996V_s}{(50/55)V_s}=-3.9596}$$
+
+    \begin{center}
+      Using $i_{i}$, from above, we can find the overall current gain:
+    \end{center}
+    $$i_o=\frac{V_o}{1000}=-.0035996V_s$$
+    $$\boxed{A_i=-\frac{.0035996V_s}{(1/55000)V_s}=-197.98}$$
+
+    \begin{center}
+      Finally, we get the power gain:
+    \end{center}
+    $$A_p=(3.9596)(197.98)=783.91$$
+
   \item For the operational amplifier:
 
     \begin{enumerate}
@@ -166,11 +200,53 @@
 
     \begin{enumerate}
 
-      \item 
+      \item We begin by finding the impedance of the capacitor:
 
-      \item 
+        $$C_L=\frac{1}{j\omega C}=\frac{10^7}{s}$$
 
-      \item 
+        \begin{center}
+          From here, we begin to solve the circuit:
+        \end{center}
+        $$V_i=\frac{150V_s}{200}=.75V_s$$
+        $$i_{i}=.075V_s$$
+
+        \begin{center}
+          Here, we solve for the equivalent impedance:
+        \end{center}
+        $$R_{eq}=\left( \frac{(15000)(5000)}{20000} \right)=3750[\si{\ohm}]$$
+        $$Z_{eq}=\left( \frac{(3750)(10^7/s)}{3750+(10^7/s)} \right)[\si{\ohm}]$$
+        $$Z_{eq}=\frac{10^7}{s+2666.67}[\si{\ohm}]$$
+
+        \begin{center}
+          We now multiply by the current to find $V_o$:
+        \end{center}
+        $$Z_{eq}i_i=\left(\frac{10^7}{s+2666.67}\right)\left(  .075V_s\right)$$
+        $$V_o=\frac{75\cdot10^4V_s}{s+2666.67}$$
+
+        \begin{center}
+          This finally gives us:
+        \end{center}
+        $$A_{vs}(s)=\frac{75\cdot10^4}{s+2666.67}$$
+        $$\boxed{A_{vs}(j\omega)=\frac{75\cdot10^4}{j\omega+2666.67}}$$
+
+      \item The 3dB frequency may be found using the magnitude of the transfer function:
+
+        $$|A_{vs}(j\omega)|=\frac{1}{\sqrt{2}}$$
+        $$|\frac{750000}{\sqrt{\omega^2+2666.67^2}}|=\frac{1}{\sqrt{2}}$$
+        $$\omega^2+2666.67^2=1.125\cdot10^{12}$$
+        $$\omega^2=1.125\cdot10^{12}$$
+        $$\omega\approx1.0607\cdot10^{6}\left[ \frac{\text{rad}}{\si{\second}} \right]$$
+
+        \begin{center}
+          Finally, this yields:
+        \end{center}
+        $$f=\frac{\omega}{2\pi}$$
+        $$\boxed{f_c=1.688\cdot10^5[\si{\hertz}]}$$
+
+      \item The gain-bandwidth is found as follows:
+
+        $$G_{BW}=\frac{750000}{\sqrt{(1.0607\cdot10^6)^2+2666.67^2}}(1.0607\cdot10^6)$$
+        $$\boxed{G_{BW}=749998}$$
 
     \end{enumerate}
 

@@ -31,33 +31,34 @@
 
     \begin{enumerate}
 
-      \item Assuming the output channel we need is active with the provided initial setting (channel is toggled ON), we would proceed to the FREQUENCY setting. We press the soft key next to ``Frequency,'' after which we enter the desired frequency (in this case, 2000) value and then select hertz (alternatively, we may select $4000\pi$ radians per second, if the units are available, though this usually is not an option).
+      \item Assuming the output channel we need is active with the provided initial setting (channel is toggled ON), we would proceed to the FREQUENCY setting. We press the soft key next to ``Frequency,'' after which we enter the desired frequency (in this case, 2000) value and then select hertz (alternatively, we may select $4000\pi$ radians per second, if the units are available, though this usually is not an option). From here, make sure the waveform is still set to SINE. Then, make sure the amplitude is set to $10[\si{\volt}_{pp}]$ (peak to peak). Finally, set the offset to $5[\si{\volt}]$. Once again, confirm the channel is active by using the output button.
 
       \item As a result of the $50[\si{\ohm}]$ equivalent load, the output voltage would be:
 
         $$R_{eq}=\frac{50}{50+50}=\frac{1}{2}v_{o}$$
-        $$\frac{1}{2}v_o=\boxed{2.5+5\sin(4000\pi t)}$$
+        $$\frac{1}{2}10[\si{\volt}_{pp}]=5[\si{\volt}]$$
 
-      \item DC offset may be eliminated using the AC Coupling feature. First, the corresponding channel number must be pressed (say that, for this example, we are working with channel 1, or CH1). After pressing CH1 to confirm it is enabled, the Coupling soft key must then be pressed to select the input channel coupling. While the options are AC or DC, since we want to eliminate the DC component, we \underline{would select the AC option}.
+      \item DC offset may be eliminated using the AC Coupling feature. First, use the offset button to set the device offset to zero. Then, the corresponding channel number must be pressed (say that, for this example, we are working with channel 1, or CH1). After pressing CH1 to confirm it is enabled, the Coupling soft key must then be pressed to select the input channel coupling. While the options are AC or DC, since we want to eliminate the DC component, we \underline{would select the AC option}.
 
     \end{enumerate}
 
   \item Referring to the inverting op-amp in Figure 5:
 
     \begin{center}
+      $$\boxed{\text{The input resistance is simply the first resistor valueplus source, or }R_i=R_1+50[\si{\ohm}]}$$ as per this problem, $R_1=50[\si{\ohm}]$
+    \end{center}
+
+    \begin{center}
       The gain of the op-amp can be defined as:
     \end{center}
     $$G_V=-\frac{R_2}{R_1}=-\frac{5000}{50}$$
-    $$\boxed{G_V=-\frac{R_2}{R_1}=100\left[ \frac{\si{\volt}}{\si{\volt}} \right]}$$
-
-    \begin{center}
-      $$\boxed{\text{The input resistance is simply the first resistor value, or }R_i=R_1[\si{\ohm}]}$$ as per the above, $R_1=50[\si{\ohm}]$
-    \end{center}
+    $$\boxed{G_V=-100\left[ \frac{\si{\volt}}{\si{\volt}} \right]}$$
 
     \begin{center}
       As per the Th\'evenin equivalent $50[\si{\ohm}]$, the voltage would be split such that:
     \end{center}
-    $$\boxed{v_o=\frac{50}{50+50}v_s=\frac{1}{2}v_s}$$
+    $$V_o=\frac{50G_V}{50+50}V_i=\frac{-100}{2}V_i$$
+    $$\boxed{\text{The output voltage decrease by }V_o=-50V_i}$$
 
 \end{enumerate}
 

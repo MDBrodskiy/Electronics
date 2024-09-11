@@ -50,13 +50,69 @@
 
   \item
 
+    \begin{itemize}
+
+      \item For $A-B$ cascade:
+        
+        \begin{center}
+          The input impedance can be found to be:
+        \end{center}
+        $$\boxed{R_i=R_{i1}=3[\si{\kilo\ohm}]}$$
+
+        \begin{center}
+          The output impedance can be found to be:
+        \end{center}
+        $$\boxed{R_o=R_{o2}=20[\si{\ohm}]}$$
+
+        \begin{center}
+          We may then proceed to find the gain using individual gains as steps:
+        \end{center}
+        $$A_{v1}=\frac{V_{o1}}{V_i}=\frac{100V_i\left[ \frac{10^6}{10^6+400} \right]}{V_i}$$
+        $$A_{v1}=99.96=20\log(99.96)=39.97[\text{dB}]$$
+        $$A_{v2}=\frac{V_{o2}}{V_{o1}}=\frac{500V_{o1}}{V_{o1}}$$
+        $$A_{v2}=500=20\log(500)=53.979[\text{dB}]$$
+
+        \begin{center}
+          We then multiply to find the overall gain:
+        \end{center}
+        $$A_{voc}=A_{v1}A_{v2}=(500)(99.96)$$
+        $$\boxed{A_{voc}=49.98\cdot10^3=93.976[\text{dB}]}$$
+
+      \item For $B-A$ cascade:
+
+        \begin{center}
+          The input impedance can be found to be:
+        \end{center}
+        $$\boxed{R_i=R_{i2}=1[\si{\mega\ohm}]}$$
+
+        \begin{center}
+          The output impedance can be found to be:
+        \end{center}
+        $$\boxed{R_o=R_{o1}=400[\si{\ohm}]}$$
+
+        \begin{center}
+          We may then proceed to find the gain using individual gains as steps:
+        \end{center}
+        $$A_{v2}=\frac{V_{o2}}{V_i}=\frac{500V_i\left[ \frac{3000}{3000+20} \right]}{V_i}$$
+        $$A_{v2}=496.69=20\log(496.69)=53.92[\text{dB}]$$
+        $$A_{v1}=\frac{V_{o1}}{V_{o2}}=\frac{100V_{o2}}{V_{o2}}$$
+        $$A_{v1}=100=20\log(100)=40[\text{dB}]$$
+
+        \begin{center}
+          We then multiply to find the overall gain:
+        \end{center}
+        $$A_{voc}=A_{v1}A_{v2}=(100)(496.69)$$
+        $$\boxed{A_{voc}=49.669\cdot10^3=93.922[\text{dB}]}$$
+
+    \end{itemize}
+
   \item
 
-  \item test?
+  \item For the operational amplifier:
 
     \begin{enumerate}
 
-      \item Test?
+      \item
 
         \begin{center}
           We can find that the voltage gain is:
@@ -66,12 +122,12 @@
         \begin{center}
           We can find that the current gain is:
         \end{center}
-        $$\boxed{A_{i}=\frac{(.02/500)}{10^{-6}}=40=32.041[\si{\ampere}\text{dB}]}$$
+        $$\boxed{A_{i}=\frac{(7.5/.5)\cdot10^{-3}}{10^{-6}}=15000=83.522[\text{dB}]}$$
 
         \begin{center}
           Combining the two together, the power gain is:
         \end{center}
-        $$\boxed{A_{p}=(375)(40)=15000=41.761[\si{\watt}\text{dB}]}$$
+        $$\boxed{A_{p}=(375)(15000)=5.625\cdot10^6=67.501[\text{dB}]}$$
 
         \begin{center}
           Finally, the input resistance is defined as:
@@ -88,15 +144,21 @@
         \begin{center}
           To find the efficiency, we must first find the output power:
         \end{center}
-        $$P_o=\frac{1}{2}(7.5)(.02/500)=.15[\si{\milli\watt}]$$
+        $$P_o=\frac{1}{1000}(7.5)^2=56.25[\si{\milli\watt}]$$
 
         \begin{center}
           Thus, we find the efficiency to be:
         \end{center}
-        $$\eta=\frac{P_o}{P_s}\cdot100=\frac{.15\cdot10^{-1}}{.24}$$
-        $$\boxed{\eta=6.25\%}$$
+        $$\eta=\frac{P_o}{P_s}\cdot100=\frac{56.25}{2.40}$$
+        $$\boxed{\eta=23.44\%}$$
 
       \item 
+
+        \begin{center}
+          The max voltage may be calculated as follows:
+        \end{center}
+        $$V_{max}=\frac{V_{dc}}{A_v}=\frac{12}{375}$$
+        $$\boxed{V_{max}=32[\si{\milli\volt}]}$$
 
     \end{enumerate}
 

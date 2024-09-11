@@ -19,21 +19,20 @@
   \item
 
     \begin{center}
+      We can set up and calculate:
+    \end{center}
+    $$v_i=v_s\frac{R_i}{R_s+R_i}=5\frac{10^6}{10^6+10^5}=4.545[\si{\volt}_{rms}]$$
+    \begin{center}
       Given that the open-circuit voltage gain is unity, we may write:
     \end{center}
-    $$A_{vo}=\frac{v_o}{v_i}$$
-    $$v_i=v_o$$
-    \begin{center}
-      We then set up and calculate:
-    \end{center}
-    $$v_i=v_s\frac{R_i}{R_s+R_i}=5\frac{10^6}{10^6+10^5}=4.545[\si{\volt}]$$
-    $$\boxed{\therefore v_o=4.545[\si{\volt}]}$$
+    $$v_o=4.545[\si{\volt}_{pp}]\frac{50}{100+50}$$
+    $$\boxed{\therefore v_o=1.515[\si{\volt}_{rms}]}$$
 
     \begin{center}
       Power can then be determined using the $50[\si{\ohm}]$ load:
     \end{center}
-    $$P_L=\frac{v_o^2}{R}=\frac{4.545^2}{50}$$
-    $$\boxed{\therefore P_L=413.2[\si{\milli\watt}]}$$
+    $$P_L=\frac{v_o^2}{R}=\frac{1.515^2}{50}$$
+    $$\boxed{\therefore P_L=45.9[\si{\milli\watt}]}$$
 
     \begin{center}
       With a direct signal source connection, we can use voltage division to find:
@@ -47,7 +46,7 @@
     $$P_L=\frac{(2.5\cdot10^{-3})^2}{50}$$
     $$\boxed{\therefore P_L=.125[\si{\micro\watt}]}$$
 
-    With the implementation of an amplifier, we see that the power is significantly increased, by a factor of over 3.3 million times. Similarly, the voltage across the load with an amplifier is approximately 1,818 times that of the voltage directly across the load. Thus, the use of an amplifier can greatly help with power delivery.
+    With the implementation of an amplifier, we see that the power is significantly increased. Similarly, the voltage delivered is also significantly increased. Thus, the use of an amplifier can greatly help with power delivery.
 
   \item
 

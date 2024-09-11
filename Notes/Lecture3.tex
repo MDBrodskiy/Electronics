@@ -98,6 +98,172 @@
 
     \end{itemize}
 
+  \item Complex Gain, Frequency Response
+
+    \begin{itemize}
+
+      \item Complex transfer function $T(j\omega)$
+
+        \begin{itemize}
+
+          \item $s=j\omega=j(2\pi f)\to T(s)=\frac{V_o(s)/V_i(s)}$
+
+          \item Frequency-dependent gain and phase
+
+          \item $|T|\angle\phi=R+jX$, where $|T|=(R^2+X^2)^{1/2}$, $\phi=\tan^{-1}\left( \frac{X}{R} \right)$
+
+        \end{itemize}
+
+    \end{itemize}
+
+  \item First-Order Low-Pass Filter
+
+    \begin{itemize}
+
+      \item $V_o(s)=V_i(s)\frac{Z_c}{Z_c+Z_r}$, where $Z_r=R$, $Z_c=\frac{1}{sC}=\frac{1}{j\omega C}$
+
+      \item $T(j\omega)=\dfrac{V_o(j\omega)}{V_i(j\omega)}=\dfrac{1/(j\omega C)}{(1/j\omega C)+R}=\dfrac{1}{1+j\omega RC}$
+
+      \item Let $\omega_o=(1/RC)=(1/\tau)$ and $K=1$
+
+        \begin{itemize}
+
+          \item $\tau=RC$ is the only time constant of this circuit with a single pole formed by the resistor and capacitor
+
+          \item $T(j\omega)=\dfrac{K}{[1+j\frac{\omega}{\omega_o}]}$
+
+        \end{itemize}
+
+    \end{itemize}
+
+  \item Transfer Function Normalization (First-Order LPF Case)
+
+    \begin{itemize}
+
+      \item Typically, $K\neq1$
+
+      \item When normalizing a magnitude response, plot: $|T(j\omega)/K|$
+
+        \begin{itemize}
+
+          \item $20\log(|T(j\omega)/K|)=20\log(1)=0[\text{dB}]$ becomes max gain
+
+        \end{itemize}
+
+      \item Low-pass filter characteristics:
+
+        \begin{itemize}
+
+          \item For $\omega <<\omega_o$: $|T(j\omega)/K|\approx 1$ (0[dB])
+
+          \item For $\omega >>\omega_o$: $|T(j\omega)/K|\approx \dfrac{\omega_o}{\omega}\to$ high-frequency roll-off
+
+          \item Slope is -20[dB]/decade (or -6[dB]/octave)
+
+        \end{itemize}
+
+    \end{itemize}
+
+  \item Bode Plot of the Low-Pass Filter
+
+    \begin{itemize}
+
+      \item Attenuates high-frequency signal components
+
+      \item ``Corner frequency'' $\leftrightarrow$ -3[dB] frequency is the ``cutoff frequency''
+
+        \begin{itemize}
+
+          \item Often labeled $f_c(\omega_c)$, $f_{3\text{dB}}$, $(\omega_{3\text{dB}})$, $f_o(\omega_o)$, or $f_B(\omega_B)$
+
+          \item In the LPF case, the corner frequency is often called ``bandwidth of the filter''
+
+        \end{itemize}
+
+    \end{itemize}
+
+  \item First-Order High Pass Filter
+
+    $$T(j\omega)=\frac{1}{1-j(\omega_o/\omega)}$$
+
+    \begin{itemize}
+
+      \item Where $\omega_o=1/(RC)=(1/\tau)$, with $\tau=RC$ as the time constant
+
+      \item In general:
+
+        $$T(j\omega)=\frac{K}{1-j(\omega_o/\omega)}$$
+
+        \begin{itemize}
+
+          \item As $\omega\to 0$, $T(j\omega\to)$ (low frequency rejection)
+
+          \item As $\omega\to \infty$, $T(j\omega\to K)$ (high frequency transmission)
+
+        \end{itemize}
+
+    \end{itemize}
+
+  \item Bode Plot of the High-Pass Filter
+
+    \begin{itemize}
+
+      \item Attenuates low-frequency components
+
+      \item ``Corner frequency'' $\leftrightarrow$ -3[dB] frequency is the ``cutoff frequency''
+
+        \begin{itemize}
+
+          \item Often labeled $f_c(\omega_c)$, $f_{3\text{dB}}$, $(\omega_{3\text{dB}})$
+
+          \item $f_{3\text{dB}}\neq$ bandwidth
+
+        \end{itemize}
+
+    \end{itemize}
+
+  \item Bandpass (Mid-Band) Filter
+
+    \begin{itemize}
+
+      \item Attenuates signal components outside of bandwidth
+
+      \item Bandwidth: $B=f_{c(LP)}-f_{c(HP)}=f_{\text{High3DB}}-f_{\text{Low3dB}}$
+
+    \end{itemize}
+
+  \item Ideal Operational Amplifiers (Op-Amps)
+
+    \begin{itemize}
+
+      \item Infinite open-loop differential gain $A_{dOL}=V_o/(V_+-V_-)$
+
+      \item Infinite input impedance ($R_i=\infty$, $i_{in+}=i_{in-}=0$)
+
+      \item Zero output impedance ($R_o=0$)
+
+      \item Zero common-mode gain (CMRR=$A_{dOL}/A_{cm}=\infty$)
+
+      \item Infinite bandwidth (no high or low frequency gain roll-off)
+
+    \end{itemize}
+
+  \item The Summing-Point Constraint
+
+    \begin{itemize}
+
+      \item Only applies when the op-amp is used in negative feedback, which is often the case
+
+      \item Assuming the ideal op-amp (in particular: $A_{dOL}=\infty$), the feedback action forces $V_+-V_-=0$ (a virtual short-circuit between the terminals)
+
+        \begin{itemize}
+
+          \item No current flow into the input terminals
+
+        \end{itemize}
+
+    \end{itemize}
+
 \end{itemize}
 
 \end{document}

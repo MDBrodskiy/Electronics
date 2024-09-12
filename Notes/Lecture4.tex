@@ -1,0 +1,125 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Written By Michael Brodskiy
+% Class: Fundamentals of Electronics
+% Professor: M. Onabajo
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\include{Includes.tex}
+
+\title{Lecture 4}
+\date{\today}
+\author{Michael Brodskiy\\ \small Professor: M. Onabajo}
+
+\begin{document}
+
+\maketitle
+
+\begin{itemize}
+
+  \item Ideal Op-Amp Summing Constraint
+
+    \begin{itemize}
+
+      \item Only applies when the op-amp is used in negative feedback, which is often the case
+
+    \end{itemize}
+
+  \item Ideal Op-Amp Circuit Analysis Procedure
+
+    \begin{itemize}
+
+      \item Check that the op-amp is connected with negative feedback
+
+      \item Assume $V_+-V_-=0$ based on the summing node constraint
+
+      \item Apply standard circuit analysis techniques (KVL, KCL, Ohm's Law)
+
+      \item For an inverting amplifier:
+
+        $$i_i=V_{i}/R_1\text{, and from KCL we obtain }i_2=i_1$$
+        $$\text{From KVL: }V_o=-i_2R_2$$
+
+      \item For non-inverting amplifiers:
+
+        $$A_v=\frac{V_o}{V_i}=1+\frac{R_2}{R_1}$$
+        $$R_i=\frac{V_i}{i_i}=\infty\text{ (with ideal op-amp model)}$$
+        $$R_o=0\text{ (with ideal op-amp model)}$$
+
+    \end{itemize}
+
+  \item Differential Amplifier
+
+    \begin{itemize}
+
+      \item A few observations
+
+        $$i_2=-i_1\text{ (per summing-point constraint)}$$
+
+      \item The voltage division principles give the following equation:
+
+        $$V_+=V_2\left( \frac{R_2}{R_1+R_2} \right)\text{ and }V_+=V_-$$
+
+      \item Employing KCL, we can calculate:
+
+        $$\frac{R_2}{R_1}V_1-V_o=\frac{R_1+R_2}{R_1}V_+$$
+        $$V_o=\frac{R_2}{R_1}(V_2-V_1)$$
+
+      \item The differential gain becomes:
+
+        $$A_{vd}=\frac{V_o}{(V_2-V_1)}=\frac{R_2}{R_1}$$
+
+      \item The common-mode gain is evaluated with $V_1=V_2=V_{icm}$:
+
+        $$V_{ocm}=(R_2/R_1)(V_2-V_1)\to A_{cm}=\frac{V_{ocm}}{V_{icm}}=0$$
+
+      \item The CMRR becomes $\infty$
+
+    \end{itemize}
+
+  \item Voltage Follower
+
+    \begin{itemize}
+
+      \item $V_o=V_i$ per summing point constraint
+
+        $$A_v=(V_o/V_i)=1$$
+
+      \item Also called ``unity gain buffer''
+
+        $$R_i=\infty$$
+        $$R_o=0$$
+
+      \item A good circuit to couple amplifier stages together with reduced loading effects:
+
+        \begin{itemize}
+
+          \item High $R_i$ regardless of $R_1$
+
+        \end{itemize}
+
+    \end{itemize}
+
+  \item Finite Open-Loop Gain
+
+    \begin{itemize}
+
+      \item In practice, the open-loop gain ($A_{OL}$) is 60-120dB
+
+      \item Degraded summing point quality: $V_x=V_+-V_-\neq0\to V_z=\frac{V_o}{A_{OL}}$
+
+      \item Feedback factor for this circuit: $\beta=R_1/(R_1+R_2)$ occurs due to voltage division
+
+        \begin{itemize}
+
+          \item $\beta$ is the fraction of the output that is fed back to the $V_-$ terminal
+
+        \end{itemize}
+
+        $$V_o=(V_+-V_-)A_{OL}=-V_-A_{OL}\to V_-=\frac{-V_o}{A_{OL}}$$
+
+    \end{itemize}
+
+\end{itemize}
+
+\end{document}
+

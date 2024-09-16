@@ -1,0 +1,139 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Written By Michael Brodskiy
+% Class: Fundamentals of Electronics
+% Professor: M. Onabajo
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\include{Includes.tex}
+
+\title{Lecture 5}
+\date{\today}
+\author{Michael Brodskiy\\ \small Professor: M. Onabajo}
+
+\begin{document}
+
+\maketitle
+
+\begin{itemize}
+
+  \item Finite Open-Loop Gain and Bandwidth
+
+    \begin{itemize}
+
+      \item Assumptions during most previous examples
+
+        \begin{itemize}
+
+          \item Infinite $A_{0OL}$ (subscript ``0'' indicates DC gain)
+
+          \item Gain independence with respect to frequency (``flat gain'')
+
+        \end{itemize}
+
+      \item Open-loop gain of a typical (real) op-amp:
+
+        \begin{itemize}
+
+          \item Single-pole approximation ($F_{BOL}=$ break frequency)
+
+          \item High-frequency roll-off with $-20\text{dB/dec}$ (single-pole approximation — for first order filters, can approximate $f_{t}=A_{0OL}f_{BOL}$)
+
+          \item $f_t=$ transition frequency (unity-gain)
+
+        \end{itemize}
+
+    \end{itemize}
+
+  \item Mathematical Representation of Finite Gain/Bandwidth
+
+    \begin{itemize}
+
+      \item $A_{0OL}=$ DC gain, $\omega_=$ break frequency, $\omega_t=$ unity-gain frequency
+
+      \item Op-amp model with a transfer function of a single-pole low-pass filter:
+
+        $$A(\omega)=\frac{A_{0OL}}{1+(j\omega/\omega_B)},\,|A(\omega)|=\frac{A_{0OL}}{\sqrt{1+\left( \dfrac{\omega}{\omega_B} \right)^2}}$$
+
+    \end{itemize}
+
+  \item Inverting Amplifier Analysis
+
+    \begin{itemize}
+
+      \item High closed-loop gain (high $R_2/R_1$ ratio) reduces the closed-loop break frequency
+
+    \end{itemize}
+
+  \item Closed-Loop Gain versus Break Frequency Trade-off
+
+    \begin{itemize}
+
+      \item Fundamental gain-bandwidth (GBW) product limitation:
+
+        $$f_t=A_{0OL}f_{BOL}=A_{0CL}f_{BCL}$$
+
+      \item When $f>>f_B$:
+
+        $$|A(f)|\approx A_{0OL}\cdot\frac{f_B}{f}=\frac{f_t}{f}$$
+
+    \end{itemize}
+
+  \item Closed-Loop: Gain Bandwidth $\propto f_{3\text{dB}}$
+
+    \begin{itemize}
+
+      \item When an op-amp is connected in a feedback configuration, the gain-bandwidth product ($f_t$) remains unchanged
+
+      \item The 3dB frequency (break frequency) depends on feedback network components
+
+      \item Gain-bandwidth product ($f_t=A_{0OL}f_{BOL}$)
+
+    \end{itemize}
+
+  \item Large-Signal Operation: Voltage Swing
+
+    \begin{itemize}
+
+      \item Output voltage swing limitation
+
+        \begin{itemize}
+
+          \item The output voltage can only be in the following range:
+
+            $$V_{S-}+x<V_o<V_{S+}-x$$
+
+          \item The output limits should be specified in the manufacturers datasheet
+
+        \end{itemize}
+
+      \item Clipping (saturation) occurs if the above condition is not met
+
+    \end{itemize}
+
+  \item Linear Operating Range
+
+    \begin{itemize}
+
+      \item The input/output transfer characteristic of an op-amp (with a specified supply) voltage provide valuable information about large-signal operation
+
+    \end{itemize}
+
+  \item Large-Signal Operation: Current Restrictions
+
+    \begin{itemize}
+
+      \item Op-amps have specified output current limits
+
+      \item The op-amp must source/sink the current to/from load impedance (and feedback network elements)
+
+      \item Careful: Small load or feedback resistors $\to$ high $I_o$
+
+
+      \item Clipping occurs when $I_o>I_{\text{limit}}$ would be required, but $I_o=I_{\text{limit}}$
+
+    \end{itemize}
+
+\end{itemize}
+
+\end{document}
+

@@ -133,6 +133,40 @@
 
     \end{itemize}
 
+  \item Finite Open-Loop Gain and Bandwidth
+
+    $$A(f)=\frac{A_{0OL}}{1+j(f/f_{BOL})}$$
+
+    \begin{itemize}
+
+      \item Closed-Loop Impact of Finite Gain/Bandwidth
+
+        \begin{itemize}
+
+          \item Inverting amplifier: $G=-\frac{R_2}{R_1}$
+
+          \item Non-inverting amplifier: $G=1+\frac{R_2}{R_1}$
+
+          \item For both cases: $f_{3\text{dB}}\approx\frac{f_t}{1+(R_2/R_1)}$
+
+        \end{itemize}
+
+    \end{itemize}
+
+  \item Output Slew-Rate Limitation
+
+    $$\Big|\frac{dv_o(t)}{dt}\Big|\leq SR$$
+
+    \begin{itemize}
+
+      \item The magnitude of the output voltage's rate of change can not exceed the slew-rate ($SR$) specification of the op-amp
+
+      \item Typical $10^5[\si{\volt}/\si{\second}]<SR<10^8[\si{\volt}/\si{\second}]$
+
+      \item Usually the $SR$ is specified with load resistance conditions
+
+    \end{itemize}
+
 \end{itemize}
 
 \end{document}

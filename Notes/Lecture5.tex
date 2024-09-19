@@ -167,6 +167,66 @@
 
     \end{itemize}
 
+  \item DC Imperfections of Op-Amps
+
+    \begin{itemize}
+
+      \item Bias Current ($I_B$)
+
+        \begin{itemize}
+
+          \item Required for proper operation of internal circuitry (or resulting from unwanted leakage currents)
+
+          \item Typical range: $0.1[\si{\nano\ampere}]-1[\si{\micro\ampere}]$
+
+          \item $I_B=(I_{B+}-I_{B-})/2$
+
+          \item $I_{B+}$ and $I_{B-}$ flow at the respective terminals
+
+        \end{itemize}
+
+      \item Offset Current ($I_{off}$)
+
+        \begin{itemize}
+
+          \item $|\pm I_{off}|=|I_{B+}-I_{B-}|<200[\si{\nano\ampere}]$ normally
+
+          \item Results from internal device mismatches (transistors, resistors, etc.)
+
+        \end{itemize}
+
+      \item Offset Voltage ($V_{off}$)
+
+        \begin{itemize}
+
+          \item Due to internal device mismatches
+
+          \item $|\pm V_{off}|<$ a few millivolts
+
+        \end{itemize}
+
+    \end{itemize}
+
+  \item Analysis Procedure with DC Imperfections
+
+    \begin{itemize}
+
+      \item Draw a schematic diagram in which the source for a single DC imperfection is included (modeled)
+
+      \item Replace all other sources
+
+        \begin{itemize}
+
+          \item Voltage source $\to$ short circuit
+
+          \item Current source $\to$ open circuit
+
+        \end{itemize}
+
+      \item Follow standard circuit analysis laws and ideal op-amp assumptions
+
+    \end{itemize}
+
 \end{itemize}
 
 \end{document}

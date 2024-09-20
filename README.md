@@ -28,6 +28,7 @@
     * [**Lecture 6**](https://github.com/MDBrodskiy/Electronics/tree/master/Notes/Lecture6.pdf)
 * [**Homework**](https://github.com/MDBrodskiy/Electronics/tree/master/Homework/)
     * [**Homework 1**](https://github.com/MDBrodskiy/Electronics/tree/master/Homework/Homework1.pdf)
+    * [**Homework 2**](https://github.com/MDBrodskiy/Electronics/tree/master/Homework/Homework2.pdf)
 * [**Labs**](https://github.com/MDBrodskiy/Electronics/tree/master/Labs/)
     * [**Pre Lab 1**](https://github.com/MDBrodskiy/Electronics/tree/master/Labs/PreLab1.pdf)
 

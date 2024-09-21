@@ -18,7 +18,81 @@
 
   \item
 
+    We may begin to write KCL equations for the circuit. Let us call the voltage at the negative (upper) terminal $V^{-}$, the voltage at the bottom terminal $V^{+}$, and the voltages on the nodes $V_1$ and $V_2$. With this, we get:
+
+    $$\frac{V^{-}-V_{in}}{R}+\frac{V^{-}-V_1}{R}=0$$
+    $$V^{-}=0$$
+    $$V_{in}=-V_{1}$$
+
+    We write the next KCL:
+
+    $$\frac{V_1-V^{-}}{R}+\frac{V_1}{R}+\frac{V_1-V_2}{R}=0$$
+    $$\frac{2V_1}{R}+\frac{V_1-V_2}{R}=0$$
+    $$V_2=-3V_1$$
+
+    And finally the last KCL:
+
+    $$\frac{V_2-V_1}{R}+\frac{V_2}{R}+\frac{V_2-V_o}{R}=0$$
+    $$3V_2-V_1=V_o$$
+
+    Combining with our first two KCL equations, we get:
+
+    $$-8V_{in}=V_o$$
+    $$\boxed{\frac{V_o}{V_{in}}=-8}$$
+
   \item
+
+    \begin{enumerate}
+
+      \item 
+
+        We begin by writing:
+
+        $$V_{s}-1000I_{s}-1000000I=0$$
+        $$V_{s}=1000I_{s}+1000000I$$
+
+        Where:
+
+        $$v_{i}=1000000I$$
+
+        Using KVL, we find:
+
+        $$v_i-10000(I_s-I)-25(I_s-I)-100000v_i=0$$
+        $$-10000(I_s-I)-25(I_s-I)\approx 100000v_i$$
+        $$-10025(I_s-I)\approx 100000v_i$$
+        $$v_i\approx -.10025(I_s-I)$$
+
+        Since we know $v_i=1000000I$, we can write:
+
+        $$100000I=-.10025(I_s-I)$$
+        $$-(9.975\cdot10^6)I=I_s-I$$
+        $$-(9.975\cdot10^6)I=I_s$$
+
+        We can substitute this back into our first equation to find:
+
+        $$V_s=-9.974\cdot10^6I$$
+
+        Then we can once again use KVL to write:
+
+        $$v_o-25(I_s-I)-10^{11}I=0$$
+        $$v_o=25I_s-10^{11}I$$
+        $$v_o=9.975\cdot10^{10}I$$
+
+        Therefore, we may say that:
+
+        $$\boxed{\frac{v_o}{V_s}\approx -10001}$$
+
+        We can tell that the finite gain is approximately one-tenth of the ideal op-amp gain.
+
+      \item 
+
+        To find the impedance, we can use our equations from part (a) to write:
+
+        $$Z_{in}=\frac{}$$
+
+      \item 
+
+    \end{enumerate}
 
   \item
 
@@ -34,11 +108,99 @@
 
   \item
 
+    \begin{enumerate}
+
+      \item 
+
+        To start, it is given that the output voltage is:
+
+        $$V_o=.1[\si{\volt}]$$
+
+        Offset voltage can be found using the equation:
+
+        $$V_{IO}=\left( 1+\frac{R_2}{R_1} \right)^{-1}V_o$$
+        $$V_{IO}=\left( 1+\frac{100}{10} \right)^{-1}(.1)$$
+        $$V_{IO}=\left( 11 \right)^{-1}(.1)$$
+        $$\boxed{V_{IO}=.00909[\si{\volt}]}$$
+
+      \item 
+
+        The input bias current may be written as:
+
+        $$I_B=\frac{I_B^++I_B^-}{2}$$
+
+        Using KVL, we may write:
+
+        $$V_o-V^-=I_B^-R_2$$
+
+        Since the DC input voltage is zero, we know:
+
+        $$V^-=V^+=0$$
+
+        Therefore, we get:
+
+        $$V_o=I_B^-R_2$$
+
+        and since the terminals are balanced:
+
+        $$I_B^-=I_B^+$$
+
+        Which gives us:
+
+        $$I_B^-=\frac{V_o}{R_2}$$
+        $$I_B^-=\frac{.1}{100000}$$
+        $$\boxed{I_B=I_B^-=I_B^+=1\cdot10^{-6}[\si{\ampere}]}$$
+
+      \item 
+
+        We need to place a compensating resistor on the positive terminal to ground in order to cancel the effects. This gives us:
+
+        $$V^{+}=-I_B^{+}R_c$$
+
+        Applying KCL, we find:
+
+        $$I_B^{-}=-\frac{V^-}{R_1}+\frac{V_o-V^-}{R_2}$$
+        $$I_B^{-}=-V^\left[ 10^{-4}+10^{-5} \right]$$
+        $$I_B^{-}=.00011I_B^+R_c$$
+
+        Since the two bias currents equal each other, we get:
+
+        $$1=.00011R_c$$
+        $$\boxed{R_c=9090.9[\si{\ohm}]}$$
+
+      \item 
+
+        The maximum offset current may be found using:
+
+        $$I_o=\frac{V_o}{R_2+R_c}$$
+
+        Using our known values, we substitute:
+
+        $$I_o=\frac{.1}{10^5+9090.9}$$
+        $$\boxed{I_o=9.167\cdot10^{-7}[\si{\ampere}]}$$
+
+    \end{enumerate}
+
   \item
 
     \begin{enumerate}
 
       \item 
+
+        The slew rate may be defined as:
+
+        $$SR=\frac{dV_o}{dt}$$
+
+        Since we know a sinusoidal input will generate an output of the form $V_o=|V|\sin(\omega t)$, we can write:
+
+        $$\frac{dV_o}{dt}=|V|\omega\cos(\omega t)$$
+
+        From this, we may determine that the maximum slew rate is:
+
+        $$SR=|V|\omega$$
+        $$SR=|V|2\pi f$$
+        $$SR=(4)(2)(\pi)(10^6)$$
+        $$\boxed{SR=2.51\cdot10^7\left[ \frac{\si{\volt}}{\si{\second}} \right]}$$
 
       \item 
 

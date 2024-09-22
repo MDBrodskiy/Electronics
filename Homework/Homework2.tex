@@ -100,9 +100,67 @@
 
       \item 
 
-      \item 
+        We begin by calculating the impedance from the capacitor:
+
+        $$z_c=-\frac{j}{\omega C}$$
+
+        We can tell that the output voltage is:
+
+        $$V_o=A_{OL}V^{-}$$
+
+        From here, we apply KCL:
+
+        $$j\omega C(V^{-}-V_i)+\frac{V^{-}-V_o}{R}=0$$
+
+        And substitute from the equation above:
+
+        $$j\omega RC(V^{-}-V_i)+V^{-}-A_{OL}V^{-}=0$$
+        $$j\omega RCV_i=j\omega RCV^{-}+V^{-}-A_{OL}V^{-}$$
+
+        This gives us the input voltage:
+
+        $$V_i=V^{-}+\frac{V^{-}-A_{OL}V^{-}}{j\omega RC}$$
+        $$V_i=\frac{j\omega RCV^{-}+V^{-}-A_{OL}V^{-}}{j\omega RC}$$
+        $$V_i=\frac{V^{-}(j\omega RC+1-A_{OL})}{j\omega RC}$$
+
+        We then take the ratio of the output to input and find the closed loop voltage gain:
+
+        $$A_{CL}=\frac{V_o}{V_i}$$
+        $$\boxed{A_{CL}(j\omega)=\frac{j\omega RCA_{OL}}{1+j\omega RC-A_{OL}}}$$
 
       \item 
+
+        With an ideal op-amp, we know $A_{OL}\to\infty$. Thus, we may refactor our finding from (a) to write:
+
+        $$A_{CL}(j\omega)=\frac{j\omega RC}{(1/A_{OL})(1+j\omega RC)-1}$$
+
+        We know that, as $A_{OL}\to\infty$, $1/A_{OL}\to0$, which gives us:
+
+        $$A_{CL}^i(j\omega)=-j\omega RC$$
+
+        This gives us a magnitude of:
+
+        $$\boxed{|A_{CL}^i(j\omega)|=\omega RC}$$
+
+      \item 
+
+        Using our equation from part (a), we may write:
+
+        $$A_{CL}=\frac{j(1000\pi)(10000)(20\cdot10^{-6})(10^4)}{1+j(1000\pi)(10000)(20\cdot10^{-6})-10^4}$$
+        $$A_{CL}=\frac{j(1000\pi)(100)(20)}{1+j(10\pi)(20)-10^4}$$
+        $$A_{CL}=\frac{(2\cdot10^6)\pi j}{j(200\pi)-9999}$$
+        $$A_{CL}=39.331-625.910j$$
+
+        Now we find the magnitude:
+
+        $$|A_{CL}|=\sqrt{39.331^2+625.910^2}$$
+        $$|A_{CL}|=627.14$$
+
+        Now we use the input amplitude to get the output amplitude:
+
+        $$|V_o|=|A_{CL}||V_i|$$
+        $$|V_o|=(627.14)(5\cdot10^{-3})$$
+        $$\boxed{|V_o|=3.1357[\si{\volt}]}$$
 
     \end{enumerate}
 

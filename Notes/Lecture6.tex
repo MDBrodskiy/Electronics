@@ -16,7 +16,84 @@
 
 \begin{itemize}
 
-  \item 
+  \item Integrators
+
+    \begin{itemize}
+
+      \item Capacitor impedance: $Z_C(s)=\frac{1}{sC}$
+
+      \item From KVL:
+
+        $$V_i(s)=I_i(s)R+I_i(s)R+I_i(s)Z_c(s)+V_o(s)$$
+        $$V_i(s)=I_i(s)R+I_i(s)R+I_i(s)/sC+V_o(s)$$
+
+      \item Substituting $I_i(s)=V_i(s)/R$:
+
+        $$V_o(s)=-\frac{V_i(s)}{sRC}=-\frac{V_i(s)}{RC}\cdot\frac{1}{s}$$
+
+      \item Taking the inverse Laplace transform, we get:
+
+        $$v_o=-\frac{1}{RC}\int_0^t v_i\,dt$$
+
+      \item Reset switch guarantees zero initial condition $V_c=0$ at $t=0$
+
+    \end{itemize}
+
+  \item Ideal Integrator Frequency Response
+
+    \begin{itemize}
+
+      \item We find the output-input ratio:
+
+        $$\frac{V_o(s)}{V_i(s)}=-\frac{1}{j\omega RC}$$
+
+      \item In practice:
+
+        \begin{itemize}
+
+          \item Finite op-amp DC gain
+
+          \item High-frequency op-amp gain roll-off
+
+        \end{itemize}
+
+    \end{itemize}
+
+  \item Differentiator
+
+    \begin{itemize}
+
+      \item The output voltage expression can be derived with the same procedure as on the previous slides, but using the differentiation property of the Laplace transform:
+
+        $$V_o(s)=-RC\frac{dV_i(s)}{dt}$$
+
+      \item Alternatively, the output voltage equation can be derived directly by expressing the capacitor current as $i_c(t)=C\dfrac{dv_c(t)}{dt}$ (refer to the textbook for this approach)
+        
+    \end{itemize}
+
+  \item Ideal Differentiatior Frequency Response
+
+    \begin{itemize}
+
+      \item $V_o(s)/V_i(s)=-j2\pi fRC$
+
+      \item In practice:
+
+        \begin{itemize}
+
+          \item Finite op-amp DC gain
+
+          \item High-frequency op-amp gain roll-off
+
+            \begin{itemize}
+
+              \item Serious limitation for differentiators because they require high gain at high frequencies, which practical op-amps cannot achieve
+
+            \end{itemize}
+
+        \end{itemize}
+
+    \end{itemize}
 
 \end{itemize}
 

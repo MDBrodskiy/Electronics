@@ -321,19 +321,77 @@
 
     \end{enumerate}
 
-  \item
+  \item The following schematic was used to simulate the plots below:
+
+    \begin{figure}[H]
+      \centering
+      \includegraphics[width=.6\textwidth]{Figures/HW2-6.png}
+      \caption{Schematic for Simulation}
+      \label{fig:3}
+    \end{figure}
 
     \begin{enumerate}
 
-      \item 
+      \item See plot in Figure \ref{fig:3} below:
 
-      \item 
+        \begin{figure}[H]
+          \centering
+          \includegraphics[width=.8\textwidth]{Figures/HW2-6a.png}
+          \caption{AC Gain (dB and Magnitude) vs. Frequency}
+          \label{fig:4}
+        \end{figure}
 
-      \item 
+        Note: the critical frequency is, approximately, $7.2[\si{\kilo\hertz}]$
 
-      \item 
+      \item Note: from this point onwards, the output voltage, $V_o$, uses axis 1, while the input, $V_i$, uses axis 2. See plot in Figure \ref{fig:5} below:
 
-      \item 
+        \begin{figure}[H]
+          \centering
+          \includegraphics[width=.8\textwidth]{Figures/HW2-6b.png}
+          \caption{$V_o$ and $V_i$ vs. Time ($V_i=.05[\si{\volt}]\text{ at }1[\si{\kilo\hertz}])}
+          \label{fig:5}
+        \end{figure}
+
+        We may notice that the phases are almost identical; however, the magnitude is significantly different. While the input is at the expected $50[\si{\milli\volt}]$, the output is approximately $6.5[\si{\volt}]$ in amplitude. Thus, we can calculate the gain as:
+
+        $$\boxed{A=\frac{6.5}{50\cdot10^{-3}}=130\left[ \frac{\si{\volt}}{\si{\volt}} \right]}$$
+
+      \item See plot in Figure \ref{fig:6} below:
+
+        \begin{figure}[H]
+          \centering
+          \includegraphics[width=.8\textwidth]{Figures/HW2-6c.png}
+          \caption{$V_o$ and $V_i$ vs. Time ($V_i=.5[\si{\volt}]\text{ at }1[\si{\kilo\hertz}])}
+          \label{fig:6}
+        \end{figure}
+
+        For this plot, we see that, as the output approaches a magnitude of $15[\si{\volt}]$, it begins to form a square wave. This is to be expected, as a $15[\si{\volt}]$ output would saturate the op-amp due to being equivalent to the op-amp DC power supplies. Thus, the output is unable to extend beyond this magnitude, forming the square wave, as would be expected.
+
+      \item See plot in Figure \ref{fig:7} below:
+
+        \begin{figure}[H]
+          \centering
+          \includegraphics[width=.8\textwidth]{Figures/HW2-6d.png}
+          \caption{$V_o$ and $V_i$ vs. Time ($V_i=.5[\si{\volt}]\text{ at }100[\si{\kilo\hertz}])}
+          \label{fig:7}
+        \end{figure}
+
+        We see that the output begins forming a triangle wave, instead of a sinusoid. Furthermore, the amplitude of the resulting triangle wave is less than would be expected for the gain. The former may be attributed to the slew rate of the op-amp, which, evidently, is less than the input frequency. As a result, the internal capacitors of the op-amp are unable to adjust to the oscillating voltage quickly enough, thus forming a triangle wave. The latter may be attributed to the fact that, as exemplified in Figure \ref{fig:4}, the critical frequency (3dB frequency) occurs at $7.2[\si{\kilo\hertz}]$, which would mean that, at $100[\si{\kilo\hertz}]$, the op-amp would not output a gain that would be nearly as high as expected.
+
+      \item See plot in Figure \ref{fig:8} below:
+
+        \begin{figure}[H]
+          \centering
+          \includegraphics[width=.8\textwidth]{Figures/HW2-6e.png}
+          \caption{$V_o$ and $V_i$ vs. Time ($V_i=.05[\si{\volt}]\text{ at }7.2[\si{\kilo\hertz}])}
+          \label{fig:8}
+        \end{figure}
+
+        In the figure, we see that, at a frequency of $7.2[\si{\kilo\hertz}]$, the op-amp does not output a gain that is as high as at a frequency of $1[\si{\kilo\hertz}]$. This is due to the fact that, as shown in Figure \ref{fig:4}, the critical frequency is at, approximately, $7.2[\si{\kilo\hertz}]$. Looking at Figure \ref{fig:4}, we would expect that the gain would be around $92.5[\si{\volt}/\si{\volt}]$, as demarcated by the $F_{3\text{dB}}$ point. Calculating per the Figure \ref{fig:8}, we get:
+
+        $$\boxed{A=\frac{4.59}{50\cdot10^{-3}}=91.8\left[ \frac{\si{\volt}}{\si{\volt}} \right]}$$
+
+        This value is approximately the expected value.
 
     \end{enumerate}
 

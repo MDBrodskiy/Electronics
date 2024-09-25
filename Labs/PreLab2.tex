@@ -1,0 +1,66 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Written By Michael Brodskiy
+% Class: Fundamentals of Electronics
+% Professor: I. Salama
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\include{Includes.tex}
+
+\title{Pre-Lab 2}
+\date{\today}
+\author{Michael Brodskiy\\ \small Professor: M. Onabajo}
+
+\begin{document}
+
+\maketitle
+
+\begin{enumerate}
+
+  \item
+
+    Using the equation:
+
+    $$i=I_s\left( e^{v/(nV_T)}-1 \right)$$
+
+    and the given measurements, we may write:
+
+    $$10^{-3}=I_s\left( e^{.62/(n.025)}-1 \right)$$
+    $$10^{-2}=I_s\left( e^{.69/(n.025)}-1 \right)$$
+
+    Since the exponential is greater than 1, we may simplify to:
+
+    $$\frac{10^{-3}}{e^{24.8/n}}=I_s$$
+    $$\frac{10^{-2}}{e^{27.6/n}}=I_s$$
+
+    $$I_s=.001e^{-\frac{24.8}{n}}$$
+    $$I_s=.01e^{-\frac{27.6}{n}}$$
+
+    We can combine the two equations to solve for $n$ and $I_s$:
+
+    $$.001e^{-\frac{24.8}{n}}=.01e^{-\frac{27.6}{n}}$$
+    $$e^{-\frac{24.8}{n}}=10e^{-\frac{27.6}{n}}$$
+    $$e^{\frac{27.6-24.8}{n}}=10$$
+    $$\frac{27.6-24.8}{n}=\ln(10)$$
+    $$n=\frac{2.8}{\ln(10)}$$
+    $$\boxed{n=1.216}$$
+
+    We then plug this into the earlier equations to find $I_s$:
+
+    $$I_s=.001e^{-24.8/1.216}$$
+    $$\boxed{I_s=1.3889\cdot10^{-12}[\si{\ampere}]}$$
+
+    We can verify by using the second equation for $I_s$:
+
+    $$I_s=.01e^{-27.6/1.216}$$
+    $$\boxed{I_s=1.3889\cdot10^{-12}[\si{\ampere}]}$$
+
+    It is difficult to measure the current in a reverse bias mode, however, because the diode may reach breakdown voltage by increasing the reverse voltage.
+
+  \item Read through, no questions \textcolor{green}{\checkmark}
+
+  \item
+
+\end{enumerate}
+
+\end{document}
+

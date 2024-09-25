@@ -33,6 +33,7 @@
     * [**Homework 2**](https://github.com/MDBrodskiy/Electronics/tree/master/Homework/Homework2.pdf)
 * [**Labs**](https://github.com/MDBrodskiy/Electronics/tree/master/Labs/)
     * [**Pre Lab 1**](https://github.com/MDBrodskiy/Electronics/tree/master/Labs/PreLab1.pdf)
+    * [**Pre Lab 2**](https://github.com/MDBrodskiy/Electronics/tree/master/Labs/PreLab2.pdf)
 
 <!--
   * [**Chapter 1**](#Notes/Chapter\ 1)

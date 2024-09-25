@@ -16,7 +16,84 @@
 
 \begin{itemize}
 
-  \item
+  \item Silicon Diodes
+
+    \begin{itemize}
+
+      \item Applications
+
+        \begin{itemize}
+
+          \item Rectifiers (AC-to-DC converters)
+
+          \item Overvoltage protection circuits
+
+          \item Signal processing
+
+        \end{itemize}
+
+      \item Small-signal silicon diodes
+
+        \begin{itemize}
+
+          \item Low and medium power applications
+
+          \item Discrete components (in lab)
+
+        \end{itemize}
+
+      \item Circuit symbol: a triangle (positive side, anode), with a vertical line through the point (negative side, cathode)
+
+        \begin{figure}[H]
+          \centering
+          \include{Figures/Diode}
+          \caption{Diode Symbol}
+          \label{fig:1}
+        \end{figure}
+
+      \item Diodes dissipate power
+
+    \end{itemize}
+
+  \item Ideal Diode Model
+
+    \begin{itemize}
+
+      \item Rough approximation
+
+        \begin{itemize}
+
+          \item For quick and intuitive circuit analysis
+
+          \item Idealized transfer characteristic (without forward voltage drop and reverse breakdown)
+
+        \end{itemize}
+
+      \item In the reverse bias region, $V<0\to i=0$, while, in the forward bias region, $i>0\to V=0$
+
+    \end{itemize}
+
+  \item Analysis Using the Ideal Diode Model
+
+    \begin{enumerate}
+
+      \item Assume each diode is either open/reverse-biased (RB) or short/forward-biased (FB)
+
+      \item Redraw the circuit while replacing all assumed RB diodes with open-circuits and all FB diodes with short-circuit
+
+      \item Following conventional circuit analysis, solve for:
+
+        \begin{itemize}
+
+          \item Voltages across RB diodes $\to$ verify $V_d<0$
+
+          \item Currents through FB diodes $\to$ verify $i_d>0$
+
+        \end{itemize}
+
+      \item If all assumptions are correct, then the analysis is complete. If any of the RB/FB conditions are not met, proceed with step 1 by making different assumptions for diodes.
+
+    \end{enumerate}
 
 \end{itemize}
 

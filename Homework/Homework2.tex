@@ -46,51 +46,74 @@
 
       \item 
 
-        We begin by writing:
+        We may begin by setting up equations per KVL:
 
-        $$V_{s}-1000I_{s}-1000000I=0$$
-        $$V_{s}=1000I_{s}+1000000I$$
+        $$\frac{V_s+V_i}{R_1}+\frac{V_o+V_i}{R_2}+\frac{V_i}{R_{in}}=0$$
+        $$\frac{V_o+V_i}{R_2}+\frac{V_o-A_{OL}V_i}{R_o}=0$$
 
-        Where:
+        We use these equations to solve for $V_s$ and $V_o$, respectively:
 
-        $$v_{i}=1000000I$$
+        $$V_o=\frac{R_2A_{OL}-R_o}{R_o+R_2}V_i$$
+        $$V_s=\left[ \left( \frac{R_1}{R_2} \right)\left( \frac{R_2A_{OL}-R_o}{R_o+R_2} \right)+\left( 1+\frac{R_1}{R_2}+\frac{R_1}{R_{in}} \right) \right]$$
 
-        Using KVL, we find:
+        Substituting our known values, we get:
 
-        $$v_i-10000(I_s-I)-25(I_s-I)-100000v_i=0$$
-        $$-10000(I_s-I)-25(I_s-I)\approx 100000v_i$$
-        $$-10025(I_s-I)\approx 100000v_i$$
-        $$v_i\approx -.10025(I_s-I)$$
+        $$V_o=-9.9751\cdot10^{4}V_i$$
 
-        Since we know $v_i=1000000I$, we can write:
+        And then we substitute this to get:
 
-        $$100000I=-.10025(I_s-I)$$
-        $$-(9.975\cdot10^6)I=I_s-I$$
-        $$-(9.975\cdot10^6)I=I_s$$
+        $$V_s=9976.2V_i$$
 
-        We can substitute this back into our first equation to find:
+        Finally, to find the gain, we take:
 
-        $$V_s=-9.974\cdot10^6I$$
-
-        Then we can once again use KVL to write:
-
-        $$v_o-25(I_s-I)-10^{11}I=0$$
-        $$v_o=25I_s-10^{11}I$$
-        $$v_o=9.975\cdot10^{10}I$$
-
-        Therefore, we may say that:
-
-        $$\boxed{\frac{v_o}{V_s}\approx -10001}$$
-
-        We can tell that the finite gain is approximately one-tenth of the ideal op-amp gain.
+        $$\boxed{\frac{V_o}{V_s}\approx -10}$$
 
       \item 
 
-        To find the impedance, we can use our equations from part (a) to write:
+        We can see that the circuit may be written as:
 
-        $$Z_{in}=\frac{}$$
+        $$V_s+R_1i_s=-V_i$$
+
+        We can also develop:
+
+        $$V_i+(R_1+R_o)\left[ \frac{V_i}{R_{in}}+i_s \right]+A_{OL}V_i=0$$
+
+        To find the impedance, we can use:
+
+        $$Z_{in}=\frac{V_s}{i_s}$$
+
+        We then use the first two equations to solve:
+
+        $$V_s+R_1i_s-(R_1+R_o)\left[ \frac{V_s-R_1i_s}{R_{in}}+i_s\right]+A_{OL}(V_s-R_1i_s)=0$$
+        $$\frac{V_s}{i_s}=-\frac{R_1R_{in}+(R_1+R_o)\left[ R_{in}-R_1 \right]-A_{OL}R_1R_{in}}{R_{in}+R_1+R_o+A_{OL}R_{in}}$$
+
+        We substitute known values to get:
+
+        $$\boxed{Z_{in}=998[\si{\ohm}]}$$
+
+        For an ideal op-amp $A_{OL}\to\infty$, which gives us:
+
+        $$\boxed{Z_{in}=R_1=1000[\si{\ohm}]}$$
 
       \item 
+
+        To find the output impedance, we need to imagine we add a test voltage source, say $V_t$, which drives a test voltage, $i_t$ back into the circuit. This would give us:
+
+        $$V_i=\frac{\left( \frac{1}{R_{in}}+\frac{1}{R_1} \right)^{-1}}{R_2+\left( \frac{1}{R_{in}}+\frac{1}{R_1} \right)^{-1}}V_t$$
+        $$i_t=-\frac{V_t}{R_2+\left( \frac{1}{R_{in}}+\frac{1}{R_1} \right)^{-1}}-\frac{V_t-A_{OL}V_i}{R_o}$$
+
+        We know that the input impedance will be the ratio of the test voltage to the test current. Thus, we insert $V_i$ into the second equation:
+
+        $$i_t=-\frac{V_t}{R_2+\left( \frac{1}{R_{in}}+\frac{1}{R_1} \right)^{-1}}-\frac{V_t-A_{OL}\left[\frac{\left( \frac{1}{R_{in}}+\frac{1}{R_1} \right)^{-1}}{R_2+\left( \frac{1}{R_{in}}+\frac{1}{R_1} \right)^{-1}}V_t\right]}{R_o}$$
+        $$\frac{i_t}{V_t}=-\frac{1}{R_2+\left( \frac{1}{R_{in}}+\frac{1}{R_1} \right)^{-1}}-\frac{1-A_{OL}\left[\frac{\left( \frac{1}{R_{in}}+\frac{1}{R_1} \right)^{-1}}{R_2+\left( \frac{1}{R_{in}}+\frac{1}{R_1} \right)^{-1}}\right]}{R_o}$$
+        $$\frac{V_t}{i_t}=-\left[\frac{1}{R_2+\left( \frac{1}{R_{in}}+\frac{1}{R_1} \right)^{-1}}-\frac{1-A_{OL}\left[\frac{\left( \frac{1}{R_{in}}+\frac{1}{R_1} \right)^{-1}}{R_2+\left( \frac{1}{R_{in}}+\frac{1}{R_1} \right)^{-1}}\right]}{R_o}\right]^{-1}$$
+
+        We then plug in known values to get:
+
+        $$\frac{V_t}{i_t}=-\left[\frac{1}{10^4+\left( \frac{1}{10^6}+\frac{1}{10^3} \right)^{-1}}+\frac{1-10^5\left[\frac{\left( \frac{1}{10^6}+\frac{1}{10^3} \right)^{-1}}{10^4+\left( \frac{1}{10^6}+\frac{1}{10^3} \right)^{-1}}\right]}{25}\right]^{-1}$$
+        $$\boxed{Z_o=2.753\cdot10^{-3}[\si{\ohm}]}$$
+
+        For $A_{OL}\to\infty$, we see that the whole expression becomes zero, as would be expected for the output impedance of an ideal op-amp.
 
     \end{enumerate}
 
@@ -142,6 +165,24 @@
 
         $$\boxed{|A_{CL}^i(j\omega)|=\omega RC}$$
 
+        We may generate a bode plot for this differentiator, which would look like:
+
+        \begin{figure}[H]
+          \centering
+          \include{Figures/HW2-3b}
+          \caption{Bode Plot for Ideal Differentiator}
+          \label{fig:1}
+        \end{figure}
+
+        And the phase plot is:
+
+        \begin{figure}[H]
+          \centering
+          \include{Figures/HW2-3b2}
+          \caption{Phase Plot for Ideal Differentiator}
+          \label{fig:2}
+        \end{figure}
+
       \item 
 
         Using our equation from part (a), we may write:
@@ -177,9 +218,9 @@
         Offset voltage can be found using the equation:
 
         $$V_{IO}=\left( 1+\frac{R_2}{R_1} \right)^{-1}V_o$$
-        $$V_{IO}=\left( 1+\frac{100}{10} \right)^{-1}(.1)$$
-        $$V_{IO}=\left( 11 \right)^{-1}(.1)$$
-        $$\boxed{V_{IO}=.00909[\si{\volt}]}$$
+        $$V_{IO}=\left( 1+\frac{100}{10} \right)^{-1}(\pm.1)$$
+        $$V_{IO}=\left( 11 \right)^{-1}(\pm.1)$$
+        $$\boxed{V_{IO}=\pm.00909[\si{\volt}]}$$
 
       \item 
 
@@ -206,7 +247,7 @@
         Which gives us:
 
         $$I_B^-=\frac{V_o}{R_2}$$
-        $$I_B^-=\frac{.1}{100000}$$
+        $$I_B^-=\frac{\pm.1}{100000}$$
         $$\boxed{I_B=I_B^-=I_B^+=1\cdot10^{-6}[\si{\ampere}]}$$
 
       \item 
@@ -230,12 +271,12 @@
 
         The maximum offset current may be found using:
 
-        $$I_o=\frac{V_o}{R_2+R_c}$$
+        $$I_o=\frac{V_o}{R_2}$$
 
         Using our known values, we substitute:
 
-        $$I_o=\frac{.1}{10^5+9090.9}$$
-        $$\boxed{I_o=9.167\cdot10^{-7}[\si{\ampere}]}$$
+        $$I_o=\frac{\pm.1}{10^5}$$
+        $$\boxed{I_o=\pm1\cdot10^{-6}[\si{\ampere}]}$$
 
     \end{enumerate}
 
@@ -247,22 +288,36 @@
 
         The slew rate may be defined as:
 
-        $$SR=\frac{dV_o}{dt}$$
+        $$SR=\Big|\frac{dV_o}{dt}\Big|$$
 
-        Since we know a sinusoidal input will generate an output of the form $V_o=|V|\sin(\omega t)$, we can write:
+        Since we know this is a triangular wave, we can identify the slope by simply using rise over run. This means that the rise would be $4[\si{\volt}]$ and the run is $.5(10^{-6})$. This gets us:
 
-        $$\frac{dV_o}{dt}=|V|\omega\cos(\omega t)$$
-
-        From this, we may determine that the maximum slew rate is:
-
-        $$SR=|V|\omega$$
-        $$SR=|V|2\pi f$$
-        $$SR=(4)(2)(\pi)(10^6)$$
-        $$\boxed{SR=2.51\cdot10^7\left[ \frac{\si{\volt}}{\si{\second}} \right]}$$
+        $$SR=\frac{4}{.5\cdot10^{-6}}$$
+        $$\boxed{SR=8\cdot10^{6}\left[ \frac{\si{\volt}}{\si{\second}} \right]}$$
 
       \item 
 
+        The full power bandwidth can be defined using:
+
+        $$V_o(t)=V_{max}\sin(\omega t)$$
+
+        Taking the derivative, we obtain:
+
+        $$\frac{dV_o(t)}{dt}=\omega V_{max}\cos(\omega t)$$
+
+        Since this differential is the slew rate, we write:
+
+        $$SR=2\pi f_{fp} V_{max}\cos(\omega t)$$
+
+        We use the magnitude to get:
+
+        $$\frac{8\cdot10^{6}}{2\pi V_{max}}=f_{fp}$$
+        $$f_{fp}=\frac{8\cdot10^{6}}{2\pi V_{max}}$$
+        $$\boxed{f_{fp}=6.3662\cdot10^5[\si{\hertz}]}$$
+
       \item 
+
+        Since $5[\si{\mega\hertz}]$ is greater than the full-power bandwidth defined in part (b), the waveform outputted can not correspond to the full peak-to-peak value of $4[\si{\volt}]$. Thus, the output would be transformed from sinusoidal to, most likely, a triangular wave.
 
     \end{enumerate}
 

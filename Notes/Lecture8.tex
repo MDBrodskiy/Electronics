@@ -1,0 +1,96 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Written By Michael Brodskiy
+% Class: Fundamentals of Electronics
+% Professor: M. Onabajo
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\include{Includes.tex}
+
+\title{Lecture 8}
+\date{\today}
+\author{Michael Brodskiy\\ \small Professor: M. Onabajo}
+
+\begin{document}
+
+\maketitle
+
+\begin{itemize}
+
+  \item PN-Junction Diodes
+
+    \begin{itemize}
+
+      \item Shockley Equation (``Diode Equation'')
+
+        \begin{itemize}
+
+          \item More realistic model for the I-V characteristics (for FB and RB regions)
+
+          \item Based on semiconductor physics
+
+            $$i_D=I_se^{V_D/(nV_T)}+1$$
+
+        \end{itemize}
+
+      \item $I_s$ is the saturation current ($10^{-6}$ to $10^{-18}[\si{\ampere}]$)
+
+      \item $n$ = diode ideality factor, also called emissions coefficient, and can range from 1 to 2
+
+      \item $V_T=(kT)/q$ is the thermal voltage ($\approx26[\si{\milli\volt}]$ at $T=300[\si{\kelvin}]$ room temperature)
+
+        \begin{itemize}
+
+          \item $k$ = Boltzmann's constant ($1.38\cdot10^{-23}[\si{\joule}/\si{\kelvin}]$), $q$ = electron charge ($1.6\cdot10^{-19}[\si{\coulomb}]$)
+
+        \end{itemize}
+
+    \end{itemize}
+
+  \item Temperature Dependence
+
+    \begin{itemize}
+
+      \item At a constant current, the voltage drop decreases approximately $2[\si{\milli\volt}]$ for every $1[\si{\celsius}]$ increase in temperature
+
+    \end{itemize}
+
+  \item Solving Circuits using the Junction Diode Model
+
+    \begin{itemize}
+
+      \item Iterative Approach
+
+        \begin{itemize}
+
+          \item Pro: accurate hand calculations
+
+          \item Con: tedious (time-consuming)
+
+        \end{itemize}
+
+      \item Graphical Approach
+
+        \begin{itemize}
+
+          \item Pro: fast
+
+          \item Con: inaccurate (unless done numerically with a computer program)
+
+        \end{itemize}
+
+      \item Simulation
+
+        \begin{itemize}
+
+          \item Pro: most accurate
+
+          \item Con: limited insights into the trade-offs
+
+        \end{itemize}
+
+    \end{itemize}
+
+\end{itemize}
+
+\end{document}
+

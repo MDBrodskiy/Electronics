@@ -58,7 +58,47 @@
 
   \item Read through, no questions \textcolor{green}{\checkmark}
 
-  \item
+  \item Taking the forward voltage of the LEDs as $.2[\si{\volt}]$, and the input as $8[\si{\volt}]$, we can make some relevant calculations, assuming each LED will form a ``branch'' consisting of a resistor and the LED itself. First, using the maximum power, we can calculate the maximum current, starting with the first (red) LED to turn on:
+
+    $$I_{max}=\frac{6\cdot10^{-2}}{.2}=.3[\si{\ampere}]$$
+
+    Now, we find the resistance value:
+
+    $$R_{red}=\frac{8-.2}{.3}=26[\si{\ohm}]$$
+
+    We then cascade this with the next LED to turn on (yellow), and calculate (using the Zener rating):
+
+    $$I_{max}^2=\frac{1}{8}=.125[\si{\amp}]$$
+
+    Summing this with the current flowing through $R_{red}$, we get:
+
+    $$I_{yel}=.425[\si{\amp}]$$
+
+    From which we derive a resistor value:
+
+    $$R_{yel}=\frac{17-8}{.425}=21.176[\si{\ohm}]$$
+
+    Repeating a similar process for green, we find:
+
+    $$R_{grn}=\frac{24-8}{.425}=37.647[\si{\ohm}]$$
+
+    We combine the cascade, along with a $26[\si{\ohm}]$ series resistor to get:
+
+    \begin{figure}[H]
+      \centering
+      \include{Figures/LEDs}
+      \caption{LED Configuration}
+      \label{fig:1}
+    \end{figure}
+
+    This, however, is not the final step, as we need to add an additional diode in tandem with a resistor to maintain a safe operating range for the LEDs. Thus, our final circuit becomes:
+
+    \begin{figure}[H]
+      \centering
+      \include{Figures/LEDFinal}
+      \caption{Final Configuration}
+      \label{fig:2}
+    \end{figure}
 
 \end{enumerate}
 

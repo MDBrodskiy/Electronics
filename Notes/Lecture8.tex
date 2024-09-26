@@ -90,6 +90,32 @@
 
     \end{itemize}
 
+  \item Constant Voltage Drop (CVD) Model
+
+    \begin{itemize}
+
+      \item Diode approximation with an open-circuit (RB) or with a DC voltage source of $V_{dc}$ ($\approx .7[\si{\volt}]$) to model the forward voltage drop (FB)
+
+      \item With the Resistance Model
+
+        \begin{itemize}
+
+          \item The diode is modeled with an open-circuit (RB), or with a DC voltage source and series resistance (FB), where $V_{do}\approx .7[\si{\volt}]$
+
+          \item Dynamic resistance: $r_d=(nV_T)/I_{DQ}$
+
+            \begin{itemize}
+
+              \item Approximated around the operating point $Q$ (quiescent point)
+
+              \item A small-signal parameter (represents the diode's resistance associated with small changes of $i_d$ and $V_d$
+
+            \end{itemize}
+
+        \end{itemize}
+
+    \end{itemize}
+
 \end{itemize}
 
 \end{document}

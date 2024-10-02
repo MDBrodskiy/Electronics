@@ -1,0 +1,114 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Written By Michael Brodskiy
+% Class: Fundamentals of Electronics
+% Professor: M. Onabajo
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\include{Includes.tex}
+
+\title{Lecture 9}
+\date{\today}
+\author{Michael Brodskiy\\ \small Professor: M. Onabajo}
+
+\begin{document}
+
+\maketitle
+
+\begin{itemize}
+
+  \item Rectifiers
+
+    \begin{itemize}
+
+      \item Simple Half-Wave Recitifers
+
+        \begin{itemize}
+
+          \item Used for AC-to-DC conversion
+
+          \item Circuit representation when the diode is forward biased
+
+            \begin{itemize}
+
+              \item $V_o=V_i$
+
+              \item $I_D=V_O/R_L$
+
+            \end{itemize}
+
+          \item Average output voltage: $V_{oAVG}=V_{oPK}/\pi$
+
+          \item RMS output voltage: $V_{oRMS}=V_{oPK}/2$
+
+        \end{itemize}
+
+      \item Half-Wave Rectifier with Smoothing Capacitor
+
+        \begin{itemize}
+
+          \item Addition of a capacitor in parallel with the load resistor
+
+            \begin{itemize}
+
+              \item Formation of a first-order low-pass filter
+
+              \item Impedance of $R_L$ and $C$ in parallel
+
+                $$Z_P=\frac{1}{(1/R_L)+sC}=\frac{R_L}{1+j(\omega/\omega_B)},\quad\text{ where }\omega_B=(1/RC)$$
+
+            \end{itemize}
+
+          \item The capacitor charges to $V_i$ when the diode is on $(I_D=I_C+I_L)$
+
+            \begin{itemize}
+
+              \item $I_C>0$ when $V_o=V_c<V_i$, $I_C=0$ when $V_O=V_C=V_i$ (ideal model)
+
+            \end{itemize}
+
+          \item The capacitor holds (stores the output voltage when the diode is off)
+
+              \begin{itemize}
+
+                \item $V_o$ reduces gradually due to discharge of the capacitor: $I_C=-I_L\new 0$
+
+              \end{itemize}
+
+            \item Average output voltage: $V_{oAVG}\approx V_{iPK}- (V_r/2)$
+
+              \begin{itemize}
+
+                \item $V_r$ is the ripple voltage (design starting point: only for the half-wave rectifier)
+
+                \item Goal for a given input signal period ($T$): minimum $V_r\to$ maximum $V_o$
+
+              \end{itemize}
+
+        \end{itemize}
+
+    \end{itemize}
+
+  \item Electrostatic Discharge (ESD) Protection
+
+    \begin{itemize}
+        
+      \item ESD event
+
+        \begin{itemize}
+
+          \item Rapid discharge of charge between two bodies at different potentials
+
+          \item High voltage build-up $\to$ current flow (can destroy internal circuits)
+
+          \item Occurs during the manufacturing and lifetime of a chip (pins come into contact with equipment and sometimes people)
+
+        \end{itemize}
+
+      \item Simplified ESD protection concept with diodes
+
+    \end{itemize}
+
+\end{itemize}
+
+\end{document}
+

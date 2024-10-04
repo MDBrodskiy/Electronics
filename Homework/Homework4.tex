@@ -1,0 +1,222 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Written By Michael Brodskiy
+% Class: Fundamentals of Electronics
+% Professor: M. Onabajo
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\include{Includes.tex}
+
+\title{Homework 4}
+\date{\today}
+\author{Michael Brodskiy\\ \small Professor: M. Onabajo}
+
+\begin{document}
+
+\maketitle
+
+\begin{enumerate}
+
+  \item
+
+    \begin{enumerate}
+
+      \item 
+
+        Let us assume the diode is in forward bias. In this case, the circuit consists simply of the source and resistor, which gives us current:
+
+        $$I=\frac{v_{in}}{R}$$
+
+        Given that this value is  sinusoidal, when greater than zero, we know that our initial assumption was true. When the voltage is zero or negative, the ideal diode is reverse-biased. We can now proceed to say:
+
+        $$v_o=\left\{\begin{array}{ll} v_{in}, & v_{in}>0\\ 0, & v_{in}\leq 0\end{array}$$
+
+          Given that the given equation is:
+
+          $$v_{in}=10\sin(200\pi t)$$
+
+          we know that $v_{in}$ is positive when $2n\pi\leq 200\pi t\leq (2n+1)\pi$, with $n=0,1,2\cdots$. This gives: $(n/100)\leq t\leq (2n+1)/200$, which we can use to plot the transfer function ($v_o/v_{in}$):
+
+          $$H(t)=\frac{v_o}{v_{in}}=\left\{\begin{array}{ll} 1, & (n/100)\leq t\leq (2n+1)/200\\ 0, & \text{otherwise}\end{array}$$
+
+            \begin{figure}[H]
+              \centering
+              \includegraphics[width=.9\textwidth]{Figures/HW4-1a}
+              \caption{$H(t)$ (\textcolor{blue}{blue}), $v_{in}$ (\textcolor{green}{green}), and $v_{o}$ (\textcolor{red}{red}) in Time Domain}
+              \label{fig:1}
+            \end{figure}
+
+            Plotting $v_o$ versus $v_{in}$, we find a linear relationship:
+
+            \begin{figure}[H]
+              \centering
+              \includegraphics[width=.9\textwidth]{Figures/HW4-1a2}
+              \caption{$v_o$ versus $v_{in}$ (1:1 relationship)}
+              \label{fig:2}
+            \end{figure}
+
+
+      \item 
+
+        Similar to part (a), let us assume this diode is forward biased. In this case, we have the same current flow, indicating that this assumption is correct; however, the cycle is reversed in that $v_o$ is zero when the diode is forward-biased, and $v_o=v_{in}$ when it is reverse biased. Thus, we may write this as:
+
+        $$v_o=\left\{\begin{array}{ll} v_{in}, & v_{in}\leq0\\ 0, & v_{in}>0\end{array}$$
+        $$H(t)=\frac{v_o}{v_{in}}=\left\{\begin{array}{ll} 0, & (n/100)\leq t\leq (2n+1)/200\\ 1, & \text{otherwise}\end{array}$$
+
+          This gives us the following plot:
+
+            \begin{figure}[H]
+              \centering
+              \includegraphics[width=.9\textwidth]{Figures/HW4-1b}
+              \caption{$H(t)$ (\textcolor{blue}{blue}), $v_{in}$ (\textcolor{green}{green}), and $v_{o}$ (\textcolor{red}{red}) in Time Domain}
+              \label{fig:4}
+            \end{figure}
+
+            Plotting $v_o$ versus $v_{in}$, we find a linear relationship:
+
+            \begin{figure}[H]
+              \centering
+              \includegraphics[width=.9\textwidth]{Figures/HW4-1b2}
+              \caption{$v_o$ versus $v_{in}$ (1:-1 relationship)}
+              \label{fig:4}
+            \end{figure}
+
+      \item 
+
+        Using a non-ideal, constant voltage drop (CVD) model, we know that, since there is one diode in each circuit, the output will be $.7[\si{\volt}]$ less for a forward-biased diode. For circuit 1, this gives us:
+
+            \begin{figure}[H]
+              \centering
+              \includegraphics[width=.9\textwidth]{Figures/HW4-1c}
+              \caption{$H(t)$ (\textcolor{blue}{blue}), $v_{in}$ (\textcolor{green}{green}), and $v_{o}$ (\textcolor{red}{red}) in Time Domain}
+              \label{fig:5}
+            \end{figure}
+
+            \begin{figure}[H]
+              \centering
+              \includegraphics[width=.7\textwidth]{Figures/HW4-1c2}
+              \caption{$v_o$ versus $v_{in}$}
+              \label{fig:6}
+            \end{figure}
+
+            Since the voltage was, initially, just zero when the diode was forward-biased (in the ideal case), with CVD we get:
+
+            \begin{figure}[H]
+              \centering
+              \includegraphics[width=.9\textwidth]{Figures/HW4-1c3}
+              \caption{$H(t)$ (\textcolor{blue}{blue}), $v_{in}$ (\textcolor{green}{green}), and $v_{o}$ (\textcolor{red}{red}) in Time Domain}
+              \label{fig:7}
+            \end{figure}
+
+            \begin{figure}[H]
+              \centering
+              \includegraphics[width=.9\textwidth]{Figures/HW4-1c4}
+              \caption{$H(t)$ (\textcolor{blue}{blue}), $v_{in}$ (\textcolor{green}{green}), and $v_{o}$ (\textcolor{red}{red}) in Time Domain}
+              \label{fig:8}
+            \end{figure}
+
+    \end{enumerate}
+
+  \item
+
+    \begin{enumerate}
+
+      \item We begin by finding the maximum voltage value of the rectifier. Since we know the peak-to-peak ripple, we find the extrema:
+
+        $$V_{ext}=V_{avg}\pm\frac{V_{pp}}{2}$$
+        $$V_{ext}=9\pm 1$$
+
+        Thus, we see the minimum load voltage is $8[\si{\volt}]$, with:
+
+        $$\boxed{V_{max}=10[\si{\volt}]}$$
+
+      \item 
+
+        We know that the peak secondary voltage must be $10[\si{\volt}]$. Given this, we can write the turns ratio as (note we need to convert to RMS value):
+
+        $$n=\frac{N_1}{N_2}=\frac{V_1}{V_2}$$
+        $$n=\frac{220}{10\sqrt{2}}$$
+        $$\boxed{n=15.6}$$
+
+      \item 
+
+        We can write the equation for capacitance as:
+
+        $$C=\frac{I_LT}{V_r}$$
+        $$C=\frac{(.1)(.01667)}{2}$$
+        $$\boxed{C=.833[\si{\milli\farad}]}$$
+
+        We can now construct the circuit and get:
+        
+        \begin{figure}[H]
+          \centering
+          \include{Figures/HW3-2}
+          \caption{Half-Wave Rectifier Circuit, $V_{max}=10[\si{\volt}]$}
+          \label{fig:9}
+        \end{figure}
+
+    \end{enumerate}
+
+  \item
+
+    \begin{enumerate}
+
+      \item We can see that, if the diode is forward-biased, the current through $D$ can be found as (since the AC source can be omitted in the CVD model):
+
+        $$I_D=\frac{7-.7}{5k}$$
+        $$\boxed{I_D=1.26[\si{\milli\ampere}]}$$
+
+        The output voltage is simply the drop across the diode, or:
+
+        $$\boxed{V_D=.7[\si{\volt}]}$$
+
+        Since the sinusoid can not exceed $-1[\si{\volt}]$, we see that the current is always positive, and, therefore, $D$ is always forward-biased.
+
+      \item 
+
+        We may write the Shockley equation as:
+
+        $$I_D=I_S\left( e^{\frac{V_D}{nV_T}}-1 \right)$$
+
+        Using the given values, we obtain:
+
+        $$I_D=10^{-14}\left( e^{\frac{V_D}{(.025)}}-1 \right)$$
+
+        Using $I_D$ from part (a), we get:
+
+        $$(2\cdot10^{10})\left( 6.3 \right)+1=e^{40V_D}$$
+        $$V_D=\ln[(2\cdot10^{10})\left( 6.3 \right)+1]$$
+        $$\boxed{V_D=.639[\si{\volt}]}$$
+
+      \item 
+
+        The dynamic resistance formula may be written as:
+
+        $$r_d=\frac{nV_T}{I_D}$$
+
+        Which gets us:
+
+        $$r_d=\frac{(.025)}{1.26\cdot10^{-3}}$$
+        $$\boxed{r_d=19.841[\si{\ohm}]}$$
+
+        This means that, in the small-signal model, the diode acts as a resistor, which means we have a voltage divider. We can find the AC voltage across the diode using:
+
+        $$V_{ac}=V_s\frac{19.841}{19.841+5000}$$
+
+        This gets us:
+
+        $$\boxed{V_{ac}=3.953\sin(120\pi t)[\si{\milli\volt}]}$$
+
+        Summing the AC and DC components (the DC value would be from the CVD model), we get:
+
+        $$\boxed{V_D=.7+\left( 3.953\cdot 10^{-3} \right)\sin(120\pi t)[\si{\volt}]}$$
+
+    \end{enumerate}
+
+  \item
+
+  \item
+
+\end{enumerate}
+
+\end{document}
+

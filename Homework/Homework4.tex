@@ -200,15 +200,16 @@
 
         This means that, in the small-signal model, the diode acts as a resistor, which means we have a voltage divider. We can find the AC voltage across the diode using:
 
-        $$V_{ac}=V_s\frac{19.841}{19.841+5000}$$
+        $$V_{ac}=(7-.7+V_s)\frac{19.841}{19.841+5000}$$
+        $$V_{ac}=(.02445+.0039525\sin(120\pi t))$$
 
         This gets us:
 
-        $$\boxed{V_{ac}=3.953\sin(120\pi t)[\si{\milli\volt}]}$$
+        $$\boxed{V_{ac}=.02445+.0039525\sin(120\pi t)[\si{\volt}]}$$
 
         Summing the AC and DC components (the DC value would be from the CVD model), we get:
 
-        $$\boxed{V_D=.7+\left( 3.953\cdot 10^{-3} \right)\sin(120\pi t)[\si{\volt}]}$$
+        $$\boxed{V_D=.72445+\left( 3.953\cdot 10^{-3} \right)\sin(120\pi t)[\si{\volt}]}$$
 
     \end{enumerate}
 

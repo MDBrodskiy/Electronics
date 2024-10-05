@@ -212,9 +212,73 @@
 
     \end{enumerate}
 
-  \item
+  \item We may begin by analyzing the circuit response to various values of $V_s$. Let us begin with the case when $V_s=0$. Here, $D_1$ would form an open circuit, which lets us calculate the current:
 
-  \item
+    $$I=\frac{5-.7}{6k}$$
+    $$I=.7167[\si{\milli\ampere}]$$
+
+    Thus, we can find $V_o$:
+
+    $$V_o=5-5k(I)$$
+    $$\boxed{V_o=1.4167[\si{\volt}]}$$
+
+    Here, let us call the node above the single kilo-ohm resistor and ground as $V_n$. We know that, when $V_s-.7<V_x$, $D_1$ remains off, while $D_2$ is on, so the response remains the same as above (note: $V_x=.7167[\si{\volt}]$ when $D_1$ is off); however, let us test $V_s-.7\geq V_n$. In this case, $D_2$ is on until $V_n<4.3[\si{\volt}]$, or $V_s<5[\si{\volt}]$, at which point we can see:
+
+    $$V_o=V_s$$
+
+    In the case that $V_s\geq 5[\si{\volt}]$, $D_2$ shuts off, and the output is simply $5[\si{\volt}]$. Now that we have the pieces, we may plot the entire transfer function:
+
+    \begin{figure}[H]
+      \centering
+      \includegraphics[width=.9\textwidth]{Figures/HW4-4}
+      \caption{Transfer Characteristics of Given Circuit}
+      \label{fig:10}
+    \end{figure}
+
+  \item We begin by generating the schematic:
+
+    \begin{figure}[H]
+      \centering
+      \includegraphics[width=.9\textwidth]{Figures/HW4-5}
+      \caption{Schematic for DC Sweep}
+      \label{fig:11}
+    \end{figure}
+
+    From here, we can simulate with the range $-15\leq V_{in}\leq 15$:
+
+    \begin{figure}[H]
+      \centering
+      \includegraphics[width=.9\textwidth]{Figures/HW4-5b}
+      \caption{DC Sweep Transfer Characteristics}
+      \label{fig:12}
+    \end{figure}
+
+    With the sweep, we may see that the maximum voltage magnitude is approximately $6[\si{\volt}]$, as expected for the circuit. Furthermore, the knee values occur at, approximately, the voltage value of the zener diode, or $V_{z}=6.8[\si{\volt}]$. We can test the same circuit with an AC input:
+
+    \begin{figure}[H]
+      \centering
+      \includegraphics[width=.9\textwidth]{Figures/HW4-5c}
+      \caption{Schematic for AC Sweep}
+      \label{fig:13}
+    \end{figure}
+
+    Using this circuit, we obtain the results for a wave with magnitude $3[\si{\volt}]$ and $12[\si{\volt}]$:
+
+    \begin{figure}[H]
+      \centering
+      \includegraphics[width=.85\textwidth]{Figures/HW4-5d}
+      \caption{Transfer Characteristics for $3[\si{\volt}]$ Amplitude Input}
+      \label{fig:14}
+    \end{figure}
+
+    \begin{figure}[H]
+      \centering
+      \includegraphics[width=.85\textwidth]{Figures/HW4-5e}
+      \caption{Transfer Characteristics for $12[\si{\volt}]$ Amplitude Input}
+      \label{fig:15}
+    \end{figure}
+
+    We may note that, for the $3[\si{\volt}]$ amplitude, the transfer characteristics are a perfect line, with a slope of 1. This is due to the fact that $\pm3[\si{\volt}]$ is within the permitted voltage range of the diodes; however, the $12[\si{\volt}]$ amplitude exceeds the $\pm6[\si{\volt}]$ input range. This causes the curve to become 'S' shaped, where it tapers off as the magnitudes approach $6[\si{\volt}]$. Furthermore, note that the knee values occur at the same points, indicating that, for diodes, only the magnitude, and not frequency, of the input make a difference.
 
 \end{enumerate}
 

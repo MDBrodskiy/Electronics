@@ -1,0 +1,106 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Written By Michael Brodskiy
+% Class: Fundamentals of Electronics
+% Professor: I. Salama
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\include{Includes.tex}
+
+\title{Pre-Lab 3}
+\date{October 14, 2024}
+\author{Michael Brodskiy\\ \small Professor: M. Onabajo}
+
+\begin{document}
+
+\maketitle
+
+\begin{enumerate}
+
+  \item
+
+    Looking at the provided Figure, and combining with Kirchoff's Voltage Law at the input loop, we may write:
+
+    $$I_b=\frac{V-V_{be}}{R_b}$$
+
+    We know that, when a bit is in the active region, $I_c=\beta I_b$, and $V_{ce}>.2[\si{\volt}]$. We are given that $V_{ce}=3.72[\si{\volt}]$, $V_{be}=.7[\si{\volt}]$, and, based on the figure, $V_{cc}=10[\si{\volt}]$, $R_B=309[\si{\kilo\ohm}]$, and $R_C=1[\si{\kilo\ohm}]$. Thus, we may write:
+
+    $$I_b=\frac{10-.7}{309\cdot10^3}$$
+    $$\boxed{I_b=30.097[\si{\micro\amp}]}$$
+
+    Equivalently, for $I_c$:
+
+    $$I_c=\frac{10-3.72}{1000}$$
+    $$\boxed{I_c=6.28[\si{\milli\amp}]}$$
+
+    We now find $\beta$:
+
+    $$\beta=\frac{I_c}{I_b}$$
+    $$\beta=\frac{6.28}{.030097}$$
+    $$\boxed{\beta=208.667}$$
+
+  \item
+
+    We know that the maximum value of $R_B$ may be found for $V_c=V_b$, when the BJT enters saturation mode. For this, we can say $V_c=3.72[\si{\volt}]$, since the emitter is grounded ($V_e=0$), and $V_{ce}$ is given as $3.72[\si{\volt}]$. Thus, we apply KVL to get:
+
+    $$V-I_bR_B=V_B$$
+    $$R_B=\frac{V-V_B}{I_b}$$
+
+    We can use the current values found in part (a) to get:
+
+    $$R_B=\frac{10-3.72}{30.097\cdot10^{-6}}$$
+    $$R_B=2.0866\cdot10^{5}$$
+    $$\boxed{R_B=208.66[\si{\kilo\ohm}]}$$
+
+    The BJT remains in saturation for $R_B\leq 208.66[\si{\kilo\ohm}]$
+
+  \item
+
+    Let us refer to the added resistor as $R_n$. The addition of this resistor forms a voltage divider such that:
+
+    $$V_b=\frac{10R_n}{R_n+R_b}$$
+
+    Since we know $V_b<.3[\si{\volt}]$, we can solve for the cut-off value as:
+
+    $$\frac{10R_n}{R_n+R_b}=.3$$
+    $$9.7R_n=.3R_b$$
+    $$R_n=.030928R_b$$
+    $$\boxed{R_n=9.5567[\si{\kilo\ohm}]}$$
+
+  \item
+
+    We know that, when the light entering the photoresistor is limited, the resistance is very high. Because of this, we need to stop current from entering the base terminal, which would increase its magnitude, but make it more negative. We can do this by connecting the photoresistor to the PNP base. This will result in positive flow from the emitter, which connects to the LED and turns it on. Thus, we can build the following circuit:
+
+    \begin{figure}[H]
+      \centering
+      \include{Figures/PL3d}
+      \caption{Light-Triggered Circuit Implementing PNP, Photoresistor, and LED}
+      \label{fig:1}
+    \end{figure}
+
+    Note that, with sufficient light to the photoresistor, the resistance decreases, which turns the transistor off, causing the LED to turn off when light is available. Furthermore, note the implementation of a low-value resistor prior to the LED to prevent overloading the diode, and a high resistance value which receives current the diode is in reverse bias. The resistor values given in the diagram are based off of the provided values for photoresistor resistance extrema.
+
+    All we have to do to achieve this is integrate a capacitor, which will need to charge before the LED turns on, or fully discharge after the LED turns off. Thus, we may construct:
+
+    \begin{figure}[H]
+      \centering
+      \include{Figures/PL3d2}
+      \caption{Light-Triggered Circuit Implementing PNP, Photoresistor, and LED with Time-Delay}
+      \label{fig:2}
+    \end{figure}
+
+    We loosely calculate the 1-second delay be finding the time constant as:
+
+    $$\tau=RC$$
+
+    with the resistor value above the LED:
+
+    $$\tau=1000C$$
+    $$C=\frac{1}{1000}$$
+    $$C=1[\si{\milli\farad}]$$
+
+  \item Done \textcolor{green}{\checkmark}
+
+\end{enumerate}
+
+\end{document}
+

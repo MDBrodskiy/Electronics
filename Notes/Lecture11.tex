@@ -1,0 +1,124 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Written By Michael Brodskiy
+% Class: Fundamentals of Electronics
+% Professor: M. Onabajo
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\include{Includes.tex}
+
+\title{Lecture 11}
+\date{\today}
+\author{Michael Brodskiy\\ \small Professor: M. Onabajo}
+
+\begin{document}
+
+\maketitle
+
+\begin{itemize}
+
+  \item npn Bipolar Junction Transistors
+
+    \begin{itemize}
+
+      \item The collector ``collects'' electrons, and causes current to flow through the emitter
+
+    \end{itemize}
+    
+  \item npn Structure without Bias
+
+    \begin{itemize}
+
+      \item At zero bias ($V_{be}=V_{bc}=0$), neither electrons nor holes can overcome this built-in voltage barrier of $\approx.7[\si{\volt}]$ (for Si)
+
+        \begin{itemize}
+
+          \item $I_B=I_C=0$ (cutoff)
+
+        \end{itemize}
+
+    \end{itemize}
+
+  \item npn Structure with Forward-Biased EBJ
+
+    \begin{itemize}
+
+      \item When ($V_{be}=.65[\si{\volt}]$, $V_c>V_b$), electrons and holes can overcome the built-in voltage barrier between the base and emitter
+
+        \begin{itemize}
+
+          \item $I_b>0$ and $I_e>I_b$ (due to $n^+$ emitter doping)
+
+        \end{itemize}
+
+      \item If the base region is very thin, the electrons injected by the emitter are collected by the positive voltage applied at $V_c$
+
+        \begin{itemize}
+
+          \item $I_c\approx I_E >> I_B$ (active region)
+
+        \end{itemize}
+
+      \item If the base region is too thick, many electrons injected at the emitter are lost by recombining with holes in the base before the voltage applied at $V_c$ can collect them
+
+        \begin{itemize}
+
+          \item $I_c<I_E$ (active region with low $\alpha$ and $\beta\to$ low gain)
+
+        \end{itemize}
+
+    \end{itemize}
+
+  \item Achievement of high $\beta$ during Fabrication
+
+    \begin{itemize}
+
+      \item Thin base region
+
+        \begin{itemize}
+
+          \item Increases the collection efficiency for injected electrons
+
+          \item Reduces the chance of electron recombination in the base
+
+        \end{itemize}
+
+      \item Heavily-doped emitter
+
+        \begin{itemize}
+
+          \item $I_E/I_B\propto n (\text{emitter})/ p (\text{base})\propto \beta$
+
+        \end{itemize}
+
+      \item Doping concentrations are difficult to control precisely
+
+        \begin{itemize}
+
+          \item Current gain is not uniform among BJTs (exception: when the BJTs are all fabricated on the same integrated circuit $\to$ small variations)
+
+        \end{itemize}
+
+    \end{itemize}
+
+  \item The Early Effect
+
+    \begin{itemize}
+
+      \item As $V_c$ increases, the depletion width of the B-C junction widens
+
+        \begin{itemize}
+
+          \item Base width becomes more narrow
+
+          \item Increased collection efficiency
+
+          \item Finally, $I_c/I_b$ increases (higher $\beta$)
+
+        \end{itemize}
+
+    \end{itemize}
+
+\end{itemize}
+
+\end{document}
+

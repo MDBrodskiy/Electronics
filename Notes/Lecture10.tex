@@ -1,0 +1,258 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Written By Michael Brodskiy
+% Class: Fundamentals of Electronics
+% Professor: M. Onabajo
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\include{Includes.tex}
+
+\title{Lecture 10}
+\date{\today}
+\author{Michael Brodskiy\\ \small Professor: M. Onabajo}
+
+\begin{document}
+
+\maketitle
+
+\begin{itemize}
+
+  \item Some Important Facts
+
+    \begin{itemize}
+
+      \item Intrinsic (pure) silicon: number of electrons = number of holes
+
+        \begin{itemize}
+
+          \item Equal electron and hold concentrations ($n_i=n_p$)
+
+        \end{itemize}
+
+    \end{itemize}
+
+  \item Band Gap Energy
+
+    \begin{itemize}
+
+      \item Band gap energy is the energy required to break a covalent bond and to free an electron
+
+        \begin{itemize}
+
+          \item $E_g=.66[\si{\eV}]$ germanium
+
+          \item $E_g=1.12[\si{\eV}]$ silicon
+
+          \item $E_g=3.36[\si{\eV}]$ gallium nitride, used in LEDs
+
+        \end{itemize}
+
+      \item Metals have $E_g=0$
+
+        \begin{itemize}
+
+          \item Very large number of free electrons $\to$ high conductance
+
+        \end{itemize}
+
+      \item Insulators have $E_g>5[\si{\eV}]$
+
+        \begin{itemize}
+
+          \item Almost NO free electrons $\to$ zero conductance
+
+        \end{itemize}
+
+    \end{itemize}
+
+  \item Doping
+
+    \begin{itemize}
+
+      \item The intentional addition of impurities to a semiconductor to create more free electrons or more holes
+
+        \begin{itemize}
+
+          \item Creates extrinsic material
+
+        \end{itemize}
+
+      \item $n$-type material
+
+        \begin{itemize}
+
+          \item More electrons than holes ($n>p$)
+
+        \end{itemize}
+
+      \item $p$-type material
+
+        \begin{itemize}
+
+          \item More holes than electrons ($p>n$)
+
+        \end{itemize}
+
+    \end{itemize}
+
+  \item $n$-type Silicon
+
+    \begin{itemize}
+
+      \item Elements in column V of the periodic table have 5 valence electrons
+
+      \item Example: Phosphorus (P) is a popular electron donor
+
+      \item The phosphorus atom has donated an electron to the semiconductor
+
+        \begin{itemize}
+
+          \item Column V atoms are called donors
+
+        \end{itemize}
+
+      \item The phosphorus is missing one of its electrons, so it has a positive charge (+1) $\to$ phosphorus ion (P+)
+
+        \begin{itemize}
+
+          \item P+ is bound to the silicon $\to$ this +1 charge can not move
+
+        \end{itemize}
+
+      \item The extra electron concentration is equal to the concentration of donor atoms ($N_d$)
+
+      \item The overall net charge is zero, requiring that:
+
+        $$n=p+N_d$$
+
+    \end{itemize}
+
+  \item $p$-type Silicon
+
+    \begin{itemize}
+
+      \item Elements in column III of the periodic table have 3 valence electrons
+
+      \item Example: Boron (B) is a popular electron acceptor
+
+        \begin{itemize}
+
+          \item 3 electrons (from the boron) form covalent bonds with the Si
+
+          \item A 4th electron is needed for each boron atom
+
+            \begin{itemize}
+
+              \item This 4th electron creates a hole
+
+            \end{itemize}
+
+        \end{itemize}
+
+      \item The boron atom has accepted an electron from the semiconductor $\to$ column III atoms are called acceptors
+
+      \item The boron atom has one extra electron, so that it has a negative charge (-1) $\to$ boron ion (B-)
+
+    \end{itemize}
+
+  \item Additional info for doped Si
+
+    \begin{itemize}
+
+      \item The mass-action law hold for both $n$ and $p$-type Si
+
+        \begin{itemize}
+
+          \item After doping, the increased electron concentration makes hole recombination more likely (and vice versa)
+
+          \item $pn=p_in_i$
+
+          \item $\sin(p_i)=n_i$ in intrinsic Si: $pn=n_i^2$ (at a specific temperature)
+
+        \end{itemize}
+
+    \end{itemize}
+
+  \item The pn Junction
+
+    \begin{itemize}
+
+      \item At zero bias ($V_D=0$), neither electrons not holes can overcome the built-in voltage barrer of $\approx.7[\si{\volt}]$ (for Si), so $I_D=0$
+
+      \item As the bias ($V_D$) increases toward $.7[\si{\volt}]$, the electrons and holes can overcome the built-in voltage barrier ($I_D>0$)
+
+      \item As the bias ($V_D$) becomes negative, the barrier becomes larger
+
+        \begin{itemize}
+
+          \item Only electrons and holes due to broken bonds in the depletion region contribute to the diode currnt ($I_D=I_s$)
+
+        \end{itemize}
+
+      \item As $V_D$ becomes very negative, the barrier increases even more
+
+        \begin{itemize}
+
+          \item Free electrons and holes (due to broken bonds) in the depletion region are accelerated to high energy ($>E_g$)
+
+            \begin{itemize}
+
+              \item Breaking of other covalent bonds
+
+            \end{itemize}
+
+        \end{itemize}
+
+    \end{itemize}
+
+  \item Junction Capacitance
+
+    \begin{itemize}
+
+      \item Parasitic (unwanted) junction capacitance: $C\approx \varepsilon A/W$), where:
+
+        \begin{itemize}
+
+          \item The depletion layer width ($W$) depends on the bias voltage
+
+          \item $\varepsilon\approx \varepsilon_r\varepsilon_o$ ($=11.9\varepsilon_o$ for Si)
+
+            \begin{itemize}
+
+              \item $\varepsilon_r$ is the relative dielectric constant (permittivity) of a material
+
+              \item Dielectric constant for a vacuum: $\varepsilon_o\approx 8.85\cdot10^{-12}[\si{\farad}/\si{\meter}]$
+
+            \end{itemize}
+
+        \end{itemize}
+
+    \end{itemize}
+
+  \item Depletion Capacitance
+
+    $$C_j=\frac{C_{j0}}{[1-(V_{DQ}/\Phi_o)]^m}$$
+
+    \begin{itemize}
+
+      \item $C_{j0}$ is the incremental depletion capacitance from zero bias
+
+      \item $V_{DQ}$ is the operating point ($Q$-point) voltage (DC bias voltage)
+
+      \item $M$ is the grading coefficient (typically 1/3 to 1/2)
+
+      \item $\Phi_o$ is the built-in barrier potential
+
+      \item $C_j$ models the depletion capacitance with bias dependence
+
+        \begin{itemize}
+
+          \item Note: $C_j$ is a small-signal parameter (most accurate for small AC signal changes around a fixed DC Q-point)
+
+        \end{itemize}
+
+    \end{itemize}
+
+\end{itemize}
+
+\end{document}
+

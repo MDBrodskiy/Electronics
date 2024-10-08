@@ -94,7 +94,7 @@ The physical construction is shown in Figure \ref{fig:2} below:
   \label{fig:2}
 \end{figure}
 
-Then testing this circuit, the \textbf{voltage across the forward-biased diode is measured as $.6[\si{\volt}]$, and $9.99[\si{\volt}]$ for the reverse-biased diode.} We can then measure the value of the resistor to confirm it is within specification (the gold band indicates a $\pm5\%$ tolerance. The \textbf{measured resistance is} $9.938[\si{\kilo\ohm}]$, which is within the tolerance. Finally, we \textbf{measure the voltage readout as} $10.007[\si{\volt}]$, which is close to the expected value of $10[\si{\volt}]$. We may now proceed to calculate the reverse currents ($I_s$) from the taken measurements:
+Then testing this circuit, the \textbf{voltage across the forward-biased diode is measured as $.6[\si{\volt}]$, and $9.99[\si{\volt}]$ for the reverse-biased diode.} We can then measure the value of the resistor to confirm it is within specification (the gold band indicates a $\pm5\%$ tolerance). The \textbf{measured resistance is} $9.938[\si{\kilo\ohm}]$, which is within the tolerance. Finally, we \textbf{measure the voltage readout as} $10.007[\si{\volt}]$, which is close to the expected value of $10[\si{\volt}]$. We may now proceed to calculate the reverse currents ($I_s$) from the taken measurements:
 
   $$I_D=\dfrac{V_s-V_D}{R}\to\left\{\begin{array}{ll} \dfrac{10.007-.6}{9.938k}[\si{\ampere}], &\text{in Forward-Bias}\\\\ \dfrac{10.007-9.99}{9.938k}[\si{\ampere}], &\text{in Reverse-Bias}\end{array}$$
   $$\boxed{I_D=\dfrac{V_s-V_D}{R}\to\left\{\begin{array}{ll}.9466[\si{\milli\ampere}], &\text{in Forward-Bias}\\\\ 1.7106\cdot10^{-6}[\si{\ampere}], &\text{in Reverse-Bias}\end{array}}$$
@@ -199,9 +199,188 @@ We know that the current measurement is inaccurate, as it should be 0. Thus, the
 
   $$\frac{1[\si{\watt}]}{10[\si{\volt}]}=.1[\si{\ampere}]$$
 
-  This is less than the passed $.5[\si{\ampere}]$, which caused the diode to break down. Adding a LED, we found that it began glowing once the current was greater than the $.1[\si{\ampere}]$, indicating that too much voltage is dissipated in the resistor, so the zener diode must go into breakdown to supply the needed current to the LED. Still, it was quite dim, meaning it most likely needs more current than it was receiving (it would need more than $.1[\si{\ampere}]$.
+  This is less than the passed $.5[\si{\ampere}]$, which caused the diode to break down. Adding a LED, we found that it began glowing once the current was greater than the $.1[\si{\ampere}]$, indicating that too much voltage is dissipated in the resistor, so the zener diode must go into breakdown to supply the needed current to the LED. Still, it was quite dim, meaning it most likely needs more current than it was receiving (it would need more than $.1[\si{\ampere}]$).
+
+  \section{Diode Circuit Construction}
+
+  We now proceed to construct the circuit we designed in the Pre-Lab. This circuit is shown below:
+
+  \begin{figure}[H]
+    \centering
+    \include{Figures/L2C1}
+    \caption{Constructed Circuit Schematic}
+    \label{fig:3}
+  \end{figure}
+
+  The physical construction turned out as shown in Figure \ref{fig:4} below:
+
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=.7\textwidth,angle=270]{Figures/L2F3}
+    \caption{Physical Circuit}
+    \label{fig:4}
+  \end{figure}
+
+  When tested, the circuit behaved as expected. The behavior can be viewed below:
+
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=.4\textwidth]{Figures/L2F4}
+    \caption{Scan to View Behavior (\href{http://michael.brodskiy.com/Diodes.mp4}{link})}
+    \label{fig:5}
+  \end{figure}
+
+  The response was constructed according to the following table:
+
+  \begin{center}
+    \begin{tabular}[H]{|c|c|c|c|c|}
+      \hline
+      Voltage Range/Color & $0-2[\si{\volt}]$ & $2-8[\si{\volt}]$ & $8-17[\si{\volt}]$ & $17-24[\si{\volt}]$\\
+      \hline
+      Red LED & off & on & on & on\\
+      \hline
+      Yellow LED & off & off & on & on\\
+      \hline
+      Green LED & off & off & off & on\\
+      \hline
+    \end{tabular}
+  \end{center}
+
+  \subsection{Virtual Simulation}
+
+  \subsubsection{Forward/Reverse Diode Response}
+
+  We begin by simulating with the following circuit:
+
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=.9\textwidth]{Figures/L2F9}
+    \caption{Circuit Schematic}
+    \label{fig:6}
+  \end{figure}
+
+  From here, we may obtain the current and voltage values, respectively, for the forward bias:
+
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=.9\textwidth]{Figures/L2F5}
+    \caption{Forward Bias Current}
+    \label{fig:7}
+  \end{figure}
+
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=.9\textwidth]{Figures/L2F6}
+    \caption{Forward Bias Voltage}
+    \label{fig:8}
+  \end{figure}
+
+  And the reverse bias:
+
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=.9\textwidth]{Figures/L2F7}
+    \caption{Reverse Bias Current}
+    \label{fig:9}
+  \end{figure}
+
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=.9\textwidth]{Figures/L2F8}
+    \caption{Reverse Bias Voltage}
+    \label{fig:10}
+  \end{figure}
+
+  \subsubsection{Finding $I_s$ and $n$}
+
+  Similar to the physical circuit, we may find $I_s$ and $n$ by obtaining diode forward bias response values at a different voltage. We will simulate at $5[\si{\volt}]$ once again, using the schematic shown in Figure \ref{fig:6}:
+
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=.9\textwidth]{Figures/L2F10}
+    \caption{$5[\si{\volt}]$ Input Voltage Response}
+    \label{fig:11}
+  \end{figure}
+
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=.9\textwidth]{Figures/L2F11}
+    \caption{Equivalent Input Current Response}
+    \label{fig:12}
+  \end{figure}
+
+  From Figures \ref{fig:7} and \ref{fig:8}, we take $I_{D1}\approx.93[\si{\milli\amp}]$ and $V_{D1}\approx .66[\si{\volt}]$. Similarly, from Figures \ref{fig:11} and \ref{fig:12}, we get $I_{D2}\approx 435[\si{\micro\ampere}]$ and $V_{D2}\approx .62[\si{\volt}]$. Thus, we set up:
+
+  $$\left( .93\cdot10^{-3} \right)=I_se^{\frac{.66}{.025n}}$$
+  $$\left( .435\cdot10^{-3} \right)=I_se^{\frac{.62}{.025n}}$$
+
+  Solving the system, we find:
+
+  $$\boxed{n=1.2157\quad\text{ and }\quad I_s=3.45\cdot10^{-13}[\si{\ampere}]}$$
+
+  \subsubsection{Zener Diodes}
+
+  We can now plot the reverse breakdown voltage, using available diodes. To model the 4744, we use two 750s in series, and a single 750 for the 4735. This gives us:
+
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=.9\textwidth]{Figures/L2F12}
+    \caption{Circuit 2 Schematic}
+    \label{fig:13}
+  \end{figure}
+
+  Simulating the circuit for the two (``equivalent'') diodes, we get:
+
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=.9\textwidth]{Figures/L2F13}
+    \caption{4735 Response}
+    \label{fig:14}
+  \end{figure}
+
+  We see that the breakdown voltage is, approximately around $5[\si{\volt}]$ (note that for an actual 1N4735, this would be around $6[\si{\volt}]$).
+
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=.9\textwidth]{Figures/L2F14}
+    \caption{4744 Response}
+    \label{fig:15}
+  \end{figure}
+
+  We see that the breakdown voltage is, approximately around $10[\si{\volt}]$ (note that for an actual 1N4744, this would be around $15[\si{\volt}]$).\\
+  
+  With the simulation, we find that there is $.1[\si{\ampere}]$ of current at breakdown, meaning the modeled 1N4735 has a power rating of:
+
+  $$P=(5)(.1)=.5[\si{\watt}]\quad\text{(actual value: $1[\si{\watt}]$)}$$
+
+  Similarly, for the modeled 1N4744, we see that the power rating is:
+
+  $$P=(10)(.1)=1[\si{\watt}]\quad\text{(actual value: $1[\si{\watt}]$)}$$
+
+  \subsubsection{Design Problem}
+  
+  We may now simulate our designed circuit. The circuit looks as follows, but note that, for lack of equivalent diodes in the library, the same substitution as in the section above is used. The schematic below was designed for readability:
+
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=.9\textwidth]{Figures/L2F15}
+    \caption{Design Challenge Circuit Schematic}
+    \label{fig:16}
+  \end{figure}
+
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=.9\textwidth]{Figures/L2F16}
+    \caption{Design Challenge Circuit Response}
+    \label{fig:17}
+  \end{figure}
+
+  Note that the colors correspond to: \textcolor{red}{red} $\to$ voltage across the modeled 1N4744 plus voltage across the Green LED, \textcolor{blue}{blue} $\to$ voltage across the modeled 1N4735 plus voltage across the Yellow LED, \textcolor{magenta}{pink} $\to$ voltage across Red LED, \textcolor{yellow}{yellow} $\to$ voltage across Yellow LED, and \textcolor{green}{green} $\to$ voltage across the Green LED.\\
+
+  Given this, we may see that the Red LED is on at about $.6[\si{\volt}]$ (note, this is because we substitute for a 1N914 diode, which has a forward-drop of $\approx.6[\si{\volt}]$ instead of $2[\si{\volt}]$). We can then see the Yellow LED is fully on around $6.4[\si{\volt}]$ (once again due to modeling difference). The Green LED is fully on around $12[\si{\volt}]$. Given that we used diodes with different breakdown and forward-drop values, the response shown is, more or less, in line with what we expected.
 
 \section{Conclusion}
 
+Overall, throughout the laboratory experiment, we were able to gain extensive experience pertaining to diode response. Furthermore, by employing a variety of diodes, include pn-junctions, LEDs, and zeners, we were able to learn more about different types of diodes.
 
 \end{document}

@@ -68,7 +68,7 @@
               \centering
               \includegraphics[width=.9\textwidth]{Figures/HW4-1b}
               \caption{$H(t)$ (\textcolor{blue}{blue}), $v_{in}$ (\textcolor{green}{green}), and $v_{o}$ (\textcolor{red}{red}) in Time Domain}
-              \label{fig:4}
+              \label{fig:3}
             \end{figure}
 
             Plotting $v_o$ versus $v_{in}$, we find a linear relationship:
@@ -236,13 +236,30 @@
       \label{fig:10}
     \end{figure}
 
+    The time response may also be shown with the following plots:
+
+    \begin{figure}[H]
+      \centering
+      \includegraphics[width=.9\textwidth]{Figures/HW4-42}
+      \caption{Time Response for $V_s<1.4167[\si{\volt}]$ and $V_s>5[\si{\volt}]$}
+      \label{fig:11}
+    \end{figure}
+
+    \begin{figure}[H]
+      \centering
+      \includegraphics[width=.9\textwidth]{Figures/HW4-43}
+      \caption{Output and Source Time Response for $1.4167<V_s<5[\si{\volt}]$}
+      \label{fig:12}
+    \end{figure}
+
+
   \item We begin by generating the schematic:
 
     \begin{figure}[H]
       \centering
       \includegraphics[width=.9\textwidth]{Figures/HW4-5}
       \caption{Schematic for DC Sweep}
-      \label{fig:11}
+      \label{fig:13}
     \end{figure}
 
     From here, we can simulate with the range $-15\leq V_{in}\leq 15$:
@@ -251,7 +268,7 @@
       \centering
       \includegraphics[width=.9\textwidth]{Figures/HW4-5b}
       \caption{DC Sweep Transfer Characteristics}
-      \label{fig:12}
+      \label{fig:14}
     \end{figure}
 
     With the sweep, we may see that the maximum voltage magnitude is approximately $6[\si{\volt}]$, as expected for the circuit. Furthermore, the knee values occur at, approximately, the voltage value of the zener diode, or $V_{z}=6.8[\si{\volt}]$. We can test the same circuit with an AC input:
@@ -260,7 +277,7 @@
       \centering
       \includegraphics[width=.9\textwidth]{Figures/HW4-5c}
       \caption{Schematic for AC Sweep}
-      \label{fig:13}
+      \label{fig:15}
     \end{figure}
 
     Using this circuit, we obtain the results for a wave with magnitude $3[\si{\volt}]$ and $12[\si{\volt}]$:
@@ -269,14 +286,14 @@
       \centering
       \includegraphics[width=.85\textwidth]{Figures/HW4-5d}
       \caption{Transfer Characteristics for $3[\si{\volt}]$ Amplitude Input}
-      \label{fig:14}
+      \label{fig:16}
     \end{figure}
 
     \begin{figure}[H]
       \centering
       \includegraphics[width=.85\textwidth]{Figures/HW4-5e}
       \caption{Transfer Characteristics for $12[\si{\volt}]$ Amplitude Input}
-      \label{fig:15}
+      \label{fig:17}
     \end{figure}
 
     We may note that, for the $3[\si{\volt}]$ amplitude, the transfer characteristics are a perfect line, with a slope of 1. This is due to the fact that $\pm3[\si{\volt}]$ is within the permitted voltage range of the diodes; however, the $12[\si{\volt}]$ amplitude exceeds the $\pm6[\si{\volt}]$ input range. This causes the curve to become 'S' shaped, where it tapers off as the magnitudes approach $6[\si{\volt}]$. Furthermore, note that the knee values occur at the same points, indicating that, for diodes, only the magnitude, and not frequency, of the input make a difference.

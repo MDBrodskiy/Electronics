@@ -118,6 +118,111 @@
 
     \end{itemize}
 
+  \item Summary: Regions of Operation
+
+    \begin{itemize}
+
+      \item CBJ: Collector-Base Junction
+
+      \item EBJ: Emitter-Base Junction
+
+      \item RB: Reverse-Biased
+
+      \item FB: Forward-Biased
+
+        \begin{center}
+          \begin{tabular}[H]{|c|c|c|}
+            \hline
+            \rowcolor{black} \textcolor{white}{EBJ} & \textcolor{white}{CBJ} & \textcolor{white}{Mode}\\
+            \hline
+            \rowcolor{black!5} FB & RB & Active\\
+            \hline
+            \rowcolor{black!30} FB & FB & Saturation\\
+            \hline
+            \rowcolor{black!5} RB & RB & Cutoff\\
+            \hline
+          \end{tabular}
+        \end{center}
+
+      \item When designing amplifers: make sure the BJT is in active mode
+
+    \end{itemize}
+
+  \item npn BJT Model for the Active Region
+
+    \begin{itemize}
+
+      \item Current gain: $\beta=I_C/I_B$ (range: 10-1000, typical: 100-200)
+
+      \item Model usage:
+
+        \begin{itemize}
+
+          \item Assume (gues) a region of operation
+
+          \item Replace the BJT with the appropriate model
+
+          \item Perform standard circuit analysis
+
+          \item Check that the conditions for the region of operation are met (if the conditions are not met: change the accumption and repeat the analysis)
+
+          \item From KVL: $V_{BC}=V_{BE}-V_{CE}$
+
+          \item Assuming $V_{BE}=.7$ (forward-biased)
+
+            \begin{itemize}
+
+              \item $V_{BC}=V_{BE}-V_{CE(min)}=.7-.2=.5[\si{\volt}]<.7[\si{\volt}]$ (ensures that CBJ remains reverse-biased)
+
+              \item $V_{CE\downarrow}\to V_{BC\uparrow} \to$ CBJ becomes forward-biased $\to$ saturation
+
+              \item Note: in some models (other books), $V_{CE}>.3[\si{\volt}]$ is assumed as condition for the active mode of operation
+
+            \end{itemize}
+
+        \end{itemize}
+
+    \end{itemize}
+
+  \item npn BJT Model for the Saturation Region
+
+    \begin{itemize}
+
+      \item Forward Voltage Drop of $.7[\si{\volt}]$ [$V_{BE}$] (note for all models: depends on BJT type, some models use different assumptions, such as $.6[\si{\volt}]$)
+
+    \end{itemize}
+
+  \item npn BJT Model for the Cutoff Region
+
+    \begin{itemize}
+
+      \item BJT forms an open circuit since both diodes are in reverse bias
+
+    \end{itemize}
+
+  \item Key Equations:
+
+    $$I_E=I_C+I_B$$
+
+    \begin{itemize}
+
+      \item When the base-emitter junction is forward-biased:
+
+        $$I_E=I_{ES}[e^{V_{BE}/V_T}-1]$$
+
+      \item Valid only in the active region:
+
+        $$I_C=\alpha I_{E}$$
+        $$I_C=\alpha I_{ES}[e^{V_{BE}/V_T}-1]$$
+        $$I_B=(1-\alpha)I_E$$
+        $$I_C=\beta I_B$$
+        $$I_S=\alpha I_{ES}$$
+        $$\beta=\frac{\alpha}{1-\alpha}\quad\text{ and }\quad \alpha=\frac{\beta}{1+\beta}$$
+
+      \item Typical (with high $\beta$): $\alpha$ is near unity
+
+    \end{itemize}
+
 \end{itemize}
 
 \end{document}

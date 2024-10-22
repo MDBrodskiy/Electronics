@@ -223,11 +223,72 @@
 
       \item 
 
-      \item 
+        From running the simulation, we obtain the following result:
+
+        \begin{figure}[H]
+          \centering
+          \includegraphics[width=.9\textwidth]{Figures/HW5-5a}
+          \caption{Simulation Results for Part (a)}
+          \label{fig:1}
+        \end{figure}
+
+        From this, we may see that $I_B=23.73[\si{\micro\ampere}]$ and $I_C=4.406[\si{\milli\ampere}]$. Thus, we may obtain:
+
+        $$\beta_{Q2}=\frac{4.406}{.02373}$$
+        $$\boxed{\beta_{Q2}=185.67}$$
 
       \item 
 
+        Once again, we simulate to obtain new values:
+
+        \begin{figure}[H]
+          \centering
+          \includegraphics[width=.9\textwidth]{Figures/HW5-5b}
+          \caption{Simulation Results for Part (b)}
+          \label{fig:2}
+        \end{figure}
+
+        Now, we get $I_C=4.608[\si{\milli\ampere}]$ and $I_B=23.04[\si{\micro\ampere}]$, which gives us:
+
+        $$\beta_{QB}=\frac{4.608}{.02304}$$
+        $$\boxed{\beta_{QB}=200}$$
+
+        This is the expected value, since we hard coded $\beta$.
+
       \item 
+
+        We may find the value of BF in the table below:
+
+        \begin{figure}[H]
+          \centering
+          \includegraphics[width=.5\textwidth]{Figures/HW5-5c1}
+          \caption{Model Parameters}
+          \label{fig:3}
+        \end{figure}
+
+        From this, we see that the \underline{expected BF value for the Q2N2222 is 255.9}. Furthermore, we can confirm that BF for the other transistor is 200.
+
+        \begin{figure}[H]
+          \centering
+          \includegraphics[width=.5\textwidth]{Figures/HW5-5c2}
+          \caption{Operating Point Parameters}
+          \label{fig:4}
+        \end{figure}
+
+        Highlighted in the above figure, we see that BETADC is about 186 and BETAAC is about 199.
+
+      \item 
+
+        The following data sheet was obtained online:
+
+        \begin{figure}[H]
+          \centering
+          \includegraphics[width=.9\textwidth]{Figures/HW5-5d}
+          \caption{Q2N2222 Sample Data Sheet}
+          \label{fig:5}
+        \end{figure}
+
+        From the highlighted row, we may see that, for $I_C=1[\si{\milli\ampere}]$ and $V_{CE}=10[\si{\volt}]$, the current gain is between 50 and 300. Given that in our simulation $I_C$ is just over 4 times as big, and $V_{CE}$ is about $13.5[\si{\volt}]$, we can estimate that the value will be on the higher end of this range. As observed, $\beta$ was 185.67, which is within the range specified by the data sheet.
 
     \end{enumerate}
 

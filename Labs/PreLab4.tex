@@ -1,0 +1,166 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Written By Michael Brodskiy
+% Class: Fundamentals of Electronics
+% Professor: I. Salama
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\include{Includes.tex}
+
+\title{Pre-Lab 3}
+\date{October 28, 2024}
+\author{Michael Brodskiy\\ \small Professor: M. Onabajo}
+
+\begin{document}
+
+\maketitle
+
+\begin{enumerate}
+
+  \item We may begin by finding a DC equivalent circuit (capacitors become open circuits):
+
+    \begin{figure}[H]
+      \centering
+      \include{Figures/PL4d1}
+      \caption{DC-Equivalent Circuit}
+      \label{fig:1}
+    \end{figure}
+
+    We then use a Th\'evenin equivalent at the voltage source:
+
+    $$V_{Th}=V^+\left( \frac{10k}{47k+10k} \right)$$
+    $$V_{Th}=1.7544[\si{\volt}]$$
+    $$R_{Th}=\frac{(47)(10)}{47+10}[\si{\kilo\ohm}]$$
+    $$R_{Th}=8.2456[\si{\kilo\ohm}]$$
+
+    This gives us the following circuit:
+
+    \begin{figure}[H]
+      \centering
+      \include{Figures/PL4d2}
+      \caption{Th\'evenin Equivalent Circuit}
+      \label{fig:2}
+    \end{figure}
+
+    From here, we see that $I_B$ flows through $R_{Th}$, $I_C$ flows through $R_C$, and $I_E$ flows through $R_E$. We may begin by writing the KVL for the loop:
+
+    $$-V_{Th}+I_{B}R_{Th}+V_{BE}+I_ER_e=0$$
+
+    Per our equations, we know that $I_E=(1+\beta)I_B$, so we substitute and rearrange to get:
+
+    $$I_B=\frac{V_{Th}-V_{BE}}{R_{Th}+(1+\beta)R_e}$$
+
+    We can then analyze the provided cases:
+
+    \begin{itemize}
+
+      \item $\beta=80$:
+
+        $$I_B=\frac{1.7544-.7}{8.2456\cdot10^3+(1+80)(220)}$$
+        $$\boxed{I_B\Big|_{\beta=80}=40.452[\si{\micro\ampere}]}$$
+
+        $$I_C=80I_B$$
+        $$\boxed{I_C=3.236[\si{\milli\ampere}]}$$
+
+        $$V_C=V^+-I_CR_C$$
+        $$V_C=10-(3.236)(1)$$
+        $$\boxed{V_C=6.764[\si{\volt}]}$$
+
+        $$V_B=V_{Th}-I_BR_{Th}$$
+        $$V_B=1.7544-(40.452\cdot10^{-3})(8.2456)$$
+        $$\boxed{V_B=1.7541[\si{\volt}]}$$
+
+        Given that $V_C>V_B$, the collector-to-base junction is reverse-biased, meaning that the transistor is active. Thus, the Q-point is stable.
+
+      \item $\beta=300$:
+
+        $$I_B=\frac{1.7544-.7}{8.2456\cdot10^3+(1+300)(220)}$$
+        $$\boxed{I_B\Big|_{\beta=300}=14.16[\si{\micro\ampere}]}$$
+
+        $$I_C=300I_B$$
+        $$\boxed{I_C=4.248[\si{\milli\ampere}]}$$
+
+        $$V_C=V^+-I_CR_C$$
+        $$V_C=10-(4.248)(1)$$
+        $$\boxed{V_C=5.752[\si{\volt}]}$$
+
+        $$V_B=V_{Th}-I_BR_{Th}$$
+        $$V_B=1.7544-(14.16\cdot10^{-3})(8.2456)$$
+        $$\boxed{V_B=1.6376[\si{\volt}]}$$
+
+        Given that $V_C>V_B$, the collector-to-base junction is reverse-biased, meaning that the transistor is active. Thus, the Q-point is stable.
+
+    \end{itemize}
+
+    We may see that, since the transistor is active for both $\beta=80$ and $\beta=300$, the Q-point is stable. As such, the operating point is stable for such variation of $\beta$.
+
+  \item Read through, no questions \textcolor{green}{\checkmark}
+
+  \item We know that the amplifier will be of the form:
+
+    \begin{figure}[H]
+      \centering
+      \include{Figures/PL4d3}
+      \caption{Amplifier Design}
+      \label{fig:3}
+    \end{figure}
+
+    We want to use the most extreme values so that the circuit can tolerate these. Furthermore, we know that the gain will be:
+
+    $$A_v=-\frac{R_c}{R_e}$$
+    $$R_c=21R_e$$
+
+    Thus, let us take values such that:
+
+    $$R_c=21[\si{\kilo\ohm}]\quad\text{ and }R_e=1[\si{\kilo\ohm}]$$
+
+    From here, we want to make sure that the BJT remains active, and, therefore:
+
+    $$V_{CE}\leq \frac{V^+}{2}$$
+    $$V_{CE}\leq 6[\si{\volt}]$$
+
+    This gives us the KVL equation as:
+
+    $$V_{CE}=V_{CC}-(R_c+R_e)I_C$$
+    $$I_{C}=\frac{12-6}{(21+1)k}=.27[\si{\milli\ampere}]$$
+
+    To find the correct $R_B$ values for stability, we analyze the Th\'evenin equivalent circuit:
+
+    $$V_{Th}=.7+(.27)(1)=.97[\si{\volt}]$$
+
+    This gives us:
+
+    $$\frac{V_{Th}}{V^+}=\frac{R_2}{R_1+R_2}$$
+
+    We can then ensure stability (using a factor of 1) to write:
+
+    $$1+\beta\left( \frac{R_e}{R_{Th}+R_e} \right)=1+\beta\to (1+\beta)R_e>>R_{Th}$$
+
+    This gives us a very large $\beta$, say $\beta\approx500$. We can use this to write:
+
+    $$R_{Th}=\frac{(1+500)(1k)}{10}=50[\si{\kilo\ohm}]$$
+
+    We can combine the equation above with the voltage equation to write:
+
+    $$R_1=\frac{V^+R_{Th}}{V_{Th}}$$
+    $$R_1=\frac{(12)(50)}{.97}$$
+    $$R_1=618.56[\si{\kilo\ohm}]$$
+
+    And, finally, we get:
+
+    $$R_2=\frac{R_1R_{Th}}{R_1-R_{Th}}$$
+    $$R_2=\frac{(50)(618.56)}{568.56}$$
+    $$R_2=54.397[\si{\kilo\ohm}]$$
+
+    Thus, we get the following circuit:
+
+    \begin{figure}[H]
+      \centering
+      \include{Figures/PL4d4}
+      \caption{Final Circuit Design}
+      \label{fig:4}
+    \end{figure}
+
+\end{enumerate}
+
+\end{document}
+

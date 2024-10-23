@@ -258,7 +258,118 @@ The response can then be seen below:
 
 \subsubsection{BJT Operation}
 
+We may simulate each of the cases analyzed physically. Let us begin with the active region:
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=.5\textwidth]{Figures/L3F3}
+  \caption{Active Region Simulation}
+  \label{fig:7}
+\end{figure}
+
+From this, we may find the $\beta$ value:
+
+$$\beta=\frac{I_C}{I_B}$$
+$$\beta=\frac{4.946}{.03007}$$
+$$\boxed{\beta=164.48}$$
+
+We may observe that this value is lower than the one obtained experimentally; however it is still a bit similar. We now move on to the saturated case:
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=.5\textwidth]{Figures/L3F4}
+  \caption{Saturated Region Simulation}
+  \label{fig:8}
+\end{figure}
+
+From this, we find:
+
+$$\beta=\frac{9.411}{.05906}$$
+$$\boxed{\beta=159.35}$$
+
+We may observe that this value is close to the experimentally obtain value; more importantly, however, it shows that $\beta$ drops in the saturated region. Finally, we simulate the cut-off region:
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=.5\textwidth]{Figures/L3F5}
+  \caption{Cut-Off Region Simulation}
+  \label{fig:9}
+\end{figure}
+
+We may observe that the current flow is practically zero throughout the circuit. Given that there is nearly no current flow through the resistor $R_C$, we may obtain the same value as we obtained experimentally:
+
+$$V_{CE}\approx 10[\si{\volt}]$$
+
+For the touch-sensitive circuit, we may see:
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=.5\textwidth]{Figures/L3F6}
+  \caption{Touch-Sensitive Equivalent Simulation}
+  \label{fig:10}
+\end{figure}
+
+We may observe that the voltage drop across the resistor makes:
+
+$$V_{CE}=10-(9.911)(1)$$
+$$V_{CE}=.089[\si{\volt}]$$
+
+Furthermore, we see that: 
+
+$$V_{BE}= 10-(908.6)(1.882\cdot10^3)$$
+$$V_{BE}= -1.71\cdot10^{6}$$
+
+Therefore, because $V_{BE}<V_{CE}$, we may say that this BJT \underline{is in the active region}.
+
 \subsubsection{Night Light Simulation}
+
+We now move on to simulating the night light. We simulate once for a ``light'' case, and once for a ``dark'' case:
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=.4\textwidth]{Figures/L3F7}
+  \caption{Immediate Response ``Light'' Case}
+  \label{fig:11}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=.4\textwidth]{Figures/L3F8}
+  \caption{Immediate Response ``Dark'' Case}
+  \label{fig:12}
+\end{figure}
+
+We may write the gains as:
+
+$$\beta_{light}=\frac{24.44}{-13.29}$$
+$$\boxed{\beta_{light}=-1.839}$$
+
+$$\beta_{dark}=\frac{1.773}{.01152}$$
+$$\boxed{\beta_{dark}=153.91}$$
+
+We may observe that, as intended, there is current flow through the LED when it is dark, which turns it on, and no (or, rather, limited) current flow when it is light. As we see, the circuit behaves as expected. Adding a parallel capacitor we get:
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=.4\textwidth]{Figures/L3F9}
+  \caption{Time-Delayed Response ``Light'' Case}
+  \label{fig:13}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=.4\textwidth]{Figures/L3F10}
+  \caption{Time-Delayed Response ``Dark'' Case}
+  \label{fig:14}
+\end{figure}
+
+Since we are not running a time-sweep (transient analysis), we see that, because there is only DC input, the capacitor is treated as an open circuit, and the values remain the same. We can observe, however, that, by calculating the time constant, there is a delay for the LED to charge or discharge:
+
+$$\tau=RC$$
+$$\tau=\frac{1}{(1)(5)}$$
+$$\boxed{\tau=.2[\si{\second}]}$$
+
+This is a bit less than intended, since the measured photocell resistance values were less than expected; however, the time-delay still worked.
 
 \section{Conclusion}
 

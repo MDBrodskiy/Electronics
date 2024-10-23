@@ -32,6 +32,7 @@
     * [**Lecture 10**](https://github.com/MDBrodskiy/Electronics/tree/master/Notes/Lecture10.pdf)
     * [**Lecture 11**](https://github.com/MDBrodskiy/Electronics/tree/master/Notes/Lecture11.pdf)
     * [**Lecture 12**](https://github.com/MDBrodskiy/Electronics/tree/master/Notes/Lecture12.pdf)
+    * [**Lecture 13**](https://github.com/MDBrodskiy/Electronics/tree/master/Notes/Lecture13.pdf)
 * [**Homework**](https://github.com/MDBrodskiy/Electronics/tree/master/Homework/)
     * [**Homework 1**](https://github.com/MDBrodskiy/Electronics/tree/master/Homework/Homework1.pdf)
     * [**Homework 2**](https://github.com/MDBrodskiy/Electronics/tree/master/Homework/Homework2.pdf)
@@ -44,6 +45,7 @@
     * [**Pre Lab 2**](https://github.com/MDBrodskiy/Electronics/tree/master/Labs/PreLab2.pdf)
     * [**Lab 2**](https://github.com/MDBrodskiy/Electronics/tree/master/Labs/Lab2.pdf)
     * [**Pre Lab 3**](https://github.com/MDBrodskiy/Electronics/tree/master/Labs/PreLab3.pdf)
+    * [**Lab 3**](https://github.com/MDBrodskiy/Electronics/tree/master/Labs/Lab3.pdf)
     * [**Pre Lab 4**](https://github.com/MDBrodskiy/Electronics/tree/master/Labs/PreLab4.pdf)
 
 <!--

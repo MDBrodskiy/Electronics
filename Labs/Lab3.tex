@@ -181,6 +181,87 @@ $$V_{CE_3}=4.572[\si{\volt}]\quad\text{ (when $R=470[\si{\ohm}]$)}$$
 
 \subsection{BJT Touch-Sensitive Switch}
 
+We may create a touch-activated LED circuit by integrating an LED and replaced $R_B$ with ``touch points'' as show in Figure \ref{fig:2} below:
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=.7\textwidth]{Figures/L3F2}
+  \caption{Touch-Activated Circuit}
+  \label{fig:2}
+\end{figure}
+
+We may thus equate the initial resistance to the resistance of the finger, and call it $R_f$. We now perform all of the necessary BJT calculations:
+
+$$V_{CE}=7.549[\si{\volt}]\quad\text{ and }\quad V_{BE}=.653[\si{\volt}]$$
+$$V_{LED}=1.76[\si{\volt}]\quad\text{ and }\quad V_{R_C}=.49[\si{\volt}]$$
+
+The measured values allow us to obtain:
+
+$$\boxed{I_C=\frac{.49}{1003}=.48853[\si{\milli\ampere}]}$$
+
+We can then write:
+
+$$.653=\frac{R_f}{R_f+1003}$$
+$$.347R_f=653$$
+$$\boxed{R_f=1.882[\si{\mega\ohm}]}$$
+
+From here, we can get:
+
+$$I_B=\frac{.653}{1.882\cdot10^6}$$
+$$\boxed{I_B=.34697[\si{\micro\ampere}]}$$
+
+We may observe that, for the circuit without the BJT, the LED would not light up. This is due to the fact that the BJT provides the amplification, which allows the LED to light up, whereas the circuit without the transistor would have very little current, and, therefore, the LED would not turn on.
+
+\subsection{Automatic Night Light}
+
+In this section, we construct two night light circuits: one with immediate response, and one with a one second time delay. First, we measure the resistance of the photocell:
+
+$$\boxed{R_{light}=5.9[\si{\kilo\ohm}]\quad\text{ and }\quad R_{dark}=51[\si{\kilo\ohm}]}$$
+
+The constructed circuit may be seen below:
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[height=.9\textwidth,angle=270]{Figures/L3C1}
+  \caption{Night Light BJT Circuit}
+  \label{fig:3}
+\end{figure}
+
+The immediate response circuit may be seen below:
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=.4\textwidth]{Figures/L3Q1}
+  \caption{Scan to See Response (or \href{http://Michael.Brodskiy.com/NightLight1.mp4}{click here})}
+  \label{fig:4}
+\end{figure}
+
+The circuit was then reconstructed with a $1[\si{\milli\farad}]$ capacitor in parallel with the photocell to ensure a time-delayed response. The circuit is shown below:
+
+\begin{figure}[H]
+  \centering
+  \include{Figures/L3C2}
+  \caption{Modified Circuit (added Parallel Capacitor)}
+  \label{fig:5}
+\end{figure}
+
+The response can then be seen below:
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=.4\textwidth]{Figures/L3Q2}
+  \caption{Scan to See Response (or \href{http://Michael.Brodskiy.com/NightLight2.mp4}{click here})}
+  \label{fig:6}
+\end{figure}
+
+\subsection{Virtual Simulation}
+
+\subsubsection{BJT Operation}
+
+\subsubsection{Night Light Simulation}
+
 \section{Conclusion}
+
+Throughout this laboratory experiment, we familiarized ourselves with the operations of bipolar junction transistors in their standard regions (active, saturated, and cut-off). We then synthesized our knowledge by constructing a touch-activated and light-sensitive circuit.
 
 \end{document}

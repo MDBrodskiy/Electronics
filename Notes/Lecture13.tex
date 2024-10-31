@@ -78,6 +78,133 @@
 
     \end{itemize}
 
+  \item The Darlington Pair Configuration
+
+    \begin{itemize}
+
+      \item Two transistors, cascaded with the second's base connected to the first's emitter
+
+      \item $\beta_{eff}=\beta_1+\beta_2+\beta_1\beta_2\approx \beta_1\beta_2$
+
+      \item $V_{BEeff}=V_{BE1}+_{BE2}\approx 2V_{BE1}$
+
+      \item For active mode: $V_{CE}>V_{BE2}+V_{CE1(min)}$
+
+    \end{itemize}
+
+  \item Current Sources
+
+    \begin{itemize}
+
+      \item Ideal
+
+        \begin{itemize}
+
+          \item An ideal source will tolerate any voltage ($V_z$) across its terminals
+
+          \item Infinite output resistance
+
+        \end{itemize}
+
+      \item Practical
+
+        \begin{itemize}
+
+          \item A minimum compliance voltage must be maintained to guarantee a certain output current: $V_z>V_{comp}$
+
+          \item Finite output resistance
+
+        \end{itemize}
+
+    \end{itemize}
+
+  \item Current Mirror concept
+
+    \begin{itemize}
+
+      \item Often, a ``golden current source'' is replicated at multiple locations on the chip or printed circuit board (PCB)
+
+      \item Integrated circuit applications
+
+        \begin{itemize}
+
+          \item $I_{REF}$ can be on the chip or outside of the chip
+
+          \item Accurate reference ($I_{REF}$) generation is costly (expensive components or requirement for a lot of chip area)
+
+          \item The use of current mirrors is more efficient than generating multiple reference currents
+
+        \end{itemize}
+
+    \end{itemize}
+
+  \item BJT as a Current Source
+
+    \begin{itemize}
+
+      \item Requirements for a reliable collector current:
+
+        \begin{itemize}
+
+          \item A fixed $V_{BE}$ must be generated
+
+          \item The BJT should operate in the active region ($V_z>V_{CEmin}$)
+
+        \end{itemize}
+
+      \item A Diode-Connected BJT
+
+        \begin{itemize}
+
+          \item Connect a reference current source to the collector, then short the collector to base
+
+          \item This ensures $V_C=V_B$, and forces the BJT to remain in the active region. The emitter generates $Q_{ref}$ (``diode-connected'')
+
+          \item The reference voltage generation:
+
+            $$I_C=I_S\left[ e^{V_{BE}/V_T}-1 \right]\approx I_se^{V_{BE}/V_T}$$
+            $$V_1=V_{BE}\approx V_T\ln\left( \frac{I_C}{I_S} \right)$$
+
+        \end{itemize}
+
+    \end{itemize}
+
+  \item A Simple Current Mirror
+
+    \begin{itemize}
+
+      \item The diode-connected $Q_{ref}$ produces a reference voltage at the base of the diode-connect BJT
+
+      \item Connect another BJT's base to the base of the diode-connected BJT
+
+      \item $V_{em}=0[\si{\volt}]$ and $V_{ba}=V_x$ are identical for both BJTs
+
+        \begin{itemize}
+
+          \item Forces $I_{mirror}$ (the current into the collector of the second BJT) to be equal to the reference current $I_{ref}$ (ignoring base currents) if $Q_1=Q_{ref}$
+
+          \item With different BJT characteristics:
+
+            $$I_{mirror}\approx \frac{A_1}{A_{ref}}I_{ref}=\frac{I_{S1}}{I_{Sref}}I_{ref}$$
+
+        \end{itemize}
+
+    \end{itemize}
+
+  \item Resistor-Transistor Logic (RTL)
+
+    \begin{itemize}
+
+      \item Gives good insights into the concept of using analog transistors for digital signal processing
+
+      \item Logic states: high (``1'') or low (``0'')
+
+      \item RTL logic levels: $V_{CC}$ or $\approx .2-.3[\si{\volt}]$
+
+      \item Not popular anymore
+
+    \end{itemize}
+
 \end{itemize}
 
 \end{document}

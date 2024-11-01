@@ -1,0 +1,216 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Written By Michael Brodskiy
+% Class: Fundamentals of Electronics
+% Professor: M. Onabajo
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\include{Includes.tex}
+
+\title{Homework 7}
+\date{\today}
+\author{Michael Brodskiy\\ \small Professor: M. Onabajo}
+
+\begin{document}
+
+\maketitle
+
+\begin{enumerate}
+
+  \item We may begin by finding the DC equivalent by changing all capacitors to open circuits. This gets us:
+
+    \begin{figure}[H]
+      \centering
+      \include{Figures/HW7-1a}
+      \caption{DC Equivalent Circuit}
+      \label{fig:1}
+    \end{figure}
+
+    We can find a Th\'evenin equivalent for the $R_1$-$R_2$ voltage as:
+
+    $$V_{th}=15\left[ \frac{10k}{10k+10k} \right]$$
+    $$V_{th}=7.5[\si{\volt}]$$
+
+    And then the equivalent resistance:
+
+    $$R_{th}=\frac{10^2}{20}$$
+    $$R_{th}=5[\si{\kilo\ohm}]$$
+
+    This allows us to draw the circuit as:
+
+    \begin{figure}[H]
+      \centering
+      \include{Figures/HW7-1b}
+      \caption{DC Equivalent Simplified}
+      \label{fig:2}
+    \end{figure}
+
+    We use KVL at the base-emitter loop to getL
+
+    $$-V_{th}+I_BR_{th}+V_{BE}+I_{E}R_E=0$$
+
+    Since we know $I_E=(1+\beta)I_B$, we may write:
+
+    $$-V_{th}+I_BR_{th}+V_{BE}+(1+\beta)I_BR_E=0$$
+
+    Rearranging, we get:
+
+    $$I_B=\frac{V_{th}-V_{BE}}{R_{th}+(1+\beta)R_E}$$
+
+    We plug in our known values to get:
+
+    $$I_B=\frac{7.5-.7}{5k+(1+100)1k}$$
+    $$I_B=64.151[\si{\micro\ampere}]$$
+
+    From this, we may find:
+
+    $$I_{CQ}=\beta I_B$$
+    $$I_{CQ}=(100)(64.151\cdot10^{-6})$$
+    $$\boxed{I_{CQ}=6.4151[\si{\milli\ampere}]}$$
+
+    We can find $r_{\pi}$ by using the equation:
+
+    $$r_{\pi}=\frac{\beta}{g_m}$$
+
+    Where $g_m=\dfrac{I_{CQ}}{V_T}$:
+
+    $$r_{\pi}=\frac{\beta V_T}{I_{CQ}}$$
+    $$r_{\pi}=\frac{100(.026)}{.0064151}$$
+    $$\boxed{r_{\pi}=405.29[\si{\ohm}]}$$
+
+    We can then perform a small-signal analysis by finding $r_e$:
+
+    $$r_e=\frac{\beta V_T}{(1+\beta)I_{CQ}}$$
+    $$r_e=4.0128[\si{\ohm}]$$
+
+    Using this, we can use our small-signal analysis model to find the gain. First, we get:
+
+    $$V_o=V_i\left[ \frac{R_ER_L}{(R_E+R_L)r_e+R_ER_L} \right]$$
+
+    Thus, we see that the voltage gain is:
+
+    $$A_v=\left[ \frac{R_ER_L}{(R_E+R_L)r_e+R_ER_L} \right]$$
+
+    We plug in our known values to find:
+
+    $$A_v=\left[ \frac{(1000)(500)}{(1500)(4.0128)+(500000)} \right]$$
+    $$\boxed{A_v=.9881}$$
+
+    Furthermore, we can find the open-loop voltage gain when $R_L\to\infty$:
+
+    $$A_{voc}=\left[ \frac{R_E}{r_e+R_E} \right]$$
+    $$A_{voc}=\left[ \frac{1000}{4.0128+1000} \right]$$
+    $$\boxed{A_{voc}=.996}$$
+
+    Now, we can work to find the input impedance. First and foremost, we know:
+
+    $$i_e=V_i\left[ \frac{R_ER_L}{(R_E+R_L)r_e+R_ER_L} \right]$$
+
+    Using KCL for the input current node, we may observe:
+
+    $$i_i+\frac{\beta}{\beta+1}i_e=V_i\left[ \frac{R_1+R_2}{R_1R_2} \right]+i_e$$
+
+    We can rearrange this to find:
+
+    $$\frac{V_i}{i_i}=\left[ \frac{R_1+R_2}{R_1R_2}+\frac{R_E+R_L}{(1+\beta)[(R_E+R_L)r_e+R_ER_L]} \right]^{-1}$$
+    $$Z_{i}=\left(2.2935\cdot10^{-4}\right)^{-1}$$
+    $$\boxed{Z_{i}=4360.2[\si{\ohm}]}$$
+
+    The current gain may be expressed as the ratio of input ($Z_i$) and output ($R_L$) impedances:
+
+    $$A_i=A_v\frac{Z_i}{R_L}$$
+    $$\boxed{A_i=8.6854}$$
+
+    From here, we know the power gain is:
+
+    $$G=A_iA_v$$
+    $$G=(.996)(8.6854)$$
+    $$\boxed{G=8.6507}$$
+
+    Finally, we can find the output resistant by computing several parallel resistances:
+
+    $$Z_o=R_E||\left[ \frac{R_B||R_S+r_{\pi}}{\beta +1} \right]$$
+
+    We plug in known values:
+
+    $$Z_o=1k||\left[ \frac{833+405.29}{101} \right]$$
+    $$Z_o=1k||12.264$$
+    $$\boxed{Z_o=12.115[\si{\ohm}]}$$
+
+  \item
+
+    We begin by investigating $V_{hum}\to 0$, which shows that the circuit is the same for both figures:
+
+    \begin{figure}[H]
+      \centering
+      \include{Figures/HW7-2a}
+      \caption{Equivalent Circuit is the Same for $V_{hum}\to0$}
+      \label{fig:3}
+    \end{figure}
+
+    From this, we may observe that:
+
+    $$\boxed{A_v\approx -\frac{\beta R_C}{r_{\pi}}}$$
+
+    We can then investigate the case when $V_{hum}\neq 0$ and $V_{in}\to0$. For the first figure, we see:
+
+    \begin{figure}[H]
+      \centering
+      \include{Figures/HW7-2b}
+      \caption{Equivalent Circuit for Figure (a) as $V_{in}\to0$}
+      \label{fig:4}
+    \end{figure}
+
+    We may conclude that the hum gain can be expressed as:
+
+    $$\boxed{A_{(a)}=\frac{\beta R_C}{r_{\pi}}}$$
+
+    Finally, we may draw the equivalent circuit for the second figure to get:
+
+    \begin{figure}[H]
+      \centering
+      \include{Figures/HW7-2c}
+      \caption{Equivalent Circuit for Figure (b) as $V_{in}\to0$}
+      \label{fig:5}
+    \end{figure}
+
+    First, note that $V_{o}=V_{hum}$ since the base current, $I_B=0$, which causes the current-controlled current source to become null as well. As such, we may write that, for the second circuit, there is no gain, as the output is equivalent to the input, and thus:
+
+    $$\boxed{A_{(b)}=1}$$
+
+    We can calculate the gain for the provided values by first finding $r_{\pi}$:
+
+    $$r_{\pi}=\frac{\beta V_T}{I_{CQ}}$$
+
+    We can perform analyses through the loops to write:
+
+    $$I_{BQ}=\frac{V_{CC}-.7}{R_B}\quad\text{ and }\quad I_{CQ}=\beta I_{BQ}$$
+
+    This gives us:
+
+    $$I_{BQ}=\frac{15-.7}{1M}$$
+    $$I_{BQ}=14.3[\si{\micro\ampere}]$$
+
+    Consequently, we find:
+
+    $$I_{CQ}=1.43[\si{\milli\ampere}]$$
+
+    This gives us:
+
+    $$r_{\pi}=\frac{100(.026)}{1.43\cdot10^{-3}}$$
+    $$r_{\pi}=1.818[\si{\kilo\ohm}]$$
+
+    We can then find:
+
+    $$A_{(a)}=\frac{(100)(4700)}{1818}$$
+    $$\boxed{A_{(a)}=258.8}$$
+
+    We know that when $V_{hum}\to 0$, the gain becomes the negative of the above. As such, we find the following values:
+
+    $$\boxed{\left\{\begin{array}{ll} A_{v(a)} &= -258.8\\ A_{hum(a)} &= 258.8\\ A_{v(b)}&= -258.8\\ A_{hum(b)}&= 1\end{array}}$$
+
+  \item
+
+\end{enumerate}
+
+\end{document}
+

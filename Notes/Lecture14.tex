@@ -1,0 +1,116 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Written By Michael Brodskiy
+% Class: Fundamentals of Electronics
+% Professor: M. Onabajo
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\include{Includes.tex}
+
+\title{Lecture 14}
+\date{\today}
+\author{Michael Brodskiy\\ \small Professor: M. Onabajo}
+
+\begin{document}
+
+\maketitle
+
+\begin{itemize}
+
+  \item Metal-Oxide Semiconductor Field-Effect Transistor (MOSFET)
+
+    \begin{itemize}
+
+      \item Extremely high impedance looking into the gate
+
+        \begin{itemize}
+            
+          \item $I_G\approx 0$
+
+        \end{itemize}
+
+      \item Body is often connected to the source or to ground (substrate)
+
+      \item Cutoff Region
+
+        \begin{itemize}
+
+          \item $V_{GS}<V_{to}$
+
+            \begin{itemize}
+
+              \item $V_{to}$ is the threshold voltage (technology-dependent parameter: $.3[\si{\volt}]$ (new) - $2[\si{\volt}]$ (older))
+
+            \end{itemize}
+
+          \item $I_D=0$
+
+        \end{itemize}
+
+      \item Triode Region
+
+        \begin{itemize}
+
+          \item $V_{GS}>V_{to}$ and $V_{DS}<V_{GS}-V_{to}$
+
+          \item Also called ``linear region''
+
+            \begin{itemize}
+
+              \item $I_D\propto V_{GS}$ when $V_{DS}$ is small
+
+              \item Voltage-controlled resistance (between drain and source terminals)
+
+            \end{itemize}
+
+        \end{itemize}
+
+      \item Saturation Region
+
+        \begin{itemize}
+
+          \item $V_{GS}>V_{to}$ and $V_{DS}>V_{GS}-V_{to}$
+
+          \item $I_D=K(V_{GS}-V_{to})^2$ (desired mode for amplifiers)
+
+        \end{itemize}
+
+      \item Drain-Source Current:
+
+        $$I_D=\left( \frac{W}{L} \right)\left( \frac{KP}{2} \right)\left[ 2(V_{GS}-V_{to})V_{DS}-V_{DS}^2 \right]\left[ 1+\lambda V_{DS} \right]$$
+
+        \begin{itemize}
+
+          \item Parameters:
+
+            \begin{itemize}
+
+              \item $L$ is the channel length, $W$ is the channel width
+
+              \item $KP=\mu_nC_{ox}=\mu_n(\varepsilon_{ox}/t_{ox})$
+
+                \begin{itemize}
+
+                  \item $\mu_n$ is the mobility of the electrons in the channel
+
+                  \item $C_{ox}$ is the oxide capacitance per unit area
+
+                \end{itemize}
+
+              \item $K=(W/L)(KP/2)$ has units of amp\'eres per square volt
+
+              \item $\lambda$ is the channel length modulation parameter ($\lambda=0$ in many hand-based calculation estimates)
+
+            \end{itemize}
+
+        \end{itemize}
+
+      \item Boundary between triode and saturation regions:
+
+        $$I=\left( \frac{W}{L} \right)\left( \frac{KP}{2} \right)V_{DS}^2$$
+
+    \end{itemize}
+
+\end{itemize}
+
+\end{document}
+

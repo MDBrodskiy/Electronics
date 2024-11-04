@@ -208,7 +208,97 @@
 
     $$\boxed{\left\{\begin{array}{ll} A_{v(a)} &= -258.8\\ A_{hum(a)} &= 258.8\\ A_{v(b)}&= -258.8\\ A_{hum(b)}&= 1\end{array}}$$
 
-  \item
+  \item We begin by constructing the circuit:
+
+    \begin{figure}[H]
+      \centering
+      \includegraphics[width=.7\textwidth]{Figures/HW7-3Schem}
+      \caption{Circuit Schematic}
+      \label{fig:6}
+    \end{figure}
+
+    \begin{enumerate}
+
+      \item From here, we can run a DC bias point simulation to obtain:
+
+        \begin{figure}[H]
+          \centering
+          \includegraphics[width=.7\textwidth]{Figures/HW7-3a}
+          \caption{Bias Point Simulation Results}
+          \label{fig:7}
+        \end{figure}
+
+        From the above, we may observe that the voltage at the collector may be written as:
+
+        $$V_{CE}=15-(3)(2.699)$$
+        $$V_{CE}=6.903[\si{\volt}]$$
+
+        The base voltage may be observed to be $1.213[\si{\volt}]$. Therefore, because $V_{CE}>V_{BE}$, the BJT is operating in its active mode. Checking the output file, we may find:
+
+        \begin{figure}[H]
+          \centering
+          \includegraphics[width=.5\textwidth]{Figures/HW7-3a2}
+          \caption{Operating Point Information}
+          \label{fig:8}
+        \end{figure}
+
+      \item Running an AC Simulation, we obtain the following:
+
+        \begin{figure}[H]
+          \centering
+          \includegraphics[width=.9\textwidth]{Figures/HW7-3b}
+          \caption{AC Simulation, $1[\si{\hertz}]-100[\si{\mega\hertz}]$, 20 Points per Decade}
+          \label{fig:9}
+        \end{figure}
+
+        Note that critical values are labeled in the figure above.
+
+      \item Running a transient simulation produces the following:
+
+        \begin{figure}[H]
+          \centering
+          \includegraphics[width=.9\textwidth]{Figures/HW7-3c}
+          \caption{Transient Simulation, Sinusoidal Input ($100[\si{\kilo\hertz}]$, $2[\si{\milli\volt}]$), $.1[\si{\micro\second}]$ Step}
+          \label{fig:10}
+        \end{figure}
+
+        Note that, in the above figure, the green sinusoid corresponds to the input and is shown with respect to vertical axis 1 (on the left). The red sinusoid represents the output voltage, and corresponds to the second vertical axis, on the right. Based on the graph, we observe that the \underline{input has a peak amplitude} of $2[\si{\milli\volt}]$, as expected, while \underline{the output has a peak amplitude} of $543[\si{\milli\volt}]$. Thus, we can calculate the gain as:
+
+        $$A_v=\frac{543}{2}$$
+        $$\boxed{A_v=271.5}$$
+
+      \item We now repeat the transient simulation; however, the input voltage now has a peak amplitude of $20[\si{\milli\volt}]$. This produces:
+
+        \begin{figure}[H]
+          \centering
+          \includegraphics[width=.9\textwidth]{Figures/HW7-3d}
+          \caption{Transient Simulation, Sinusoidal Input ($100[\si{\kilo\hertz}]$, $20[\si{\milli\volt}]$), $.1[\si{\micro\second}]$ Step}
+          \label{fig:11}
+        \end{figure}
+
+        We may observe that, indeed, the output voltage becomes distorted. This is because the BJT becomes saturated due to the increase in input amplitude.
+
+      \item Finally, we run both an AC and transient simulation on the circuit with $C_3$ removed. This produces:
+
+        \begin{figure}[H]
+          \centering
+          \includegraphics[width=.9\textwidth]{Figures/HW7-3e1}
+          \caption{AC Simulation, Same Parameters as Above, No $C_3$ Capacitor}
+          \label{fig:12}
+        \end{figure}
+
+        \begin{figure}[H]
+          \centering
+          \includegraphics[width=.9\textwidth]{Figures/HW7-3e2}
+          \caption{Transient Simulation, Same $20[\si{\milli\volt}]$ Parameters as Above, No $C_3$ Capacitor}
+          \label{fig:13}
+        \end{figure}
+
+        Based on the output from above, we may conclude that the gain is (based on a \underline{peak voltage} of $562[\si{\milli\volt}]$):
+
+        $$\boxed{A_v=\frac{562}{20}=28.1}$$
+
+    \end{enumerate}
 
 \end{enumerate}
 

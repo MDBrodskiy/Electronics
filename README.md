@@ -50,6 +50,7 @@
     * [**Pre Lab 3**](https://github.com/MDBrodskiy/Electronics/tree/master/Labs/PreLab3.pdf)
     * [**Lab 3**](https://github.com/MDBrodskiy/Electronics/tree/master/Labs/Lab3.pdf)
     * [**Pre Lab 4**](https://github.com/MDBrodskiy/Electronics/tree/master/Labs/PreLab4.pdf)
+    * [**Pre Lab 5**](https://github.com/MDBrodskiy/Electronics/tree/master/Labs/PreLab5.pdf)
 
 <!--
   * [**Chapter 1**](#Notes/Chapter\ 1)

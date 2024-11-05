@@ -1,0 +1,90 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Written By Michael Brodskiy
+% Class: Fundamentals of Electronics
+% Professor: I. Salama
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\include{Includes.tex}
+
+\title{Pre-Lab 5}
+\date{November 11, 2024}
+\author{Michael Brodskiy\\ \small Professor: M. Onabajo}
+
+\begin{document}
+
+\maketitle
+
+\begin{enumerate}
+
+  \item We may begin by performing a DC analysis of the circuit. As a result, we may see that $I_D$ and $V_{DS}$ need to be calculated. Assuming performance in the saturation region (since this is preferred for amplification), we may write:
+
+    $$I_D=\frac{1}{2}\mu_n\cos\left( \frac{w}{L} \right)\left( V_{GS}-V_{t} \right)^2$$
+
+    We can substitute in known values to obtain:
+
+    $$I_D=\frac{1}{2}\left( .25\cdot10^{-3} \right)\left( 2-1 \right)^2$$
+    $$\boxed{I_D=.125[\si{\milli\ampere}]}$$
+
+    From this, we may write:
+
+    $$-V_{DD}+R_DI_D+V_D=0$$
+    $$V_D=V_{DD}-R_DI_D$$
+
+    We now substitute known values to get:
+
+    $$V_D=(10)-(10k)(.125m)$$
+    $$\boxed{V_D=8.75[\si{\volt}]}$$
+
+    To confirm saturation conditions, we get:
+
+    $$V_{DS}\geq V_{GS}-V_t$$
+
+    $$V_{DS}=V_{DD}-V_{D}$$
+    $$V_{DS}=10-8.75$$
+    $$\boxed{V_{DS}=1.25[\si{\volt}]}$$
+
+    Since $1.25\geq 1$, we may conclude that we are, as a matter of fact, operating in saturation. We may proceed to calculation of a Th\'evenin equivalent:
+
+    $$V_{th}=V_{DD}\left( \frac{R_{G2}}{R_{G1}+R_{G2}} \right)$$
+    $$R_{th}=\left( \frac{R_{G1}R_{G2}}{R_{G1}+R_{G2}} \right)$$
+    $$R_{th}=\left( \frac{R_{G1}R_{G2}}{R_{G1}+R_{G2}} \right)$$
+
+    To find the correct values, we use KVL to write:
+
+    $$-V_{DD}+I_DR_D+V_{DS}+V_{S}=0$$
+
+    This lets us find $V_{S}$:
+
+    $$V_{S}=10-8.75-1.25$$
+    $$V_{S}=0[\si{\volt}]$$
+
+    Since we know the value of $V_{GS}$, we write:
+
+    $$V_{GS}=V_G-V_S$$
+    $$2=V_G-V_S$$
+
+    Thus, we find that $V_G=V_{th}=2[\si{\volt}]$. We may then write:
+
+    $$2=\frac{10R_{G2}}{R_{G1}+R_{G2}}$$
+    $$R_{G1}+R_{G2}=5R_{G2}$$
+    $$R_{G1}=4R_{G2}$$
+
+    We can take any values for which the above statement is true. As such, let us use:
+
+    $$\boxed{R_{G1}=4[\si{\mega\ohm}]\quad\text{ and }R_{G2}=1[\si{\mega\ohm}]}$$
+
+  \item Read through, no questions \textcolor{green}{\checkmark}
+
+  \item We may combine some CD4007s to obtain (Note A, B, and C are the push-button inputs):
+
+    \begin{figure}[H]
+      \centering
+      \include{Figures/PL5c}
+      \caption{CD4007 Combination}
+      \label{fig:1}
+    \end{figure}
+
+\end{enumerate}
+
+\end{document}
+

@@ -110,6 +110,59 @@
 
     \end{itemize}
 
+  \item Small Signal Analysis with MOSFETS
+
+    \begin{itemize}
+
+      \item Hybrid-$\pi$ small-signal model
+
+        \begin{itemize}
+
+          \item Parasitic capacitors are excluded here
+
+            \begin{itemize}
+
+              \item The model is only valid at low and midband frequencies
+
+            \end{itemize}
+
+        \end{itemize}
+
+      \item Parameters depend on the $Q$-point
+
+        $$g_m=\frac{2I_D}{V_{GSQ}-V_{to}}=KP\frac{W}{L}(V_{GSQ}-V_{to})=\sqrt{2KP\frac{W}{L}I_D}$$
+        $$r_{ds}\approx\frac{1}{\lambda I_D}=\frac{|V_A|}{I_D}$$
+
+    \end{itemize}
+
+  \item T-Model has the same structure, but with one addition:
+
+    $$r_{gs}=\frac{1}{g_m}$$
+
+  \item MOSFETs in Triode Region
+
+    \begin{itemize}
+
+      \item Simple Triode-Region Model
+
+        \begin{itemize}
+
+          \item Parasitic capacitors are excluded here
+
+            \begin{itemize}
+
+              \item The model is only valid at low and midband frequencies
+
+            \end{itemize}
+
+            $$r_{on}\approx\frac{1}{KP\frac{W}{L}(V_{GSQ}-V_{TH})}$$
+
+        \end{itemize}
+
+      \item For AC signals with small amplitudes
+
+    \end{itemize}
+
 \end{itemize}
 
 \end{document}

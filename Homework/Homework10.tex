@@ -1,0 +1,72 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Written By Michael Brodskiy
+% Class: Fundamentals of Electronics
+% Professor: M. Onabajo
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\include{Includes.tex}
+
+\title{Homework 10}
+\date{\today}
+\author{Michael Brodskiy\\ \small Professor: M. Onabajo}
+
+\begin{document}
+
+\maketitle
+
+\begin{enumerate}
+
+  \item
+
+  \item First, we know that $I_G=0$ since the input impedance of the MOSFET is high. In this manner, we may write:
+
+    $$I_{DQ}=I_{SQ}$$
+
+    Using KVL, we may obtain:
+
+    $$V_{DD}=V_{GS}+I_{DQ}R_S$$
+    $$V_{GS}=15-3000I_{DQ}$$
+
+    Assuming the MOSFET is operating in the saturated region, we may write:
+
+    $$I_{DQ}=K(V_{GS}-V_{to})^2$$
+    $$I_{DQ}=.25(15-3000I_{DQ}-1)^2$$
+    $$I_{DQ}=.25(14-3000I_{DQ})^2$$
+    $$I_{DQ}=2250I_{DQ}^2-21I_{DQ}+.049$$
+    $$0=2250I_{DQ}^2-22I_{DQ}+.049$$
+
+    Solving the equation, we obtain:
+
+    $$I_{DQ}=4.889\cdot10^{-3}\pm1.4572\cdot10^{-4}$$
+    $$\boxed{I_{DQ}=6.3461,\,3.4317[\si{\milli\ampere}]}$$
+
+    We now check the voltage in both cases. Let us use the first value to find the gate-to-source voltage:
+
+    $$V_{GS1}=15-(3000)(I_{DQ})$$
+    $$V_{GS1}=15-(3)(6.3461)$$
+    $$\boxed{V_{GS1}=-4.0383[\si{\volt}]}$$
+
+    We may observe that, in this case, the transistor is off. Now, we use the second value:
+
+    $$V_{GS2}=15-(3000)(I_{DQ})$$
+    $$V_{GS2}=15-(3)(3.4317)$$
+    $$\boxed{V_{GS2}=4.7049[\si{\volt}]}$$
+
+    We see that the transistor is on only for the second value. Thus, we proceed with the second drain current value. This gives us:
+
+    $$V_{DD}-I_{DQ}(R_D)-V_{DSQ}-I_{DQ}(R_S)+V_{DD}=0$$
+    $$30-I_{DQ}(R_D)-I_{DQ}(R_S)=V_{DSQ}$$
+
+    We can solve using our known values:
+
+    $$V_{DSQ}=30-3.4317(4)$$
+    $$\boxed{V_{DSQ}=16.273[\si{\volt}]}$$
+
+    We may observe that both $V_{GS}>V_{to}$ and $V_{DSQ}\geq V_{GS}-V_{to}$ are true, meaning that our saturation assumption was valid. As such, we have found our values for the given transistor.
+
+  \item
+
+\end{enumerate}
+
+\end{document}
+

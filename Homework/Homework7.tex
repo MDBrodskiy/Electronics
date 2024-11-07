@@ -251,7 +251,9 @@
           \label{fig:9}
         \end{figure}
 
-        Note that critical values are labeled in the figure above.
+        The critical values for this circuit are (roughly):
+
+        $$\left\{\begin{array}{ll}\text{Midband Gain: }&46.9[\text{dB}]\\A_v, &218.896\\\text{Low Corner: }&3.2374[\si{\kilo\hertz}]\\\text{High Corner: }& 10.15[\si{\mega\hertz}]\end{array}$$
 
       \item Running a transient simulation produces the following:
 
@@ -262,10 +264,12 @@
           \label{fig:10}
         \end{figure}
 
-        Note that, in the above figure, the green sinusoid corresponds to the input and is shown with respect to vertical axis 1 (on the left). The red sinusoid represents the output voltage, and corresponds to the second vertical axis, on the right. Based on the graph, we observe that the \underline{input has a peak amplitude} of $2[\si{\milli\volt}]$, as expected, while \underline{the output has a peak amplitude} of $543[\si{\milli\volt}]$. Thus, we can calculate the gain as:
+        We may calculate the gain as follows, using the peak output voltage over the peak input voltage, and inverted as a result of the inverting amplifier:
 
-        $$A_v=\frac{543}{2}$$
-        $$\boxed{A_v=271.5}$$
+        $$A_v=-\frac{437.724}{2}$$
+        $$\boxed{A_v=-218.86}$$
+
+        This is close to the value expected from part (b) above.
 
       \item We now repeat the transient simulation; however, the input voltage now has a peak amplitude of $20[\si{\milli\volt}]$. This produces:
 
@@ -276,7 +280,7 @@
           \label{fig:11}
         \end{figure}
 
-        We may observe that, indeed, the output voltage becomes distorted. This is because the BJT becomes saturated due to the increase in input amplitude.
+        We may observe that, indeed, the output voltage becomes distorted. This is because the $C_3$ capacitor linearizes the amplification, and removing it allows the amplifiers inherent nonlinearities to evince.
 
       \item Finally, we run both an AC and transient simulation on the circuit with $C_3$ removed. This produces:
 
@@ -294,9 +298,9 @@
           \label{fig:13}
         \end{figure}
 
-        Based on the output from above, we may conclude that the gain is (based on a \underline{peak voltage} of $562[\si{\milli\volt}]$):
+        Based on the output from above, we may conclude that the gain is (based on a \underline{peak voltage} of $217.745[\si{\milli\volt}]$):
 
-        $$\boxed{A_v=\frac{562}{20}=28.1}$$
+        $$\boxed{A_v=-\frac{217.745}{20}=10.887}$$
 
     \end{enumerate}
 

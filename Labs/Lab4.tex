@@ -1,0 +1,239 @@
+\documentclass[
+	letterpaper, % Paper size, specify a4paper (A4) or letterpaper (US letter)
+	10pt, % Default font size, specify 10pt, 11pt or 12pt
+]{CSUniSchoolLabReport}
+
+\DeclareSIUnit \siemen {S}
+
+%----------------------------------------------------------------------------------------
+%	REPORT INFORMATION
+%----------------------------------------------------------------------------------------
+
+\title{Lab Three\\ Fundamentals of Electronics \\ EECE2412/3} % Report title
+
+\author{Michael \textsc{Brodskiy}\\ \small \href{mailto:Brodskiy.M@Northeastern.edu}{Brodskiy.M@Northeastern.edu}}
+
+\date{November 12, 2024} % Date of the report
+
+%----------------------------------------------------------------------------------------
+
+
+\begin{document}
+
+\maketitle % Insert the title, author and date using the information specified above
+
+\begin{center}
+	\begin{tabular}{l r}
+        Date Performed: & Oct. 29/Nov. 05, 2024 \\ % Date the experiment was performed
+        Partner: & Rahul \textsc{Singh} \\ % Partner names
+		Instructor: & Professor \textsc{Onabajo} \\ % Instructor/supervisor
+        TAs: & Ming \textsc{Xiang} \& Amr \textsc{Kassab} \\ % Teachers Assistants 
+	\end{tabular}
+\end{center}
+
+\newpage
+
+\begin{abstract}
+
+  The purpose of this laboratory experiment is to familiarize ourselves with bipolar junction transistor (BJT)-based amplifiers and the underlying concepts. This includes sensitivity to clipping, the frequency response of the gain, and the construction of a stable amplifier. This is all synthesized to then design a stable amplifier with high gain.
+
+\end{abstract}
+
+\begin{flushleft}
+
+  \textsc{Keywords:} \underline{BJT}, \underline{amplifier}, \underline{clipping}, \underline{frequency response}, \underline{gain}
+
+\end{flushleft}
+
+\newpage
+
+\tableofcontents
+\listoffigures
+
+\newpage
+
+\section{Equipment}
+
+Available equipment included:\\
+
+\begin{itemize}
+
+  \item 2N3904 Bipolar Junction Transistors
+
+  \item Basic Circuit Components (Wires, Inductors, Capacitors, etc.)
+
+  \item Keysight EDU36311A Dual DC Power Supply
+
+  \item Keysight EDU33212A Function Generator
+
+  \item Keysight DSOX1204G Digital Oscilloscope
+
+  \item BNC Cables
+
+\end{itemize}
+
+\newpage
+
+\section{Experimental Procedure}
+
+We begin by constructing the following Common-Emitter Amplifier circuit:
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=.7\textwidth]{Figures/L4C1}
+  \caption{Common Emitter Amplifier with: $R_B=309[\si{\kilo\ohm}]$, $R_C=1[\si{\kilo\ohm}]$, $C_B=1.5[\si{\micro\farad}]$, $V^+=10[\si{\volt}]$, and $V_{in}=10[\si{\milli\volt}_{0p}]$}
+  \label{fig:1}
+\end{figure}
+
+Physically, this looked like:
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=.9\textwidth]{Figures/L4F1}
+  \caption{Constructed Amplifier (Unstable)}
+  \label{fig:2}
+\end{figure}
+
+\subsection{Confirming Active State}
+
+Based on the parameters described in Figure \ref{fig:1}, we measure: $V_{CE}=2.75[\si{\volt}]$ and $V_{BE}=.715[\si{\volt}]$. Given that $V_{CE}>V_{BE}$, we conclude that the above amplifier is biased in the forward active region.
+
+\subsection{Calculating Transconductance Gain}
+
+We now calculate the collector current as:
+
+$$I_C=\frac{V_{CE}-.7}{1k}$$
+$$I_C=\frac{2.75-.7}{1k}$$
+$$\boxed{I_C=2.05[\si{\milli\ampere}]}$$
+
+Since we know that, at room temperature, $V_T=26[\si{\milli\ampere}]$, we may calculate:
+
+$$g_m=\frac{2.05}{26}$$
+$$\boxed{g_m=78.896[\si{\milli\siemen}]}$$
+
+\subsection{Calculating the DC Gain ($\beta_{DC}$)}
+
+We may experimentally determine the gain by finding:
+
+$$I_B=\frac{.715-.7}{1k}$$
+$$\boxed{I_B=15[\si{\micro\ampere}]}$$
+
+Which gives us:
+
+$$\beta_{DC}=\frac{I_C}{I_B}$$
+$$\beta_{DC}=\frac{2.05}{.015}$$
+$$\boxed{\beta_{DC}=136.67}$$
+
+\subsection{Calculating $r_{\pi}$}
+
+We may use our obtained values from above to find:
+
+$$r_{\pi}=\frac{\beta}{g_m}$$
+$$r_{\pi}=\frac{136.67}{.078846}$$
+$$\boxed{r_{\pi}=1733.4[\si{\ohm}]}$$
+
+\subsection{Calculating the Voltage Gain}
+
+We may obtain the voltage gain using:
+
+$$A_v=-g_mR_C$$
+$$A_v=-(.078846)(1k)$$
+$$\boxed{A_v=-78.846}$$
+
+Note that the measured voltage gain was approximately $-80$, which is in line with the calculated gain.
+
+\subsection{Experimentally Obtaining Voltage Gain}
+
+Measuring the input voltage, we find that, zero-to-peak, it is a nominal $7[\si{\milli\volt}]$, while the output was $560[\si{\milli\volt}]$, and phase shifted by 180$^{\circ}$. This gives us an experimental gain of:
+
+$$A_v=\frac{-560}{7}$$
+$$\boxed{A_v=-80}$$
+
+When $r_b=200[\si{\ohm}]$, the voltage gain meets a slight division, which gives us:
+
+$$A_v=-g_m\left( \frac{r_{\pi}}{r_b+r_{\pi}} \right)$$
+$$A_v=-(.78846)\left( \frac{1733.4}{200+1733.4} \right)$$
+$$\boxed{A_v=-70.69}$$
+
+We may observe that, in such a case, the voltage gain is slightly reduced.
+
+\subsection{Output Clipping}
+
+Experimentally, we observe clipping at $.15[\si{\volt}]$ and $0[\si{\volt}]$. We may explain the minimum because there is no negative voltage swing with the BJT. In the other hand, there is a maximum because the voltage gain times $.15[\si{\volt}]$ is greater than the supply voltage (as experienced with operational amplifiers).
+
+\subsubsection{Gain Sensitivity to Supply Voltage}
+
+Changing the supply voltage to $8[\si{\volt}]$, we see the voltage gain become:
+
+$$A_v=-\frac{4.8}{.053}$$
+$$\boxed{A_v=-90.566}$$
+
+Changing the input to the $12[\si{\volt}]$, we see the gain magnitude increases to:
+
+$$A_v=-\frac{5.6}{.047}$$
+$$\boxed{A_v=-119.15}$$
+
+We may determine that the amplifier is sensitive to changes in the supply voltage because the collector current depends on the collector-to-emitter voltage, and the collector-to-emitter voltage, in turn, depends on the supply voltage. Because the transconductance gain of the amplifier depends on the collector current, a change in the collector-to-emitter voltage results in a change in the gain, which depends on the transconductance gain.
+
+\subsection{Frequency Response of the Gain}
+
+We may observe that the upper corner frequency occurs at, approximately, $f_{crit}=730[\si{\kilo\hertz}]$. On the other hand, the lower corner frequency occurs at, approximately, $f_{crit}=14[\si{\kilo\hertz}]$. According to these values, though not ideal, this amplifier is best suited for an AM Radio. It can operate at a lower frequency by using a different capacitor value, which we observed by increasing the capacitance value.
+
+\subsection{Stabilizing the Amplifier}
+
+After introducing the changes to the amplifier, we see that the voltage gain is:
+
+$$A_v=-4.7$$
+
+and, thus, it is insensitive to changes in $V^+$. As expected, the gain decreased. Calculating the gain, we find that $A_v=-4$, which is just a bit lesser in magnitude than the value above. Introducing refrigerant increased the magnitude of the gain to $A_v=-21$, with the peak-to-peak output voltage going from $8.2\to8[\si{\volt}]$, and the input voltage remaining at $.44[\si{\volt}]$
+
+\subsection{Constructing A Stable Amplifier}
+
+With values derived in the pre-lab, we construct a stable amplifier as follows:
+
+\begin{figure}[H]
+  \centering
+  \include{Figures/L4C2}
+  \caption{Stable BJT Amplifier}
+  \label{fig:3}
+\end{figure}
+
+Physically, the circuit was constructed as shown below:
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=.9\textwidth]{Figures/L4F2}
+  \caption{Constructed Amplifier}
+  \label{fig:4}
+\end{figure}
+
+The output for $V^{+}=8,10,$ and $12[\si{\volt}]$ is shown in Figures \ref{fig:5}-\ref{fig:7}:
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=.9\textwidth]{Figures/L4F3}
+  \caption{Stable Amplifier, $V^{+}=8[\si{\volt}]$}
+  \label{fig:5}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=.9\textwidth]{Figures/L4F4}
+  \caption{Stable Amplifier, $V^{+}=10[\si{\volt}]$}
+  \label{fig:6}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=.9\textwidth]{Figures/L4F5}
+  \caption{Stable Amplifier, $V^{+}=12[\si{\volt}]$}
+  \label{fig:7}
+\end{figure}
+
+We may see that, though at a lower supply voltage there is slight clipping (which is to be expected), the amplifier meets the performance requirements.
+
+\subsection{Virtual Simulation}
+
+\section{Conclusion}
+
+\end{document}

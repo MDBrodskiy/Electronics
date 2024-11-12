@@ -18,6 +18,31 @@
 
   \item
 
+    \begin{enumerate}
+
+      \item Since we see that $V_{GS}<V_{to}$, the transistor is operating in the cutoff region. In the cutoff region, the drain current is $\boxed{I_D=0}$
+
+      \item Since $V_{DS}\leq V_{DS}-V_{to}$ and $V_{GS}\geq V_{to}$, the transistor is operating in the linear (triode) region. This gives us the drain current as:
+
+        $$I_D=\left( \frac{W}{L} \right)\left( \frac{KP}{2} \right)\left[ 2(V_{GS}-V_{to})V_{DS}-V_{DS}^2 \right]\left[ 1+\lambda V_{DS} \right]$$
+        $$I_D=\left( 10 \right)\left( 25\cdot10^{-6} \right)\left[ 2(-1)(5)-(5)^2 \right]\left[ 1+(0)(5) \right]$$
+        $$\boxed{I_D=-8.75[\si{\milli\ampere}]}$$
+
+      \item Since $V_{DS}\geq V_{GS}-V_{to}$ and $V_{GS}\geq V_{to}$, the transistor is operating in the saturation region. The drain current becomes:
+
+        $$I_{D}=KP\left( \frac{W}{L} \right)(V_{G}-V_{S}-V_t)^2$$
+        $$I_{D}=\left( 50\cdot10^{-6} \right)\left( 10 \right)(3-1)^2$$
+        $$\boxed{I_{D}=2[\si{\milli\ampere}]}$$
+
+      \item Since $V_{DS}\geq V_{GS}-V_{to}$ and $V_{GS}\geq V_{to}$, the transistor is operating in the saturation region. The drain current becomes:
+
+        $$I_{D}=KP\left( \frac{W}{L} \right)(V_{G}-V_{S}-V_t)^2$$
+        $$I_{D}=\left( 50\cdot10^{-6} \right)\left( 10 \right)(5-1)^2$$
+        $$\boxed{I_{D}=8[\si{\milli\ampere}]}$$
+
+
+    \end{enumerate}
+
   \item First, we know that $I_G=0$ since the input impedance of the MOSFET is high. In this manner, we may write:
 
     $$I_{DQ}=I_{SQ}$$
@@ -64,7 +89,18 @@
 
     We may observe that both $V_{GS}>V_{to}$ and $V_{DSQ}\geq V_{GS}-V_{to}$ are true, meaning that our saturation assumption was valid. As such, we have found our values for the given transistor.
 
-  \item
+  \item First and foremost, we know that $M_1$ is in saturation since $V_{D1}>(V_{G1}-V_t)$. As such, we may write:
+
+    $$I_{D1}=KP\left( \frac{W}{L} \right)_1\left( V_{G1}-V_{S1}-V_t \right)^2$$
+    $$I_{D1}=30\cdot10^{-6}\left( 40 \right)\left( 5-3-1 \right)^2$$
+    $$\boxed{I_{D1}=1.2[\si{\milli\ampere}]}$$
+
+    From here, since we know $I_{D1}=I_{D2}$, we may write:
+
+    $$I_{D1}=KP\left( \frac{W}{L} \right)_2(V_{G2}-V_{S2}-V_t)^2$$
+    $$1.2\cdot10^{-3}=30\cdot10^{-6}\left( \frac{W}{L} \right)_2(3-0-1)^2$$
+    $$1.2\cdot10^{-3}=120\cdot10^{-6}\left( \frac{W}{L} \right)_2$$
+    $$\boxed{\left( \frac{W}{L} \right)_2=10}$$
 
 \end{enumerate}
 

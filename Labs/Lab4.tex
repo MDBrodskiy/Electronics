@@ -234,6 +234,126 @@ We may see that, though at a lower supply voltage there is slight clipping (whic
 
 \subsection{Virtual Simulation}
 
+\subsubsection{Part 1}
+
+We simulate the following circuit:
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=.8\textwidth]{Figures/L4F6}
+  \caption{Part 1, Initial Circuit Schematic}
+  \label{fig:8}
+\end{figure}
+
+This produces the following responses:
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=.8\textwidth]{Figures/L4F7}
+  \caption{Part 1, DC Response}
+  \label{fig:9}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=.8\textwidth]{Figures/L4F8}
+  \caption{Part 1, AC Response}
+  \label{fig:10}
+\end{figure}
+
+Notice the corner frequencies and bandwidth in the plot above. We can then observe voltage clipping:
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=.8\textwidth]{Figures/L4F9}
+  \caption{Part 1, Clipping at just Above $.15[\si{\volt}_{0p}]$}
+  \label{fig:11}
+\end{figure}
+
+The values agree with those measured and calculated. We now proceed to check the influence of the supply voltage:
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=.8\textwidth]{Figures/L4F10}
+  \caption{Part 1, $8[\si{\volt}]$ Supply Voltage}
+  \label{fig:12}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=.8\textwidth]{Figures/L4F11}
+  \caption{Part 1, $10[\si{\volt}]$ Supply Voltage}
+  \label{fig:13}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=.8\textwidth]{Figures/L4F12}
+  \caption{Part 1, $12[\si{\volt}]$ Supply Voltage}
+  \label{fig:14}
+\end{figure}
+
+We may observe that the supply voltage has a strong affect on the gain; that is, a higher supply voltage generates a greater gain. This is similar to the measurement observed in the physical circuit. Now, let us add a stabilizing resistor to create a circuit whose gain is (more so) independent of the supply voltage. This gives us the following schematic:
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=.8\textwidth]{Figures/L4F13}
+  \caption{Part 1, Stable Schematic}
+  \label{fig:15}
+\end{figure}
+
+The stabilization can be seen by re-running the 8,10, and $12[\si{\volt}]$ supply voltage runs to get:
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=.8\textwidth]{Figures/L4F14}
+  \caption{Part 1, $8[\si{\volt}]$ Supply Voltage (Stable)}
+  \label{fig:16}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=.8\textwidth]{Figures/L4F15}
+  \caption{Part 1, $10[\si{\volt}]$ Supply Voltage (Stable)}
+  \label{fig:17}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=.8\textwidth]{Figures/L4F16}
+  \caption{Part 1, $12[\si{\volt}]$ Supply Voltage (Stable)}
+  \label{fig:18}
+\end{figure}
+
+We can see that, though there is still a correlation, the influence of the supply voltage is drastically reduced. Finally, we may add a gain-boosting capacitor to get:
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=.8\textwidth]{Figures/L4F17}
+  \caption{Part 1, Gain-Boosting Capacitor}
+  \label{fig:19}
+\end{figure}
+
+We may notice that the gain is greater here than the previous plots. We finally may proceed to Part 2, and generate our custom design:
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=.8\textwidth]{Figures/L4F18}
+  \caption{Part 2, Custom Schematic with DC Response}
+  \label{fig:20}
+\end{figure}
+
+This allows us to see the following output response:
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=.8\textwidth]{Figures/L4F19}
+  \caption{Part 2, Output}
+  \label{fig:21}
+\end{figure}
+
 \section{Conclusion}
+
+Throughout this laboratory experiment, we observed the function of a common-emitter. This includes, but is not limited to: how to isolate the gain from supply voltage influence, how to isolate the output from DC offset, and understanding why the gain clips at certain voltages.
 
 \end{document}

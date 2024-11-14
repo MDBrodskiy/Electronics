@@ -1,0 +1,94 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Written By Michael Brodskiy
+% Class: Fundamentals of Electronics
+% Professor: M. Onabajo
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\include{Includes.tex}
+
+\title{Lecture 15}
+\date{\today}
+\author{Michael Brodskiy\\ \small Professor: M. Onabajo}
+
+\begin{document}
+
+\maketitle
+
+\begin{itemize}
+
+  \item Digital Logic Fundamentals
+
+    \begin{itemize}
+
+      \item Analog Circuits
+
+        \begin{itemize}
+
+          \item Process ``real world signals'' like radio waves, sensor outputs, recorded speech, etc.
+
+          \item Signal values can take on a continuous range
+
+        \end{itemize}
+
+      \item Digital Logic Circuits
+
+        \begin{itemize}
+
+          \item Binary Representation of Information
+
+            \begin{itemize}
+
+              \item Logical ``1'' (high, true, on)
+
+              \item Logical ``0'' (low, false, off)
+
+              \item Binary variables can represent real world information (\textit{e}.\textit{g}. open or closed switch, temperature ``or'', etc.)
+
+            \end{itemize}
+
+          \item Grouped variables (words) can represent quantized analog signals
+
+            \begin{itemize}
+
+              \item Example: $AB=0$ when $V_{sig}$ is $0-1[\si{\volt}]$, $AB=01$ when $V_{sig}$ is $1-2[\si{\volt}]$, and so on
+
+              \item Bit: a single digit (``0'' or ``1'')
+
+              \item Byte: a word with 8 bits
+
+            \end{itemize}
+
+        \end{itemize}
+
+    \end{itemize}
+
+  \item Transition Times
+
+    \begin{itemize}
+
+      \item Finite rise/fall times are caused by RC delays
+
+      \item $C_L$ depends on the fan-out
+
+      \item Common timing specifications
+
+        \begin{itemize}
+
+          \item $t_r$ is the rise time (typically $10\%$ to $90\%$ of the difference)
+
+          \item $t_f$ is the fall time (typically $90\%$ to $10\%$ of the difference)
+
+          \item $t_{PLH}$ is the low-high propagation delay (50\% completed)
+
+          \item $t_{PHL}$ is the high-low propagation delay (50\% completed)
+
+          \item $t_{PD}=(t_{PLH}+t_{PHL})/2$ is the average propagation delay
+
+        \end{itemize}
+
+    \end{itemize}
+
+\end{itemize}
+
+\end{document}
+

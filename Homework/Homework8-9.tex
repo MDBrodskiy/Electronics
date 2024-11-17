@@ -1,0 +1,297 @@
+\documentclass[
+	letterpaper, % Paper size, specify a4paper (A4) or letterpaper (US letter)
+	10pt, % Default font size, specify 10pt, 11pt or 12pt
+]{CSUniSchoolLabReport}
+
+\DeclareSIUnit \siemen {S}
+
+%----------------------------------------------------------------------------------------
+%	REPORT INFORMATION
+%----------------------------------------------------------------------------------------
+
+\title{Homework 8/9\\ Fundamentals of Electronics \\ EECE2412/3} % Report title
+
+\author{Michael \textsc{Brodskiy}\\ \small \href{mailto:Brodskiy.M@Northeastern.edu}{Brodskiy.M@Northeastern.edu}}
+
+\date{November 21, 2024} % Date of the report
+
+%----------------------------------------------------------------------------------------
+
+
+\begin{document}
+
+\maketitle % Insert the title, author and date using the information specified above
+
+\begin{center}
+	\begin{tabular}{l r}
+		Instructor: & Professor \textsc{Onabajo} \\ % Instructor/supervisor
+	\end{tabular}
+\end{center}
+
+\newpage
+
+\begin{abstract}
+
+  The purpose of this document is to outline the design process for a common-emitter bipolar junction transistor (BJT) amplifier with specified characteristics. The design process involved creating a viable circuit, calculating expected results, and simulating to confirm expectations.
+
+\end{abstract}
+
+\begin{flushleft}
+
+  \textsc{Keywords:} \underline{common-emitter}, \underline{BJT}, \underline{amplifier} 
+
+\end{flushleft}
+
+\newpage
+
+\tableofcontents
+\listoffigures
+
+\newpage
+
+\section{Introduction}
+
+Common-emitter amplifiers are some of the most ubiquitous components of radio-frequency (RF) circuitry. These components, which rely on bipolar junction transistors (BJTs) involve the amplification of a source signal, passed through the base of the BJT. The base is connected to the collector branch via a resistor. To improve stability of such circuits, capacitors are added after the input and before the output, which allows for better direct-current (DC) filtration. Such amplification is crucial in audio-based circuits, like speakers, and radios, specifically antennas.
+
+\section{Circuit Design}
+
+We may begin with our provided model:
+
+\begin{figure}[H]
+  \centering
+  \include{Figures/HW89-1}
+  \caption{Standard Common-Emitter Amplifier}
+  \label{fig:1}
+\end{figure}
+
+This, in tandem with the provided circuit example, will be the basis for our design.
+
+\subsection{Given Parameters}
+
+We are given the following parameters as a requirement for our amplifier:
+
+$$\boxed{\left\{\begin{array}{ll}\text{Assume: }&T=300[\si{\kelvin}]\\|A_{VS}|=\frac{V_o}{V_{in}}&\geq 80\\I_C&\leq 8[\si{\milli\ampere}]\\V_{CC}&= 12[\si{\volt}]\\R_S&= 500[\si{\ohm}]\\R_L&= 15[\si{\kilo\ohm}]\\R_i&\approx R_S\\V_{FB}&=.7[\si{\volt}]\\\beta&=200\end{array}}$$
+
+  Finally, we want to ensure that there is a $7[\si{\volt}]$ peak-to-peak output signal swing without distortion. We begin by performing a DC analysis of the given circuit.
+
+\subsection{DC Analysis}
+
+The DC equivalent circuit may be constructing by taking all capacitors as open circuits. This gives us an equivalent circuit of:
+
+\begin{figure}[H]
+  \centering
+  \include{Figures/HW89-2}
+  \caption{DC Equivalent Circuit}
+  \label{fig:2}
+\end{figure}
+
+From this, we may use Kirchoff's voltage laws to write:
+
+$$\boxed{12-(I_B+I_C)R_C-R_BI_B-V_{BE}=0}$$
+
+We know $\beta$, which allows us to say:
+
+$$200=\frac{I_C}{I_B}$$
+$$I_C=200I_B$$
+
+Substituting this into the above, we get:
+
+$$12-I_B(201R_C+R_B)-.7=0$$
+
+\subsubsection{Worst-Case Assumption}
+
+Since $I_C\leq 8[\si{\milli\ampere}]$, we know that:
+
+$$I_B\leq \frac{I_C}{200}$$
+$$I_B\leq 40[\si{\micro\ampere}]$$
+
+\subsubsection{Finding Applicable $R_B$ and $R_C$ Values}
+
+Assuming worst-case (\textit{i}.\textit{e}. highest) values of the currents, we get $I_C=8[\si{\milli\ampere}]$ and $I_B=40[\si{\micro\ampere}]$. Plugging this in, we get:
+
+$$11.3=(40\cdot10^{-6})(201R_C+R_B)$$
+$$282500=201R_C+R_B$$
+$$\boxed{R_C=\frac{282500-R_B}{201}}$$
+
+We need $R_B$ to be positive, which means $201R_C<282500$. Let us take $R_C$ as an arbitrary $\boxed{R_C=.9[\si{\kilo\ohm}]}$, which gives us:
+
+$$\boxed{R_B=101.6[\si{\kilo\ohm}]}$$
+
+\subsection{Small-Signal Analysis}
+
+We may redraw the circuit using the Hybrid-$\pi$ Model to obtain the small-signal equivalent:
+
+\begin{figure}[H]
+  \centering
+  \include{Figures/HW89-3}
+  \caption{Small-Signal Equivalent Circuit}
+  \label{fig:3}
+\end{figure}
+
+First and foremost, we must note that $R_L'$ may be expressed as $R_C||R_L$. We can begin by finding:
+
+$$g_m=\frac{I_{C}^{max}}{2V_T}$$
+
+We take our quiescent collector current from the DC analysis to get:
+
+$$g_m=\frac{8}{2(26)}$$
+$$\boxed{g_m=.1538}$$
+
+We then calculate $R_{\pi}$ to get:
+
+$$R_{\pi}=\frac{\beta}{g_m}$$
+$$R_{\pi}=\frac{200}{.1538}$$
+$$\boxed{R_{\pi}=1.3[\si{\kilo\ohm}]}$$
+
+\subsubsection{Input Impedance Calculation}
+
+Let us stop to verify that the input impedance is roughly equal to $R_s$. From our equivalent circuit, we may obtain:
+
+$$R_i=\frac{(R_B+R_L')R_{\pi}}{R_{\pi}+R_B+(\beta+1)R_L'}$$
+
+Let us get $R_L'$ first:
+
+$$R_L'=\frac{R_CR_L}{R_C+R_L}$$
+$$\boxed{R_L'=849.06[\si{\ohm}]}$$
+
+We return to find the input impedance:
+
+$$R_i=\frac{(101600+849.06)(1.3k)}{1.3k+101600+849.06(201)}$$
+$$\boxed{R_i=486.85[\si{\ohm}]}$$
+
+We see that, as intended, this is within 3\% of the given value of $R_S$, and, thus, we may say that $R_i\approx R_S$. 
+
+\subsubsection{Gain Calculation}
+
+From our equivalent circuit, we may conclude that the gain is:
+
+$$|A_v|=\frac{R_L'(R_{\pi}-\beta R_B)}{R_{\pi}(R_L'+R_B)}$$
+
+We substitute our values to get:
+
+$$A_v=\frac{849.06(1300-(200)(101600))}{1300(849.06+101600)}$$
+$$\boxed{A_v=-129.53}$$
+
+This meets the minimal gain requirement of $|A_v|\geq 80$. As such, our equivalent circuit becomes:
+
+\begin{figure}[H]
+  \centering
+  \include{Figures/HW89-4}
+  \caption{Small-Signal Equivalent with Values}
+  \label{fig:4}
+\end{figure}
+
+This gives us our final circuit as:
+
+\begin{figure}[H]
+  \centering
+  \include{Figures/HW89-5}
+  \caption{Final Common-Emitter Amplifier}
+  \label{fig:5}
+\end{figure}
+
+\subsubsection{Output Impedance Calculation}
+
+The final step is to calculate the expected output resistance. Based on the equivalent circuit in Figure \ref{fig:4}, we get:
+
+$$R_o=R_C||\left( \frac{R_BR_S+R_BR_{\pi}+R_SR_{\pi}}{(\beta+1)R_S+R_{\pi}} \right)$$
+
+We plug in known values to get:
+
+$$\left( \frac{R_BR_S+R_BR_{\pi}+R_SR_{\pi}}{(\beta+1)R_S+R_{\pi}} \right)=\frac{(101600)(500)+(101600)(1300)+(500)(1300)}{(201)(500)+1300}$$
+$$\left( \frac{R_BR_S+R_BR_{\pi}+R_SR_{\pi}}{(\beta+1)R_S+R_{\pi}} \right)=1802.8[\si{\ohm}]$$
+
+Then, we calculate $R_C||1802.8$:
+
+$$R_o=\frac{(1802.8)(900)}{900+1802.8}$$
+$$\boxed{R_o=600.32[\si{\ohm}]}$$
+
+\section{Simulation}
+
+\subsection{Bias Point Performance}
+
+Simulating in PSPICE, we obtain the following Bias Point Performance:
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=.9\textwidth]{Figures/HW89-PartD}
+  \caption{Bias Point Performance}
+  \label{fig:6}
+\end{figure}
+
+We may observe, that, as calculated, the collector current, $I_C=7.198[\si{\milli\ampere}]\leq 8[\si{\milli\ampere}]$.
+
+\subsection{AC Sweep}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=.9\textwidth]{Figures/HW89-PartE}
+  \caption{AC Sweep Gain Plot, Gain ($A_{vs}$) at 130}
+  \label{fig:7}
+\end{figure}
+
+We may observe that the gain is right at the expected value, or approximately at a magnitude of 130 at midband values.
+
+\subsection{Input Resistance Sweep}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=.9\textwidth]{Figures/HW89-PartF}
+  \caption{AC Sweep Input Impedance Plot, Approximately $Z_i=.44[\si{\kilo\ohm}]$}
+  \label{fig:8}
+\end{figure}
+
+The resulting input impedance is very close to the calculated one. We may observe that the calculated impedance was $.486[\si{\kilo\ohm}]$, while the simulated one is a bit less. These values are still quite similar, and, as such, close enough to the expected one at midband values.
+
+\subsection{Output Resistance Sweep}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=.9\textwidth]{Figures/HW89-PartG}
+  \caption{AC Sweep Output Impedance Plot, Approximately $Z_o=.53[\si{\kilo\ohm}]$}
+  \label{fig:9}
+\end{figure}
+
+Once again, we see that the simulated value is a bit less than the calculated value. The calculated output impedance is $.6[\si{\kilo\ohm}]$, while the one observed above is $.53[\si{\kilo\ohm}]$ at midband values.
+
+\subsection{Transient Sweep}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=.9\textwidth]{Figures/HW89-PartH}
+  \caption{Transient Sweep, Peak-to-Peak Output: $V_o=6.2[\si{\volt}]$}
+  \label{fig:10}
+\end{figure}
+
+We may calculate the voltage gain as:
+
+$$\boxed{A_{vs}=\frac{6.2}{.04}=155}$$
+
+We see that the transient simulation has a slightly higher gain than the AC sweep and the calculated one. Again, the values are close enough that nothing is too out of the ordinary.
+
+\section{Conclusion}
+
+We may observe the following obtained values:
+
+\begin{center}
+  \begin{tabular}[H]{|c|c|c|c|c|}
+    \hline
+    Value & Specified & Calculated & Simulated & Requirement Met?\\
+    \hline
+    Gain ($A_{vs}$) & $\geq 80$ & $129.53$ & $130/155$ & \textcolor{green}{\checkmark}\\
+    \hline
+    Input $Z_i$ & $\approx500[\si{\ohm}]$ & $486.85[\si{\ohm}]$ & $440[\si{\ohm}]$ & \textcolor{green}{\checkmark}\\
+    \hline
+    Collector Current ($I_C$) & $\leq 8[\si{\milli\ampere}]$ & $\leq8[\si{\milli\ampere}]$ & $7.198[\si{\milli\ampere}]$ & \textcolor{green}{\checkmark}\\
+    \hline
+  \end{tabular}
+\end{center}
+
+As such, we see that we were able to successfully meet and even exceed the given requirements.
+
+\section{References}
+
+\textit{Allan R. Hambley, Electronics, 2nd edition, Prentice Hall, 1999}
+1999
+
+\end{document}

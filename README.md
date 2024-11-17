@@ -43,6 +43,7 @@
     * [**Homework 5**](https://github.com/MDBrodskiy/Electronics/tree/master/Homework/Homework5.pdf)
     * [**Homework 6**](https://github.com/MDBrodskiy/Electronics/tree/master/Homework/Homework6.pdf)
     * [**Homework 7**](https://github.com/MDBrodskiy/Electronics/tree/master/Homework/Homework7.pdf)
+    * [**Homework 8/9**](https://github.com/MDBrodskiy/Electronics/tree/master/Homework/Homework8-9.pdf)
     * [**Homework 10**](https://github.com/MDBrodskiy/Electronics/tree/master/Homework/Homework10.pdf)
     * [**Homework 11**](https://github.com/MDBrodskiy/Electronics/tree/master/Homework/Homework11.pdf)
 * [**Labs**](https://github.com/MDBrodskiy/Electronics/tree/master/Labs/)

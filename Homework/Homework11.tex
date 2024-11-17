@@ -174,11 +174,49 @@
         $$r_{ds}=\frac{100}{10^{-3}}$$
         $$\boxed{r_{ds}=100[\si{\kilo\ohm}]}$$
 
-      \item 
+      \item We may draw the small-signal equivalent circuit as:
+
+        \begin{figure}[H]
+          \centering
+          \include{Figures/HW11-3b}
+          \caption{Small Signal Equivalent}
+          \label{fig:2}
+        \end{figure}
+
+        From the circuit, we may conclude:
+
+        $$V_o=-g_mV_{gs}(r_{ds}||R_D||R_L)$$
+
+        Because no current flows through the gate, there is zero voltage drop, and we may conclude:
+
+        $$V_{gs}=V_i$$
+
+        Which gives us:
+
+        $$A_{vi}=\frac{V_o}{V_i}$$
+        $$A_{vi}=\frac{-g_mV_{gs}(r_{ds}||R_D||R_L)}{V_{gs}}$$
+        $$A_{vi}=-g_m(r_{ds}||R_D||R_L)$$
+
+        We substitute in known values to get:
+
+        $$A_{vi}=-.002(4.1096\cdot10^3)$$
+        $$\boxed{A_{vi}=-8.2192}$$
+
+        Since there is zero voltage drop through the gate, both of the gains are the same, and we can conclude:
+
+        $$\boxed{A_{vs}=-8.2192}$$
 
       \item For the common source state, we know that $\boxed{Z_{in}\to\infty}$
 
-      \item 
+      \item We short circuit the independent source and find the Th\'evenin equivalent to get:
+
+        $$Z_o=\frac{V_x}{I_x}$$
+        $$Z_o=R_{out}$$
+        $$\boxed{Z_o=(r_{ds}||R_D||R_L)}$$
+
+        Calculating from our known values, we get:
+
+        $$\boxed{Z_o=4.1096[\si{\kilo\ohm}]}$$
 
     \end{enumerate}
 
@@ -186,13 +224,52 @@
 
     \begin{enumerate}
 
-      \item 
+      \item We simulate the Bias Point to get:
+
+        \begin{figure}[H]
+          \centering
+          \includegraphics[width=.8\textwidth]{Figures/HW11-4a}
+          \caption{DC Operation}
+          \label{fig:3}
+        \end{figure}
+
+      \item Checking the operating point information, we get:
+
+        \begin{figure}[H]
+          \centering
+          \includegraphics[width=.6\textwidth]{Figures/HW11-4b}
+          \caption{DC Operating Point Information}
+          \label{fig:4}
+        \end{figure}
+
+        We can calculate the $r_{ds}$ value from this information using the GDS value to get:
+
+        $$r_{ds}=\frac{1}{9.63\cdot10^{-6}}$$
+        $$\boxed{r_{ds}=103.84[\si{\kilo\ohm}]}$$
+
+        We may see that this is within 5\% of the value obtained in (3).
 
       \item 
 
-      \item 
+        \begin{figure}[H]
+          \centering
+          \includegraphics[width=.8\textwidth]{Figures/HW11-4c}
+          \caption{Gain Plot}
+          \label{fig:5}
+        \end{figure}
 
-      \item 
+        As expected, the gain is near the calculated result of $A_v=-8.2$
+
+      \item Based on the transient simulation, we see:
+
+        \begin{figure}[H]
+          \centering
+          \includegraphics[width=.8\textwidth]{Figures/HW11-4d}
+          \caption{Transient Simulation}
+          \label{fig:6}
+        \end{figure}
+
+        This agrees with our gain result.
 
     \end{enumerate}
 

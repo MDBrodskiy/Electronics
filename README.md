@@ -57,6 +57,9 @@
     * [**Lab 4**](https://github.com/MDBrodskiy/Electronics/tree/master/Labs/Lab4.pdf)
     * [**Pre Lab 5**](https://github.com/MDBrodskiy/Electronics/tree/master/Labs/PreLab5.pdf)
     * [**Lab 5**](https://github.com/MDBrodskiy/Electronics/tree/master/Labs/Lab5.pdf)
+* [**Exams**](https://github.com/MDBrodskiy/Electronics/tree/master/Exams/)
+    * [**Equation Sheet 1**](https://github.com/MDBrodskiy/Electronics/tree/master/Exams/Exam1EquationSheet.pdf)
+    * [**Equation Sheet 2**](https://github.com/MDBrodskiy/Electronics/tree/master/Exams/Exam2EquationSheet.pdf)
 
 <!--
   * [**Chapter 1**](#Notes/Chapter\ 1)

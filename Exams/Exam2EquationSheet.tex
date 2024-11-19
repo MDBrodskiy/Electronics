@@ -298,25 +298,134 @@ $$\boxed{\text{Energy Conservation: }P_i+P_s=P_o+P_d\longrightarrow \left\{\begi
 
   \end{multicols}
 
-  \newpage
+  \begin{center}
+    $$\boxed{\text{\underline{Small-Signal Equivalent} }(|V_{BE}|<10[\si{\milli\volt}]<<V_T)}$$
+  \end{center}
+
+  \vspace{-25pt}
+
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=.6\textwidth]{Figures/SmallSignal}
+    \caption{Small Signal Equivalent for $npn$/$pnp$'s}
+    \label{fig:7}
+  \end{figure}
 
   \begin{multicols}{2}
 
     \begin{figure}[H]
       \centering
-      \includegraphics[width=.44\textwidth]{Figures/Four-Resista}
-      \caption{Initial Circuit}
-      \label{fig:7}
+      \includegraphics[height=.2\textheight]{Figures/HybridPi}
+      \caption{Hybrid $\pi$ Model}
+      \label{fig:8}
     \end{figure}
 
     \begin{figure}[H]
       \centering
-      \includegraphics[width=.44\textwidth]{Figures/Four-Resistb}
-      \caption{Th\'evenin Equivalent}
-      \label{fig:8}
+      \includegraphics[height=.2\textheight]{Figures/TModel}
+      \caption{T-Model}
+      \label{fig:9}
     \end{figure}
 
   \end{multicols}
 
-\end{document}
+  \begin{multicols}{2}
 
+    \begin{center}
+      \underline{Small-Signal Formulas}
+    \end{center}
+    $$g_m=\frac{I_{CQ}}{V_T}=\frac{\alpha}{r_e}$$
+    $$r_{\pi}=\frac{V_T}{I_{BQ}}=\frac{\beta}{g_m}$$
+    $$r_{ce}=\frac{V_{early}}{I_{CQ}}$$
+    $$r_{e}=\frac{V_T}{I_{EQ}}=\frac{V_T}{(1+\beta)I_{BQ}}=\frac{r_{\pi}}{1+\beta}$$
+    When $r_{ce}$ not specified or $r_{ce}>>R_L$ and $r_e$, then it can be removed
+
+  \end{multicols}
+
+  \begin{multicols}{2}
+
+    \begin{itemize}
+
+      \item MOSFET Regions
+
+        \begin{enumerate}
+
+          \item Cutoff ($V_{GS}<V_{to}$)
+
+          \item Triode ($V_{GS}>V_{to}, V_{DS}<V_{GS}-V_{to}$)
+
+          \item Saturation ($V_{GS}>V_{to}, V_{DS}>V_{GS}-V_{to}$)
+
+        \end{enumerate}
+
+      \item Drain Currents
+
+        \begin{itemize}
+
+          \item Cutoff — $I_D=0$
+
+          \item Triode — $\left( \frac{W}{L} \right)\left( \frac{KP}{2} \right)[2(V_{GS}-V_{to})V_{DS}- V_{DS}^2](1+\lambda V_{DS})$
+            
+          \item Saturation — $\left( \frac{W}{L} \right)\left( \frac{KP}{2} \right)(V_{GS}-V_{to})^2(1+\lambda V_{DS})$
+
+          \item TS Boundary — $\left( \frac{W}{L} \right)\left( \frac{KP}{2} \right)V_{DS}^2$
+
+        \end{itemize}
+
+      \item For PMOS case, $V_{SG}=-V_{GS}$ and $V_{SD}=-V_{DS}$, $V_{to}<0\to |V_{to}|$ in formulas, and reversed reference direction
+
+    \end{itemize}
+
+  \end{multicols}
+
+  \begin{center}
+
+    \underline{MOSFET Small Signal Model}
+
+  \end{center}
+
+  \begin{multicols}{2}
+
+  \begin{figure}[H]
+    \centering
+    \includegraphics[height=.23\textheight]{Figures/SmallMOS}
+    \caption{P (top) and N (bot) in Sat}
+    \label{fig:10}
+  \end{figure}
+
+  \begin{figure}[H]
+    \centering
+    \includegraphics[height=.23\textheight]{Figures/MOSTModel}
+    \caption{T-Model for MOSFETs}
+    \label{fig:11}
+  \end{figure}
+ 
+  \end{multicols}
+
+  \vspace{-40pt}
+
+  \begin{center}
+    $$\boxed{\text{MOSFET Saturation Formulas:}}$$
+  \end{center}
+
+  \begin{multicols}{2}
+
+  $$r_{gs}=\frac{1}{g_m}$$
+  $$r_{ds}=\frac{1}{\lambda I_D}=\frac{|V_A|}{I_D}$$
+  \end{multicols}
+
+  $$g_m=\frac{2I_D}{V_{GSQ}-V_{to}}=KP\frac{W}{L}(V_{GSQ}-V_{to})=\sqrt{2KP\frac{W}{L}I_D}$$
+
+  \begin{multicols}{2}
+
+  \begin{center}
+    $$\boxed{\text{MOSFET Triode Formulas:}}$$
+  \end{center}
+
+    Simply becomes a resistor with value $r_{on}$.
+
+    $$r_{on}=\left[KP\frac{W}{L}(V_{GSQ}-V_{to})\right]^{-1}$$
+
+  \end{multicols}
+
+\end{document}

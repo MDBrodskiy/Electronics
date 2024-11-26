@@ -202,21 +202,27 @@
         $$A_{vi}=-.002(4.1096\cdot10^3)$$
         $$\boxed{A_{vi}=-8.2192}$$
 
-        Since there is zero voltage drop through the gate, both of the gains are the same, and we can conclude:
+        For $A_{vs}$, we may write:
 
-        $$\boxed{A_{vs}=-8.2192}$$
+        $$A_{vs}=-g_mR_L'\left( \frac{R_G}{R_G+R_{sig}} \right)$$
+        $$A_{vs}=-g_mR_L'\left( .9709\right)$$
+        $$\boxed{A_{vs}=-7.9796}$$
 
-      \item For the common source state, we know that $\boxed{Z_{in}\to\infty}$
+      \item We may write:
+
+        $$Z_i=\frac{V_i}{I_i}$$
+        $$Z_i=\frac{V_i}{(V_i/R_G)}$$
+        $$\boxed{Z_i=3.33[\si{\mega\ohm}]}$$
 
       \item We short circuit the independent source and find the Th\'evenin equivalent to get:
 
         $$Z_o=\frac{V_x}{I_x}$$
         $$Z_o=R_{out}$$
-        $$\boxed{Z_o=(r_{ds}||R_D||R_L)}$$
+        $$\boxed{Z_o=(r_{ds}||R_D)}$$
 
         Calculating from our known values, we get:
 
-        $$\boxed{Z_o=4.1096[\si{\kilo\ohm}]}$$
+        $$\boxed{Z_o=6.976[\si{\kilo\ohm}]}$$
 
     \end{enumerate}
 

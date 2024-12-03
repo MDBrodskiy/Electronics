@@ -1,0 +1,329 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Written By Michael Brodskiy
+% Class: Fundamentals of Electronics
+% Professor: M. Onabajo
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\include{Includes.tex}
+
+\title{Homework 12}
+\date{\today}
+\author{Michael Brodskiy\\ \small Professor: M. Onabajo}
+
+\begin{document}
+
+\maketitle
+
+\begin{enumerate}
+
+  \item
+
+    \begin{enumerate}
+
+      \item $D=ABC+\overline{AB}$
+
+        We begin by constructing the table. First, we put in each combination of inputs. Given that there are 3 inputs, there should be $2^3=8$ combinations:
+
+        \begin{center}
+          \begin{tabular}[H]{|c|c|c|c|}
+            \hline
+            A & B & C & D\\
+            \hline
+            0 & 0 & 0 & 0\\
+            \hline
+            0 & 0 & 1 & 0\\
+            \hline
+            0 & 1 & 0 & 0\\
+            \hline
+            1 & 0 & 0 & 1\\
+            \hline
+            0 & 1 & 1 & 0\\
+            \hline
+            1 & 0 & 1 & 1\\
+            \hline
+            1 & 1 & 0 & 0\\
+            \hline
+            1 & 1 & 1 & 1\\
+            \hline
+          \end{tabular}
+        \end{center}
+
+        From here, we can draw the circuit as:
+
+        \begin{figure}[H]
+          \centering
+          \include{Figures/HW12-1a}
+          \caption{Logic Circuit for 1a}
+          \label{fig:1}
+        \end{figure}
+
+      \item $E=AB+A\overline{B}C+\overline{C}D$
+
+        Once again, we begin by analyzing each combination. Since there are 4 inputs, there are $2^4=16$ possible inputs. This gives us:
+
+        \begin{center}
+          \begin{tabular}[H]{|c|c|c|c|c|}
+            \hline
+            A & B & C & D & E\\
+            \hline
+            0 & 0 & 0 & 0 & 0\\
+            \hline
+            0 & 0 & 0 & 1 & 1\\
+            \hline
+            0 & 0 & 1 & 0 & 0\\
+            \hline
+            0 & 1 & 0 & 0 & 0\\
+            \hline
+            1 & 0 & 0 & 0 & 0\\
+            \hline
+            0 & 0 & 1 & 1 & 0\\
+            \hline
+            0 & 1 & 0 & 1 & 1\\
+            \hline
+            1 & 0 & 0 & 1 & 1\\
+            \hline
+            0 & 1 & 1 & 0 & 0\\
+            \hline
+            1 & 0 & 1 & 0 & 1\\
+            \hline
+            1 & 1 & 0 & 0 & 1\\
+            \hline
+            0 & 1 & 1 & 1 & 0\\
+            \hline
+            1 & 0 & 1 & 1 & 1\\
+            \hline
+            1 & 1 & 1 & 0 & 1\\
+            \hline
+            1 & 1 & 0 & 1 & 1\\
+            \hline
+            1 & 1 & 1 & 1 & 1\\
+            \hline
+          \end{tabular}
+        \end{center}
+
+        This gives us the following circuit:
+
+        \begin{figure}[H]
+          \centering
+          \include{Figures/HW12-1b}
+          \caption{Logic Circuit for 1b}
+          \label{fig:2}
+        \end{figure}
+
+
+      \item $Z=WX+\overline{(W+Y)}$
+
+        With three inputs, our table becomes:
+
+        \begin{center}
+          \begin{tabular}[H]{|c|c|c|c|}
+            \hline
+            W & X & Y & Z\\
+            \hline
+            0 & 0 & 0 & 1\\
+            \hline
+            0 & 0 & 1 & 0\\
+            \hline
+            0 & 1 & 0 & 1\\
+            \hline
+            1 & 0 & 0 & 0\\
+            \hline
+            0 & 1 & 1 & 0\\
+            \hline
+            1 & 0 & 1 & 0\\
+            \hline
+            1 & 1 & 0 & 1\\
+            \hline
+            1 & 1 & 1 & 1\\
+            \hline
+          \end{tabular}
+        \end{center}
+
+        This gives the following circuit:
+
+        \begin{figure}[H]
+          \centering
+          \include{Figures/HW12-1c}
+          \caption{Logic Circuit for 1c}
+          \label{fig:3}
+        \end{figure}
+
+    \end{enumerate}
+
+  \item We can calculate the noise margins as:
+
+    $$NM_H=V_{OH}-V_{IH}$$
+    $$NM_L=V_{IL}-V_{OL}$$
+
+    This gives us:
+
+    $$NM_H=4.5-3$$
+    $$NM_L=1.5-1$$
+
+    And finally:
+
+    $$\boxed{NM_L=.5[\si{\volt}]\quad\text{ and }\quad NM_H=1.5[\si{\volt}]}$$
+
+  \item The switching times may be calculated using:
+
+    $$t_{PHL}=\frac{C_LV_{DD}}{\left( \frac{W}{L} \right)_nKP_n(V_{DD}-V_{ton})^2}$$
+
+    \begin{center}
+      and
+    \end{center}
+
+    $$t_{PLH}=\frac{C_LV_{DD}}{\left( \frac{W}{L} \right)_pKP_p(V_{DD}-|V_{top}|)^2}$$
+
+    \begin{enumerate}
+
+      \item For $(W/L)_n=3$ and $(W/L)_p=6$, we get:
+
+        $$t_{PHL}=\frac{(2\cdot10^{-12})(5)}{(3)(50\cdot10^{-6})(5-1)^2}$$
+        $$t_{PLH}=\frac{(2\cdot10^{-12})(5)}{(6)(25\cdot10^{-6})(5-|-1|)^2}$$
+
+        This results in:
+
+        $$\boxed{t_{PHL}=t_{PLH}=4.166\bar{6}[\si{\nano\second}]}$$
+
+      \item For $(W/L)_n=3$ and $(W/L)_p=60$, we get:
+
+        $$t_{PHL}=\frac{(2\cdot10^{-12})(5)}{(3)(50\cdot10^{-6})(5-1)^2}$$
+        $$t_{PLH}=\frac{(2\cdot10^{-12})(5)}{(60)(25\cdot10^{-6})(5-|-1|)^2}$$
+
+        This results in:
+
+        $$\boxed{t_{PHL}=4.166\bar{6}[\si{\nano\second}]\quad\text{ and }\quad t_{PLH}=.416\bar{6}[\si{\nano\second}]}$$
+
+      \item For $(W/L)_n=30$ and $(W/L)_p=6$, we get:
+
+        $$t_{PHL}=\frac{(2\cdot10^{-12})(5)}{(30)(50\cdot10^{-6})(5-1)^2}$$
+        $$t_{PLH}=\frac{(2\cdot10^{-12})(5)}{(6)(25\cdot10^{-6})(5-|-1|)^2}$$
+
+        This results in:
+
+        $$\boxed{t_{PHL}=.416\bar{6}[\si{\nano\second}]\quad\text{ and }\quad t_{PLH}=4.166\bar{6}[\si{\nano\second}]}$$
+
+    \end{enumerate}
+
+  \item
+
+    \begin{enumerate}
+
+      \item Given that both transistors are expected to be in saturation, we may use our formulas to equate:
+
+        $$I_n=\left( \frac{W}{L} \right)_n\left(\frac{KP_n}{2}\right)(V_{in}-V_{ton})^2(1+\lambda V_{DD}/2)$$
+        $$I_p=\left( \frac{W}{L} \right)_p\left(\frac{KP_p}{2}\right)(V_{in}-V_{DD}-|V_{top}|)^2(1+\lambda V_{DD}/2)$$
+
+        This allows us to rearrange and get:
+
+        $$\frac{W_p}{W_n}=\left[ \frac{V_{in}-V_{ton}}{V_{in}-V_{DD}-|V_{top}|} \right]^2\left( \frac{KP_n}{KP_p} \right)$$
+
+        We insert known values (and take the input as half the supply voltage) to get:
+
+        $$\frac{W_p}{W_n}=\left[ \frac{.6-.3}{.6-1.2-|-.4|} \right]^2\left( \frac{90}{30} \right)$$
+
+        Evaluation, we find:
+
+        $$\boxed{\frac{W_p}{W_n}=.27}$$
+
+      \item Taking one of our current equations from before, we get:
+
+        $$I_n=\left( \frac{W}{L} \right)_n\left(\frac{KP_n}{2}\right)(V_{in}-V_{ton})^2(1+\lambda V_{DD}/2)$$
+
+        We substitute the given values to get:
+
+        $$.05\cdot10^{-3}=\left( \frac{W_n}{.12\cdot10^{-6}} \right)\left(\frac{90\cdot10^{-6}}{2}\right)(.6-.3)^2(1+.05 (.6))$$
+        
+        Evaluating, we find:
+
+        $$\boxed{W_n=1.4383[\si{\micro\meter}]}$$
+
+        Using our ratio, we obtain:
+
+        $$W_p=.27W_n$$
+        $$W_p=.27(1.4383)$$
+        $$\boxed{W_p=.38835[\si{\micro\meter}]}$$
+
+      \item The above results allow us to obtain the following DC transfer characteristics:
+
+        \begin{figure}[H]
+          \centering
+          \include{Figures/HW12-4c}
+          \caption{DC Transfer Characteristics of CMOS Inverter}
+          \label{fig:4}
+        \end{figure}
+
+    \end{enumerate}
+
+  \item Power dissipation of a CMOS is given by:
+
+    $$P_d=CfV_{DD}^2$$
+
+    Substituting our known values gives us:
+
+    $$P_d=(100\cdot10^{-15})(100\cdot10^6)(3)^2$$
+
+    Thus we get:
+
+    $$\boxed{P_d=9\cdot10^{-5}[\si{\watt}]}$$
+
+    Note that there is no dissipation when $V_{DD}=0[\si{\volt}]$
+
+  \item The pull-up network may be drawn as:
+
+    \begin{figure}[H]
+      \centering
+      \include{Figures/HW12-6a}
+      \caption{Corresponding Pull-Up Network}
+      \label{fig:5}
+    \end{figure}
+
+    The pull-down network then becomes:
+
+    \begin{figure}[H]
+      \centering
+      \include{Figures/HW12-6b}
+      \caption{Corresponding Pull-Down Network}
+      \label{fig:6}
+    \end{figure}
+
+    We combine the two to form the full network:
+
+    \begin{figure}[H]
+      \centering
+      \include{Figures/HW12-6c}
+      \caption{Corresponding Network}
+      \label{fig:7}
+    \end{figure}
+
+    We may observe that 10 transistors are needed, 5 for the pull-up and 5 for the pull-down networks.
+
+  \item From the provided diagram, and a value for PMOS resistance, $R_p$, we may observe:
+
+    $$R_{M1}=R_p\quad\text{ and }R_{M2}+R_{M3}=R_p$$
+
+    Furthermore, since we are using the same PMOS transistors, we may write:
+
+    $$R_{M2}=R_{M3}\Longrightarrow 2R_{M2}=2R_{M3}=R_p$$
+
+    This means that:
+
+    $$\boxed{\left( \frac{W}{L} \right)_{M1}=\left( \frac{W}{L} \right)_{p}}$$
+    $$\boxed{\left( \frac{W}{L} \right)_{M2}=\left( \frac{W}{L} \right)_{M3}=2\left( \frac{W}{L} \right)_{p}}$$
+
+    We can see that, for the pull-down branch, we have:
+
+    $$R_{M4}+R_{M5}=R_n\quad\text{ and }R_{M4}=R_{M5}$$
+
+    This gets us:
+
+    $$\boxed{\left( \frac{W}{L} \right)_{M4}=\left( \frac{W}{L} \right)_{M5}=2\left( \frac{W}{L} \right)_{n}}$$
+
+    We can see that the sixth transistor is equivalent to this, and we get our last value as:
+
+    $$\boxed{\left( \frac{W}{L} \right)_{M6}=2\left( \frac{W}{L} \right)_{n}}$$
+
+\end{enumerate}
+
+\end{document}
+

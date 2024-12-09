@@ -63,6 +63,7 @@
 * [**Exams**](https://github.com/MDBrodskiy/Electronics/tree/master/Exams/)
     * [**Equation Sheet 1**](https://github.com/MDBrodskiy/Electronics/tree/master/Exams/Exam1EquationSheet.pdf)
     * [**Equation Sheet 2**](https://github.com/MDBrodskiy/Electronics/tree/master/Exams/Exam2EquationSheet.pdf)
+    * [**Final Equation Sheet**](https://github.com/MDBrodskiy/Electronics/tree/master/Exams/FinalEquationSheet.pdf)
 
 <!--
   * [**Chapter 1**](#Notes/Chapter\ 1)
